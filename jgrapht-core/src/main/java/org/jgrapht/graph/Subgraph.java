@@ -98,12 +98,12 @@ import org.jgrapht.util.*;
  * ordering (via {@link LinkedHashSet}).</p>
  *
  * @author Barak Naveh
- * @see Graph
+ * @see MutableGraph
  * @see Set
  * @since Jul 18, 2003
  */
-public class Subgraph<V, E, G extends Graph<V, E>>
-    extends AbstractGraph<V, E>
+public class Subgraph<V, E, G extends MutableGraph<V, E>>
+    extends AbstractMutableGraph<V, E>
     implements Serializable
 {
     
@@ -177,7 +177,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     
 
     /**
-     * @see Graph#getAllEdges(Object, Object)
+     * @see MutableGraph#getAllEdges(Object, Object)
      */
     public Set<E> getAllEdges(V sourceVertex, V targetVertex)
     {
@@ -202,7 +202,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#getEdge(Object, Object)
+     * @see MutableGraph#getEdge(Object, Object)
      */
     public E getEdge(V sourceVertex, V targetVertex)
     {
@@ -216,7 +216,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#getEdgeFactory()
+     * @see MutableGraph#getEdgeFactory()
      */
     public EdgeFactory<V, E> getEdgeFactory()
     {
@@ -224,7 +224,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object)
+     * @see MutableGraph#addEdge(Object, Object)
      */
     public E addEdge(V sourceVertex, V targetVertex)
     {
@@ -251,7 +251,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object, Object)
+     * @see MutableGraph#addEdge(Object, Object, Object)
      */
     public boolean addEdge(V sourceVertex, V targetVertex, E e)
     {
@@ -290,7 +290,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
      * @throws IllegalArgumentException
      *
      * @see Subgraph
-     * @see Graph#addVertex(Object)
+     * @see MutableGraph#addVertex(Object)
      */
     public boolean addVertex(V v)
     {
@@ -312,7 +312,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#containsEdge(Object)
+     * @see MutableGraph#containsEdge(Object)
      */
     public boolean containsEdge(E e)
     {
@@ -320,7 +320,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#containsVertex(Object)
+     * @see MutableGraph#containsVertex(Object)
      */
     public boolean containsVertex(V v)
     {
@@ -328,7 +328,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#edgeSet()
+     * @see MutableGraph#edgeSet()
      */
     public Set<E> edgeSet()
     {
@@ -340,7 +340,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#edgesOf(Object)
+     * @see MutableGraph#edgesOf(Object)
      */
     public Set<E> edgesOf(V vertex)
     {
@@ -359,7 +359,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#removeEdge(Object)
+     * @see MutableGraph#removeEdge(Object)
      */
     public boolean removeEdge(E e)
     {
@@ -367,7 +367,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#removeEdge(Object, Object)
+     * @see MutableGraph#removeEdge(Object, Object)
      */
     public E removeEdge(V sourceVertex, V targetVertex)
     {
@@ -377,7 +377,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#removeVertex(Object)
+     * @see MutableGraph#removeVertex(Object)
      */
     public boolean removeVertex(V v)
     {
@@ -392,7 +392,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#vertexSet()
+     * @see MutableGraph#vertexSet()
      */
     public Set<V> vertexSet()
     {
@@ -404,7 +404,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#getEdgeSource(Object)
+     * @see MutableGraph#getEdgeSource(Object)
      */
     public V getEdgeSource(E e)
     {
@@ -412,7 +412,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#getEdgeTarget(Object)
+     * @see MutableGraph#getEdgeTarget(Object)
      */
     public V getEdgeTarget(E e)
     {
@@ -463,7 +463,7 @@ public class Subgraph<V, E, G extends Graph<V, E>>
     }
 
     /**
-     * @see Graph#getEdgeWeight(Object)
+     * @see MutableGraph#getEdgeWeight(Object)
      */
     public double getEdgeWeight(E e)
     {

@@ -58,7 +58,7 @@ public class TopologicalOrderIteratorTest
      */
     public void testRecipe()
     {
-        DirectedGraph<String, DefaultEdge> graph =
+        DirectedMutableGraph<String, DefaultEdge> graph =
             new DefaultDirectedGraph<String, DefaultEdge>(
                 DefaultEdge.class);
 
@@ -108,7 +108,7 @@ public class TopologicalOrderIteratorTest
         }
 
         // Test with a reversed view
-        DirectedGraph<String, DefaultEdge> reversed =
+        DirectedMutableGraph<String, DefaultEdge> reversed =
             new EdgeReversedGraph<String, DefaultEdge>(graph);
 
         iter = new TopologicalOrderIterator<String, DefaultEdge>(reversed);
@@ -125,7 +125,7 @@ public class TopologicalOrderIteratorTest
      */
     public void testEmptyGraph()
     {
-        DirectedGraph<String, DefaultEdge> graph =
+        DirectedMutableGraph<String, DefaultEdge> graph =
             new DefaultDirectedGraph<String, DefaultEdge>(
                 DefaultEdge.class);
         Iterator<String> iter =

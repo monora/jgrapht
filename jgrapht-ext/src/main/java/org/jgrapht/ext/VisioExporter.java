@@ -94,7 +94,7 @@ public class VisioExporter<V, E>
      * @param output the print stream to which the graph to be exported.
      * @param g the graph to be exported.
      */
-    public void export(OutputStream output, Graph<V, E> g)
+    public void export(OutputStream output, MutableGraph<V, E> g)
     {
         PrintStream out = new PrintStream(output);
 
@@ -109,7 +109,7 @@ public class VisioExporter<V, E>
         out.flush();
     }
 
-    private void exportEdge(PrintStream out, E edge, Graph<V, E> g)
+    private void exportEdge(PrintStream out, E edge, MutableGraph<V, E> g)
     {
         String sourceName =
             vertexNameProvider.getVertexName(g.getEdgeSource(edge));

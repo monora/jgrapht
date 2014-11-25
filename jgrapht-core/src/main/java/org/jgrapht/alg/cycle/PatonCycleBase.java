@@ -57,7 +57,7 @@ public class PatonCycleBase<V, E>
 {
     
 
-    private UndirectedGraph<V, E> graph;
+    private UndirectedMutableGraph<V, E> graph;
 
     
 
@@ -76,7 +76,7 @@ public class PatonCycleBase<V, E>
      * @throws IllegalArgumentException if the graph argument is <code>
      * null</code>.
      */
-    public PatonCycleBase(UndirectedGraph<V, E> graph)
+    public PatonCycleBase(UndirectedMutableGraph<V, E> graph)
     {
         if (graph == null) {
             throw new IllegalArgumentException("Null graph argument.");
@@ -89,7 +89,7 @@ public class PatonCycleBase<V, E>
     /**
      * {@inheritDoc}
      */
-    @Override public UndirectedGraph<V, E> getGraph()
+    @Override public UndirectedMutableGraph<V, E> getGraph()
     {
         return graph;
     }
@@ -97,7 +97,7 @@ public class PatonCycleBase<V, E>
     /**
      * {@inheritDoc}
      */
-    @Override public void setGraph(UndirectedGraph<V, E> graph)
+    @Override public void setGraph(UndirectedMutableGraph<V, E> graph)
     {
         if (graph == null) {
             throw new IllegalArgumentException("Null graph argument.");

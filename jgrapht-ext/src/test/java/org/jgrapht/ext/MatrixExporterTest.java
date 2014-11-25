@@ -97,7 +97,7 @@ public class MatrixExporterTest
 
     public void testLaplacian()
     {
-        UndirectedGraph<String, DefaultEdge> g =
+        UndirectedMutableGraph<String, DefaultEdge> g =
             new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
         g.addVertex(V1);
         g.addVertex(V2);
@@ -116,7 +116,7 @@ public class MatrixExporterTest
 
     public void testAdjacencyUndirected()
     {
-        UndirectedGraph<String, DefaultEdge> g =
+        UndirectedMutableGraph<String, DefaultEdge> g =
             new Pseudograph<String, DefaultEdge>(DefaultEdge.class);
         g.addVertex(V1);
         g.addVertex(V2);
@@ -132,7 +132,7 @@ public class MatrixExporterTest
 
     public void testAdjacencyDirected()
     {
-        DirectedGraph<String, DefaultEdge> g =
+        DirectedMutableGraph<String, DefaultEdge> g =
             new DirectedMultigraph<String, DefaultEdge>(DefaultEdge.class);
         g.addVertex(V1);
         g.addVertex(V2);

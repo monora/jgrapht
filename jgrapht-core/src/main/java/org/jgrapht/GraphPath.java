@@ -41,7 +41,7 @@ import java.util.*;
 
 /**
  * A GraphPath represents a <a href="http://mathworld.wolfram.com/Path.html">
- * path</a> in a {@link Graph}. Note that a path is defined primarily in terms
+ * path</a> in a {@link MutableGraph}. Note that a path is defined primarily in terms
  * of edges (rather than vertices) so that multiple edges between the same pair
  * of vertices can be discriminated.
  *
@@ -58,7 +58,7 @@ public interface GraphPath<V, E>
      *
      * @return the containing graph
      */
-    public Graph<V, E> getGraph();
+    public MutableGraph<V, E> getGraph();
 
     /**
      * Returns the start vertex in the path.

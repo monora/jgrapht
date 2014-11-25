@@ -35,7 +35,7 @@
 package org.jgrapht.alg;
 
 import junit.framework.TestCase;
-import org.jgrapht.UndirectedGraph;
+import org.jgrapht.UndirectedMutableGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
 
@@ -52,7 +52,7 @@ public final class EdmondsBlossomShrinkingTest extends TestCase
     public void testOne()
     {
         // create an undirected graph
-        UndirectedGraph<Integer, DefaultEdge> g =
+        UndirectedMutableGraph<Integer, DefaultEdge> g =
             new SimpleGraph<Integer, DefaultEdge>(DefaultEdge.class);
 
         Integer v1 = 1;

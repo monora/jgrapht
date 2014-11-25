@@ -59,7 +59,7 @@ public class DirectedAcyclicGraphTest
     //~ Instance fields --------------------------------------------------------
 
     private RandomGraphGenerator<Long, DefaultEdge> randomGraphGenerator = null;
-    private Graph<Long, DefaultEdge> sourceGraph = null;
+    private MutableGraph<Long, DefaultEdge> sourceGraph = null;
 
     //~ Methods ----------------------------------------------------------------
 
@@ -575,7 +575,7 @@ public class DirectedAcyclicGraphTest
         }
 
         @Override public void generateGraph(
-            Graph<V, E> graph,
+            MutableGraph<V, E> graph,
             VertexFactory<V> vertexFactory,
             Map<String, V> namedVerticesMap)
         {

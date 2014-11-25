@@ -55,7 +55,7 @@ abstract class AbstractPathElementList<V,
 {
     
 
-    protected Graph<V, E> graph;
+    protected MutableGraph<V, E> graph;
 
     /**
      * Max number of stored paths.
@@ -88,7 +88,7 @@ abstract class AbstractPathElementList<V,
      * 0.
      */
     protected AbstractPathElementList(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         int maxSize,
         AbstractPathElementList<V, E, T> elementList,
         E edge)
@@ -122,7 +122,7 @@ abstract class AbstractPathElementList<V,
      * empty.
      */
     protected AbstractPathElementList(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         int maxSize,
         T pathElement)
     {
@@ -151,7 +151,7 @@ abstract class AbstractPathElementList<V,
      * @throws IllegalArgumentException if <code>maxSize</code> is negative or
      * 0.
      */
-    protected AbstractPathElementList(Graph<V, E> graph, int maxSize, V vertex)
+    protected AbstractPathElementList(MutableGraph<V, E> graph, int maxSize, V vertex)
     {
         if (maxSize <= 0) {
             throw new IllegalArgumentException("maxSize is negative or 0");

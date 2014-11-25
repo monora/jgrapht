@@ -48,8 +48,8 @@ import org.jgrapht.*;
  * @see Subgraph
  */
 public class UndirectedSubgraph<V, E>
-    extends Subgraph<V, E, UndirectedGraph<V, E>>
-    implements UndirectedGraph<V, E>
+    extends Subgraph<V, E, UndirectedMutableGraph<V, E>>
+    implements UndirectedMutableGraph<V, E>
 {
     
 
@@ -68,7 +68,7 @@ public class UndirectedSubgraph<V, E>
      * are included.
      */
     public UndirectedSubgraph(
-        UndirectedGraph<V, E> base,
+        UndirectedMutableGraph<V, E> base,
         Set<V> vertexSubset,
         Set<E> edgeSubset)
     {
@@ -78,7 +78,7 @@ public class UndirectedSubgraph<V, E>
     
 
     /**
-     * @see UndirectedGraph#degreeOf(Object)
+     * @see UndirectedMutableGraph#degreeOf(Object)
      */
     public int degreeOf(V vertex)
     {

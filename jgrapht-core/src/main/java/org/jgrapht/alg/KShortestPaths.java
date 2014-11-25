@@ -63,7 +63,7 @@ public class KShortestPaths<V, E>
     /**
      * Graph on which shortest paths are searched.
      */
-    private Graph<V, E> graph;
+    private MutableGraph<V, E> graph;
 
     private int nMaxHops;
 
@@ -81,7 +81,7 @@ public class KShortestPaths<V, E>
      * @param startVertex
      * @param k number of paths to be computed.
      */
-    public KShortestPaths(Graph<V, E> graph, V startVertex, int k)
+    public KShortestPaths(MutableGraph<V, E> graph, V startVertex, int k)
     {
         this(graph, startVertex, k, graph.vertexSet().size() - 1);
     }
@@ -102,7 +102,7 @@ public class KShortestPaths<V, E>
      * @throws IllegalArgumentException if nMaxHops is negative or 0.
      */
     public KShortestPaths(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         V startVertex,
         int nPaths,
         int nMaxHops)
@@ -178,7 +178,7 @@ public class KShortestPaths<V, E>
     }
 
     private void assertKShortestPathsFinder(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         V startVertex,
         int nPaths,
         int nMaxHops)
@@ -212,7 +212,7 @@ public class KShortestPaths<V, E>
         }
 
         // implement GraphPath
-        public Graph<V, E> getGraph()
+        public MutableGraph<V, E> getGraph()
         {
             return graph;
         }

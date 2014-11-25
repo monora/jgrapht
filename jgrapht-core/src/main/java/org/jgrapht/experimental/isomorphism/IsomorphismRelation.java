@@ -69,8 +69,8 @@ public class IsomorphismRelation<V, E>
 
     private GraphMapping<V, E> graphMapping = null;
 
-    private Graph<V, E> graph1;
-    private Graph<V, E> graph2;
+    private MutableGraph<V, E> graph1;
+    private MutableGraph<V, E> graph2;
 
     
 
@@ -79,8 +79,8 @@ public class IsomorphismRelation<V, E>
     public IsomorphismRelation(
         List<V> aGraph1vertexArray,
         List<V> aGraph2vertexArray,
-        Graph<V, E> g1,
-        Graph<V, E> g2)
+        MutableGraph<V, E> g1,
+        MutableGraph<V, E> g2)
     {
         this.vertexList1 = aGraph1vertexArray;
         this.vertexList2 = aGraph2vertexArray;

@@ -80,7 +80,7 @@ public class GraphGeneratorTest
     {
         GraphGenerator<Object, DefaultEdge, Object> gen =
             new EmptyGraphGenerator<Object, DefaultEdge>(SIZE);
-        DirectedGraph<Object, DefaultEdge> g =
+        DirectedMutableGraph<Object, DefaultEdge> g =
             new DefaultDirectedGraph<Object, DefaultEdge>(DefaultEdge.class);
         Map<String, Object> resultMap = new HashMap<String, Object>();
         gen.generateGraph(g, vertexFactory, resultMap);
@@ -96,7 +96,7 @@ public class GraphGeneratorTest
     {
         GraphGenerator<Object, DefaultEdge, Object> gen =
             new LinearGraphGenerator<Object, DefaultEdge>(SIZE);
-        DirectedGraph<Object, DefaultEdge> g =
+        DirectedMutableGraph<Object, DefaultEdge> g =
             new DefaultDirectedGraph<Object, DefaultEdge>(DefaultEdge.class);
         Map<String, Object> resultMap = new HashMap<String, Object>();
         gen.generateGraph(g, vertexFactory, resultMap);
@@ -136,7 +136,7 @@ public class GraphGeneratorTest
     {
         GraphGenerator<Object, DefaultEdge, Object> gen =
             new RingGraphGenerator<Object, DefaultEdge>(SIZE);
-        DirectedGraph<Object, DefaultEdge> g =
+        DirectedMutableGraph<Object, DefaultEdge> g =
             new DefaultDirectedGraph<Object, DefaultEdge>(DefaultEdge.class);
         Map<String, Object> resultMap = new HashMap<String, Object>();
         gen.generateGraph(g, vertexFactory, resultMap);
@@ -169,7 +169,7 @@ public class GraphGeneratorTest
      */
     public void testCompleteGraphGenerator()
     {
-        Graph<Object, DefaultEdge> completeGraph =
+        MutableGraph<Object, DefaultEdge> completeGraph =
             new SimpleGraph<Object, DefaultEdge>(DefaultEdge.class);
         CompleteGraphGenerator<Object, DefaultEdge> completeGenerator =
             new CompleteGraphGenerator<Object, DefaultEdge>(10);
@@ -187,7 +187,7 @@ public class GraphGeneratorTest
      */
     public void testScaleFreeGraphGenerator()
     {
-        DirectedGraph<Object, DefaultEdge> graph =
+        DirectedMutableGraph<Object, DefaultEdge> graph =
             new DefaultDirectedGraph<Object, DefaultEdge>(DefaultEdge.class);
         ScaleFreeGraphGenerator<Object, DefaultEdge> generator =
             new ScaleFreeGraphGenerator<Object, DefaultEdge>(500);
@@ -212,7 +212,7 @@ public class GraphGeneratorTest
         }
 
         generator = new ScaleFreeGraphGenerator<Object, DefaultEdge>(0);
-        DirectedGraph<Object, DefaultEdge> empty =
+        DirectedMutableGraph<Object, DefaultEdge> empty =
             new DefaultDirectedGraph<Object, DefaultEdge>(DefaultEdge.class);
         generator.generateGraph(empty, vertexFactory, null);
         assertTrue("non-empty graph generated", empty.vertexSet().size() == 0);
@@ -223,7 +223,7 @@ public class GraphGeneratorTest
      */
     public void testCompleteBipartiteGraphGenerator()
     {
-        Graph<Object, DefaultEdge> completeBipartiteGraph =
+        MutableGraph<Object, DefaultEdge> completeBipartiteGraph =
             new SimpleGraph<Object, DefaultEdge>(
                 DefaultEdge.class);
         CompleteBipartiteGraphGenerator<Object, DefaultEdge> completeBipartiteGenerator =
@@ -246,7 +246,7 @@ public class GraphGeneratorTest
      */
     public void testHyperCubeGraphGenerator()
     {
-        Graph<Object, DefaultEdge> hyperCubeGraph =
+        MutableGraph<Object, DefaultEdge> hyperCubeGraph =
             new SimpleGraph<Object, DefaultEdge>(
                 DefaultEdge.class);
         HyperCubeGraphGenerator<Object, DefaultEdge> hyperCubeGenerator =
@@ -269,7 +269,7 @@ public class GraphGeneratorTest
     public void testStarGraphGenerator()
     {
         Map<String, Object> map = new HashMap<String, Object>();
-        Graph<Object, DefaultEdge> starGraph =
+        MutableGraph<Object, DefaultEdge> starGraph =
             new SimpleGraph<Object, DefaultEdge>(
                 DefaultEdge.class);
         StarGraphGenerator<Object, DefaultEdge> starGenerator =
@@ -322,7 +322,7 @@ public class GraphGeneratorTest
         Map<String, String> resultMap = new HashMap<String, String>();
 
         //validating a directed and undirected graph
-        Graph<String, String> directedGridGraph =
+        MutableGraph<String, String> directedGridGraph =
             new DefaultDirectedGraph<String, String>(new StringEdgeFactory());
         generator.generateGraph(
             directedGridGraph,
@@ -331,7 +331,7 @@ public class GraphGeneratorTest
         validateGridGraphGenerator(rows, cols, directedGridGraph, resultMap);
 
         resultMap.clear();
-        Graph<String, String> undirectedGridGraph =
+        MutableGraph<String, String> undirectedGridGraph =
             new SimpleGraph<String, String>(new StringEdgeFactory());
         generator.generateGraph(
             undirectedGridGraph,
@@ -343,7 +343,7 @@ public class GraphGeneratorTest
     public void validateGridGraphGenerator(
         int rows,
         int cols,
-        Graph<String, String> gridGraph,
+        MutableGraph<String, String> gridGraph,
         Map<String, String> resultMap)
     {
         // graph structure validations
@@ -356,7 +356,7 @@ public class GraphGeneratorTest
             gridGraph.vertexSet().size());
         int expectedEdgesNum =
             (((rows - 1) * cols) + ((cols - 1) * rows))
-            * ((gridGraph instanceof UndirectedGraph) ? 1 : 2);
+            * ((gridGraph instanceof UndirectedMutableGraph) ? 1 : 2);
         assertEquals(
             "number of edges is wrong (" + gridGraph
             .edgeSet().size()

@@ -75,7 +75,7 @@ public class ListenableUndirectedWeightedGraph<V, E>
      */
     public ListenableUndirectedWeightedGraph(WeightedGraph<V, E> base)
     {
-        super((UndirectedGraph<V, E>) base);
+        super((UndirectedMutableGraph<V, E>) base);
     }
 }
 

@@ -63,7 +63,7 @@ public class DirectedNeighborIndex<V, E>
 
     Map<V, Neighbors<V, E>> predecessorMap = new HashMap<V, Neighbors<V, E>>();
     Map<V, Neighbors<V, E>> successorMap = new HashMap<V, Neighbors<V, E>>();
-    private DirectedGraph<V, E> graph;
+    private DirectedMutableGraph<V, E> graph;
 
     
 
@@ -72,7 +72,7 @@ public class DirectedNeighborIndex<V, E>
      *
      * @param g the graph for which a neighbor index is to be created.
      */
-    public DirectedNeighborIndex(DirectedGraph<V, E> g)
+    public DirectedNeighborIndex(DirectedMutableGraph<V, E> g)
     {
         graph = g;
     }

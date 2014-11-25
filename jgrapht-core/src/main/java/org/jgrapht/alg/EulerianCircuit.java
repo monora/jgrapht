@@ -63,7 +63,7 @@ public abstract class EulerianCircuit
      *
      * @return true for Eulerian and false for non-Eulerian
      */
-    public static <V, E> boolean isEulerian(UndirectedGraph<V, E> g)
+    public static <V, E> boolean isEulerian(UndirectedMutableGraph<V, E> g)
     {
         // If the graph is not connected, then no Eulerian circuit exists
         if (!(new ConnectivityInspector<V, E>(g)).isGraphConnected()) {
@@ -92,7 +92,7 @@ public abstract class EulerianCircuit
      * representing the Eulerian circuit if one does exist
      */
     public static <V, E> List<V> getEulerianCircuitVertices(
-        UndirectedGraph<V, E> g)
+        UndirectedMutableGraph<V, E> g)
     {
         // If the graph is not Eulerian then just return a null since no
         // Eulerian circuit exists
@@ -102,7 +102,7 @@ public abstract class EulerianCircuit
 
         // The circuit will be represented by a linked list
         List<V> path = new LinkedList<V>();
-        UndirectedGraph<V, E> sg = new UndirectedSubgraph<V, E>(g, null, null);
+        UndirectedMutableGraph<V, E> sg = new UndirectedSubgraph<V, E>(g, null, null);
         path.add(sg.vertexSet().iterator().next());
 
         // Algorithm for finding an Eulerian circuit Basically this will find an

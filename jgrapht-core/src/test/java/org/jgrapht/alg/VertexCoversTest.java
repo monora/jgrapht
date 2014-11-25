@@ -68,7 +68,7 @@ public class VertexCoversTest
     public void testFind2ApproximationCover()
     {
         for (int i = 0; i < TEST_REPEATS; i++) {
-            Graph<Integer, DefaultEdge> g = createRandomGraph();
+            MutableGraph<Integer, DefaultEdge> g = createRandomGraph();
             assertTrue(
                 isCover(VertexCovers.find2ApproximationCover(g), g));
         }
@@ -80,7 +80,7 @@ public class VertexCoversTest
     public void testFindGreedyCover()
     {
         for (int i = 0; i < TEST_REPEATS; i++) {
-            Graph<Integer, DefaultEdge> g = createRandomGraph();
+            MutableGraph<Integer, DefaultEdge> g = createRandomGraph();
             Set<Integer> c =
                 VertexCovers.findGreedyCover(
                     Graphs.undirectedGraph(g));
@@ -101,7 +101,7 @@ public class VertexCoversTest
      */
     private boolean isCover(
         Set<Integer> vertexSet,
-        Graph<Integer, DefaultEdge> g)
+        MutableGraph<Integer, DefaultEdge> g)
     {
         Set<DefaultEdge> uncoveredEdges = new HashSet<DefaultEdge>(g.edgeSet());
 
@@ -117,7 +117,7 @@ public class VertexCoversTest
      *
      * @return
      */
-    private Graph<Integer, DefaultEdge> createRandomGraph()
+    private MutableGraph<Integer, DefaultEdge> createRandomGraph()
     {
         // TODO: move random graph generator to be under GraphGenerator
         // framework.

@@ -67,7 +67,7 @@ import org.jgrapht.graph.*;
  * @since July 5, 2007
  */
 public class BlockCutpointGraph<V, E>
-    extends SimpleGraph<UndirectedGraph<V, E>, DefaultEdge>
+    extends SimpleGraph<UndirectedMutableGraph<V, E>, DefaultEdge>
 {
     
 
@@ -82,19 +82,19 @@ public class BlockCutpointGraph<V, E>
     /**
      * DFS (Depth-First-Search) tree.
      */
-    private DirectedGraph<V, DefaultEdge> dfsTree;
+    private DirectedMutableGraph<V, DefaultEdge> dfsTree;
 
-    private UndirectedGraph<V, E> graph;
+    private UndirectedMutableGraph<V, E> graph;
 
     private int numOrder;
 
     private Deque<BCGEdge> stack = new ArrayDeque<BCGEdge>();
 
-    private Map<V, Set<UndirectedGraph<V, E>>> vertex2biconnectedSubgraphs =
-        new HashMap<V, Set<UndirectedGraph<V, E>>>();
+    private Map<V, Set<UndirectedMutableGraph<V, E>>> vertex2biconnectedSubgraphs =
+        new HashMap<V, Set<UndirectedMutableGraph<V, E>>>();
 
-    private Map<V, UndirectedGraph<V, E>> vertex2block =
-        new HashMap<V, UndirectedGraph<V, E>>();
+    private Map<V, UndirectedMutableGraph<V, E>> vertex2block =
+        new HashMap<V, UndirectedMutableGraph<V, E>>();
 
     private Map<V, Integer> vertex2numOrder = new HashMap<V, Integer>();
 
@@ -103,7 +103,7 @@ public class BlockCutpointGraph<V, E>
     /**
      * Running time = O(m) where m is the number of edges.
      */
-    public BlockCutpointGraph(UndirectedGraph<V, E> graph)
+    public BlockCutpointGraph(UndirectedMutableGraph<V, E> graph)
     {
         super(DefaultEdge.class);
         this.graph = graph;
@@ -123,19 +123,19 @@ public class BlockCutpointGraph<V, E>
 
         for (Iterator<V> iter = this.cutpoints.iterator(); iter.hasNext();) {
             V cutpoint = iter.next();
-            UndirectedGraph<V, E> subgraph =
+            UndirectedMutableGraph<V, E> subgraph =
                 new SimpleGraph<V, E>(this.graph.getEdgeFactory());
             subgraph.addVertex(cutpoint);
             this.vertex2block.put(cutpoint, subgraph);
             addVertex(subgraph);
-            Set<UndirectedGraph<V, E>> biconnectedSubgraphs =
+            Set<UndirectedMutableGraph<V, E>> biconnectedSubgraphs =
                 getBiconnectedSubgraphs(cutpoint);
             for (
-                Iterator<UndirectedGraph<V, E>> iterator =
+                Iterator<UndirectedMutableGraph<V, E>> iterator =
                     biconnectedSubgraphs.iterator();
                 iterator.hasNext();)
             {
-                UndirectedGraph<V, E> biconnectedSubgraph = iterator.next();
+                UndirectedMutableGraph<V, E> biconnectedSubgraph = iterator.next();
                 assert (vertexSet().contains(biconnectedSubgraph));
                 addEdge(subgraph, biconnectedSubgraph);
             }
@@ -150,7 +150,7 @@ public class BlockCutpointGraph<V, E>
      *
      * @param vertex vertex in the initial graph.
      */
-    public UndirectedGraph<V, E> getBlock(V vertex)
+    public UndirectedMutableGraph<V, E> getBlock(V vertex)
     {
         if (!this.graph.vertexSet().contains(vertex)) {
             throw new IllegalArgumentException("No such vertex in the graph!");
@@ -209,7 +209,7 @@ public class BlockCutpointGraph<V, E>
         VertexComponentForbiddenFunction mask =
             new VertexComponentForbiddenFunction(
                 vertexComponent);
-        UndirectedGraph<V, E> biconnectedSubgraph =
+        UndirectedMutableGraph<V, E> biconnectedSubgraph =
             new UndirectedMaskSubgraph<V, E>(
                 this.graph,
                 mask);
@@ -270,12 +270,12 @@ public class BlockCutpointGraph<V, E>
      *
      * @param vertex vertex in the initial graph.
      */
-    private Set<UndirectedGraph<V, E>> getBiconnectedSubgraphs(V vertex)
+    private Set<UndirectedMutableGraph<V, E>> getBiconnectedSubgraphs(V vertex)
     {
-        Set<UndirectedGraph<V, E>> biconnectedSubgraphs =
+        Set<UndirectedMutableGraph<V, E>> biconnectedSubgraphs =
             this.vertex2biconnectedSubgraphs.get(vertex);
         if (biconnectedSubgraphs == null) {
-            biconnectedSubgraphs = new HashSet<UndirectedGraph<V, E>>();
+            biconnectedSubgraphs = new HashSet<UndirectedMutableGraph<V, E>>();
             this.vertex2biconnectedSubgraphs.put(vertex, biconnectedSubgraphs);
         }
         return biconnectedSubgraphs;

@@ -68,7 +68,7 @@ public final class EdmondsKarpMaximumFlow<V, E>
 
     
 
-    private DirectedGraph<V, E> network; // our network
+    private DirectedMutableGraph<V, E> network; // our network
     private double epsilon; // tolerance (DEFAULT_EPSILON or user-defined)
     private int currentSource; // current source vertex
     private int currentSink; // current sink vertex
@@ -90,7 +90,7 @@ public final class EdmondsKarpMaximumFlow<V, E>
      *
      * @param network network, where maximum flow will be calculated
      */
-    public EdmondsKarpMaximumFlow(DirectedGraph<V, E> network)
+    public EdmondsKarpMaximumFlow(DirectedMutableGraph<V, E> network)
     {
         this(network, DEFAULT_EPSILON);
     }
@@ -104,7 +104,7 @@ public final class EdmondsKarpMaximumFlow<V, E>
      * @param network network, where maximum flow will be calculated
      * @param epsilon tolerance for comparing doubles
      */
-    public EdmondsKarpMaximumFlow(DirectedGraph<V, E> network,
+    public EdmondsKarpMaximumFlow(DirectedMutableGraph<V, E> network,
         double epsilon)
     {
         if (network == null) {

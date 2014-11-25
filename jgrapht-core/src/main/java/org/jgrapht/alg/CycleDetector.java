@@ -58,7 +58,7 @@ public class CycleDetector<V, E>
     /**
      * Graph on which cycle detection is being performed.
      */
-    DirectedGraph<V, E> graph;
+    DirectedMutableGraph<V, E> graph;
 
     
 
@@ -68,7 +68,7 @@ public class CycleDetector<V, E>
      *
      * @param graph the DirectedGraph in which to detect cycles
      */
-    public CycleDetector(DirectedGraph<V, E> graph)
+    public CycleDetector(DirectedMutableGraph<V, E> graph)
     {
         this.graph = graph;
     }

@@ -65,7 +65,7 @@ public abstract class AbstractGraphIteratorTest
     {
         result = new StringBuffer();
 
-        DirectedGraph<String, DefaultEdge> graph = createDirectedGraph();
+        DirectedMutableGraph<String, DefaultEdge> graph = createDirectedGraph();
 
         AbstractGraphIterator<String, DefaultEdge> iterator =
             createIterator(graph, "1");
@@ -94,9 +94,9 @@ public abstract class AbstractGraphIteratorTest
         return "";
     }
 
-    DirectedGraph<String, DefaultEdge> createDirectedGraph()
+    DirectedMutableGraph<String, DefaultEdge> createDirectedGraph()
     {
-        DirectedGraph<String, DefaultEdge> graph =
+        DirectedMutableGraph<String, DefaultEdge> graph =
             new DefaultDirectedWeightedGraph<String, DefaultEdge>(
                 DefaultWeightedEdge.class);
 
@@ -143,7 +143,7 @@ public abstract class AbstractGraphIteratorTest
     }
 
     abstract AbstractGraphIterator<String, DefaultEdge> createIterator(
-        DirectedGraph<String, DefaultEdge> g,
+        DirectedMutableGraph<String, DefaultEdge> g,
         String startVertex);
 
     //~ Inner Classes ----------------------------------------------------------

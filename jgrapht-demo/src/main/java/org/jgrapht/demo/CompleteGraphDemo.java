@@ -47,7 +47,7 @@ public final class CompleteGraphDemo
 {
     
 
-    static Graph<Object, DefaultEdge> completeGraph;
+    static MutableGraph<Object, DefaultEdge> completeGraph;
 
     //Number of vertices
     static int size = 10;

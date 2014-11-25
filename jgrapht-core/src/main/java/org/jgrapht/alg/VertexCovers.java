@@ -77,14 +77,14 @@ public abstract class VertexCovers
      * @return a set of vertices which is a vertex cover for the specified
      * graph.
      */
-    public static <V, E> Set<V> find2ApproximationCover(Graph<V, E> g)
+    public static <V, E> Set<V> find2ApproximationCover(MutableGraph<V, E> g)
     {
         // C <-- {}
         Set<V> cover = new HashSet<V>();
 
         // G'=(V',E') <-- G(V,E)
-        Subgraph<V, E, Graph<V, E>> sg =
-            new Subgraph<V, E, Graph<V, E>>(
+        Subgraph<V, E, MutableGraph<V, E>> sg =
+            new Subgraph<V, E, MutableGraph<V, E>>(
                 g,
                 null,
                 null);
@@ -115,7 +115,7 @@ public abstract class VertexCovers
      *
      * <p>The algorithm works on undirected graphs, but can also work on
      * directed graphs when their edge-directions are ignored. To ignore edge
-     * directions you can use {@link org.jgrapht.Graphs#undirectedGraph(Graph)}
+     * directions you can use {@link org.jgrapht.Graphs#undirectedGraph(MutableGraph)}
      * or {@link org.jgrapht.graph.AsUndirectedGraph}.</p>
      *
      * @param g the graph for which vertex cover approximation is to be found.
@@ -123,13 +123,13 @@ public abstract class VertexCovers
      * @return a set of vertices which is a vertex cover for the specified
      * graph.
      */
-    public static <V, E> Set<V> findGreedyCover(UndirectedGraph<V, E> g)
+    public static <V, E> Set<V> findGreedyCover(UndirectedMutableGraph<V, E> g)
     {
         // C <-- {}
         Set<V> cover = new HashSet<V>();
 
         // G' <-- G
-        UndirectedGraph<V, E> sg = new UndirectedSubgraph<V, E>(g, null, null);
+        UndirectedMutableGraph<V, E> sg = new UndirectedSubgraph<V, E>(g, null, null);
 
         // compare vertices in descending order of degree
         VertexDegreeComparator<V, E> comp =

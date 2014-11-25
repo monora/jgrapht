@@ -59,7 +59,7 @@ public interface UndirectedCycleBase<V, E>
      *
      * @return The graph.
      */
-    UndirectedGraph<V, E> getGraph();
+    UndirectedMutableGraph<V, E> getGraph();
 
     /**
      * Sets the graph on which the cycle base search algorithm is executed by
@@ -69,7 +69,7 @@ public interface UndirectedCycleBase<V, E>
      *
      * @throws IllegalArgumentException if the argument is <code>null</code>.
      */
-    void setGraph(UndirectedGraph<V, E> graph);
+    void setGraph(UndirectedMutableGraph<V, E> graph);
 
     /**
      * Finds a cycle base of the graph.<br/>

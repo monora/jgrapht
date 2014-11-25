@@ -69,7 +69,7 @@ public class KruskalMinimumSpanningTree<V, E>
      *
      * @param graph the graph to be searched
      */
-    public KruskalMinimumSpanningTree(final Graph<V, E> graph)
+    public KruskalMinimumSpanningTree(final MutableGraph<V, E> graph)
     {
         UnionFind<V> forest = new UnionFind<V>(graph.vertexSet());
         ArrayList<E> allEdges = new ArrayList<E>(graph.edgeSet());

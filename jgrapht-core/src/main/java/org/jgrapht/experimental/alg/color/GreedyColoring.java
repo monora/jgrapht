@@ -38,7 +38,7 @@ public class GreedyColoring<V, E>
     /**
      * @param g
      */
-    public GreedyColoring(final Graph<V, E> g)
+    public GreedyColoring(final MutableGraph<V, E> g)
     {
         this(g, BEST_ORDER);
     }
@@ -46,7 +46,7 @@ public class GreedyColoring<V, E>
     /**
      * @param g
      */
-    public GreedyColoring(final Graph<V, E> g, final int method)
+    public GreedyColoring(final MutableGraph<V, E> g, final int method)
     {
         super(g);
         _order = method;

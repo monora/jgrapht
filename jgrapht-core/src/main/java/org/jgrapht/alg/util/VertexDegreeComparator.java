@@ -57,7 +57,7 @@ public class VertexDegreeComparator<V, E>
     /**
      * The graph that contains the vertices to be compared.
      */
-    private UndirectedGraph<V, E> graph;
+    private UndirectedMutableGraph<V, E> graph;
 
     /**
      * The sort order for vertex degree. <code>true</code> for ascending degree
@@ -74,7 +74,7 @@ public class VertexDegreeComparator<V, E>
      *
      * @param g graph with respect to which the degree is calculated.
      */
-    public VertexDegreeComparator(UndirectedGraph<V, E> g)
+    public VertexDegreeComparator(UndirectedMutableGraph<V, E> g)
     {
         this(g, true);
     }
@@ -89,7 +89,7 @@ public class VertexDegreeComparator<V, E>
      * first).
      */
     public VertexDegreeComparator(
-        UndirectedGraph<V, E> g,
+        UndirectedMutableGraph<V, E> g,
         boolean ascendingOrder)
     {
         graph = g;

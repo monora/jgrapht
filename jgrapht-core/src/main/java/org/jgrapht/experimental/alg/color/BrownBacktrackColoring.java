@@ -40,7 +40,7 @@ public class BrownBacktrackColoring<V, E>
     /**
      * @param g
      */
-    public BrownBacktrackColoring(final Graph<V, E> g)
+    public BrownBacktrackColoring(final MutableGraph<V, E> g)
     {
         super(g);
     }

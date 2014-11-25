@@ -63,7 +63,7 @@ class BellmanFordIterator<V, E>
     /**
      * Graph on which shortest paths are searched.
      */
-    protected Graph<V, E> graph;
+    protected MutableGraph<V, E> graph;
 
     /**
      * Start vertex.
@@ -96,7 +96,7 @@ class BellmanFordIterator<V, E>
      * @param epsilon tolerance factor.
      */
     protected BellmanFordIterator(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         V startVertex,
         double epsilon)
     {
@@ -200,7 +200,7 @@ class BellmanFordIterator<V, E>
      */
     protected void assertValidEdge(E edge)
     {
-        if (this.graph instanceof UndirectedGraph<?, ?>) {
+        if (this.graph instanceof UndirectedMutableGraph<?, ?>) {
             if (graph.getEdgeWeight(edge) < 0) {
                 throw new IllegalArgumentException(NEGATIVE_UNDIRECTED_EDGE);
             }
@@ -216,7 +216,7 @@ class BellmanFordIterator<V, E>
      *
      * @return the cost obtained by concatenation.
      *
-     * @see Graph#getEdgeWeight(E)
+     * @see MutableGraph#getEdgeWeight(E)
      */
     protected double calculatePathCost(V vertex, E edge)
     {
@@ -247,8 +247,8 @@ class BellmanFordIterator<V, E>
      */
     protected Iterator<E> edgesOfIterator(V vertex)
     {
-        if (this.graph instanceof DirectedGraph<?, ?>) {
-            return ((DirectedGraph<V, E>) this.graph).outgoingEdgesOf(vertex)
+        if (this.graph instanceof DirectedMutableGraph<?, ?>) {
+            return ((DirectedMutableGraph<V, E>) this.graph).outgoingEdgesOf(vertex)
                 .iterator();
         } else {
             return this.graph.edgesOf(vertex).iterator();
@@ -332,7 +332,7 @@ class BellmanFordIterator<V, E>
         return this.vertexData.put(vertex, data);
     }
 
-    private void assertBellmanFordIterator(Graph<V, E> graph, V startVertex)
+    private void assertBellmanFordIterator(MutableGraph<V, E> graph, V startVertex)
     {
         if (!(graph.containsVertex(startVertex))) {
             throw new IllegalArgumentException(

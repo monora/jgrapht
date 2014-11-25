@@ -59,7 +59,7 @@ public interface DirectedSimpleCycles<V, E>
      *
      * @return The graph.
      */
-    DirectedGraph<V, E> getGraph();
+    DirectedMutableGraph<V, E> getGraph();
 
     /**
      * Sets the graph on which the simple cycle search algorithm is executed by
@@ -69,7 +69,7 @@ public interface DirectedSimpleCycles<V, E>
      *
      * @throws IllegalArgumentException if the argument is <code>null</code>.
      */
-    void setGraph(DirectedGraph<V, E> graph);
+    void setGraph(DirectedMutableGraph<V, E> graph);
 
     /**
      * Finds the simple cycles of the graph.<br/>

@@ -84,7 +84,7 @@ public class ClosestFirstIterator<V, E>
      *
      * @param g the graph to be iterated.
      */
-    public ClosestFirstIterator(Graph<V, E> g)
+    public ClosestFirstIterator(MutableGraph<V, E> g)
     {
         this(g, null);
     }
@@ -99,7 +99,7 @@ public class ClosestFirstIterator<V, E>
      * @param g the graph to be iterated.
      * @param startVertex the vertex iteration to be started.
      */
-    public ClosestFirstIterator(Graph<V, E> g, V startVertex)
+    public ClosestFirstIterator(MutableGraph<V, E> g, V startVertex)
     {
         this(g, startVertex, Double.POSITIVE_INFINITY);
     }
@@ -117,7 +117,7 @@ public class ClosestFirstIterator<V, E>
      * @param radius limit on weighted path length, or
      * Double.POSITIVE_INFINITY for unbounded search.
      */
-    public ClosestFirstIterator(Graph<V, E> g, V startVertex, double radius)
+    public ClosestFirstIterator(MutableGraph<V, E> g, V startVertex, double radius)
     {
         super(g, startVertex);
         this.radius = radius;

@@ -35,12 +35,12 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.jgrapht.DirectedGraph;
-import org.jgrapht.Graph;
+import org.jgrapht.DirectedMutableGraph;
+import org.jgrapht.MutableGraph;
 
 public class NaiveLcaFinder<V, E> {
 
-    private DirectedGraph<V, E> graph;
+    private DirectedMutableGraph<V, E> graph;
 
     /**
      * Find the Lowest Common Ancestor of a directed graph.
@@ -74,7 +74,7 @@ public class NaiveLcaFinder<V, E> {
      * may have to wait longer if the path to a is of length n, but the path to b>n. at the first loop we have a path of
      * 0 length from the nodes we are considering as LCA to their respective children which we wish to find the LCA for.
      */
-    public NaiveLcaFinder(DirectedGraph<V, E> graph) {
+    public NaiveLcaFinder(DirectedMutableGraph<V, E> graph) {
 	this.graph = graph;
     }
 

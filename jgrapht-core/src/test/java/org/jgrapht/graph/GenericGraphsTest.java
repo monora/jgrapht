@@ -49,10 +49,10 @@ public class GenericGraphsTest
 {
     //~ Instance fields --------------------------------------------------------
 
-    Graph<Object, ? extends DefaultEdge> objectGraph;
-    Graph<FooVertex, FooEdge> fooFooGraph;
-    Graph<BarVertex, BarEdge> barBarGraph;
-    Graph<FooVertex, BarEdge> fooBarGraph;
+    MutableGraph<Object, ? extends DefaultEdge> objectGraph;
+    MutableGraph<FooVertex, FooEdge> fooFooGraph;
+    MutableGraph<BarVertex, BarEdge> barBarGraph;
+    MutableGraph<FooVertex, BarEdge> fooBarGraph;
 
     //~ Constructors -----------------------------------------------------------
 
@@ -121,7 +121,7 @@ public class GenericGraphsTest
 
     public void testAlissaHacker()
     {
-        DirectedGraph<String, CustomEdge> g =
+        DirectedMutableGraph<String, CustomEdge> g =
             new DefaultDirectedGraph<String, CustomEdge>(CustomEdge.class);
         g.addVertex("a");
         g.addVertex("b");
@@ -184,7 +184,7 @@ public class GenericGraphsTest
 
     public static class EquivGraph
         extends AbstractBaseGraph<EquivVertex, DefaultEdge>
-        implements UndirectedGraph<EquivVertex, DefaultEdge>
+        implements UndirectedMutableGraph<EquivVertex, DefaultEdge>
     {
         /**
          */

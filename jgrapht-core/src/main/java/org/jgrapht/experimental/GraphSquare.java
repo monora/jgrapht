@@ -65,7 +65,7 @@ public class GraphSquare<V, E>
      * @param g the graph of which a square is to be created.
      * @param createLoops
      */
-    public GraphSquare(final Graph<V, E> g, final boolean createLoops)
+    public GraphSquare(final MutableGraph<V, E> g, final boolean createLoops)
     {
         super(g.getEdgeFactory(), false, createLoops);
         Graphs.addAllVertices(this, g.vertexSet());
@@ -109,7 +109,7 @@ public class GraphSquare<V, E>
     
 
     /**
-     * @see Graph#addEdge(Object, Object)
+     * @see MutableGraph#addEdge(Object, Object)
      */
     public E addEdge(V sourceVertex, V targetVertex)
     {
@@ -117,7 +117,7 @@ public class GraphSquare<V, E>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object, Object)
+     * @see MutableGraph#addEdge(Object, Object, Object)
      */
     public boolean addEdge(V sourceVertex, V targetVertex, E e)
     {
@@ -125,7 +125,7 @@ public class GraphSquare<V, E>
     }
 
     /**
-     * @see Graph#addVertex(Object)
+     * @see MutableGraph#addVertex(Object)
      */
     public boolean addVertex(V v)
     {
@@ -133,7 +133,7 @@ public class GraphSquare<V, E>
     }
 
     /**
-     * @see Graph#removeAllEdges(Collection)
+     * @see MutableGraph#removeAllEdges(Collection)
      */
     public boolean removeAllEdges(Collection<? extends E> edges)
     {
@@ -141,7 +141,7 @@ public class GraphSquare<V, E>
     }
 
     /**
-     * @see Graph#removeAllEdges(Object, Object)
+     * @see MutableGraph#removeAllEdges(Object, Object)
      */
     public Set<E> removeAllEdges(V sourceVertex, V targetVertex)
     {
@@ -149,7 +149,7 @@ public class GraphSquare<V, E>
     }
 
     /**
-     * @see Graph#removeAllVertices(Collection)
+     * @see MutableGraph#removeAllVertices(Collection)
      */
     public boolean removeAllVertices(Collection<? extends V> vertices)
     {
@@ -157,7 +157,7 @@ public class GraphSquare<V, E>
     }
 
     /**
-     * @see Graph#removeEdge(Object)
+     * @see MutableGraph#removeEdge(Object)
      */
     public boolean removeEdge(E e)
     {
@@ -165,7 +165,7 @@ public class GraphSquare<V, E>
     }
 
     /**
-     * @see Graph#removeEdge(Object, Object)
+     * @see MutableGraph#removeEdge(Object, Object)
      */
     public E removeEdge(V sourceVertex, V targetVertex)
     {
@@ -173,7 +173,7 @@ public class GraphSquare<V, E>
     }
 
     /**
-     * @see Graph#removeVertex(Object)
+     * @see MutableGraph#removeVertex(Object)
      */
     public boolean removeVertex(V v)
     {
@@ -181,7 +181,7 @@ public class GraphSquare<V, E>
     }
 
     private void addEdgesStartingAt(
-        final Graph<V, E> g,
+        final MutableGraph<V, E> g,
         final V v,
         final V u,
         boolean createLoops)
@@ -201,7 +201,7 @@ public class GraphSquare<V, E>
         }
     }
 
-    private void addSquareEdges(Graph<V, E> g, boolean createLoops)
+    private void addSquareEdges(MutableGraph<V, E> g, boolean createLoops)
     {
         for (V v : g.vertexSet()) {
             List<V> adjVertices = Graphs.neighborListOf(g, v);

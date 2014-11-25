@@ -69,7 +69,7 @@ public class CycleDetectorTest
      *
      * @param g
      */
-    public void createGraph(Graph<String, DefaultEdge> g)
+    public void createGraph(MutableGraph<String, DefaultEdge> g)
     {
         g.addVertex(V1);
         g.addVertex(V2);
@@ -97,7 +97,7 @@ public class CycleDetectorTest
      */
     public void testDirectedWithCycle()
     {
-        DirectedGraph<String, DefaultEdge> g =
+        DirectedMutableGraph<String, DefaultEdge> g =
             new DefaultDirectedGraph<String, DefaultEdge>(
                 DefaultEdge.class);
         createGraph(g);
@@ -121,7 +121,7 @@ public class CycleDetectorTest
      */
     public void testDirectedWithDoubledCycle()
     {
-        DirectedGraph<String, DefaultEdge> g =
+        DirectedMutableGraph<String, DefaultEdge> g =
             new DefaultDirectedGraph<String, DefaultEdge>(
                 DefaultEdge.class);
 
@@ -152,7 +152,7 @@ public class CycleDetectorTest
     @SuppressWarnings("unchecked")
     public void testDirectedWithoutCycle()
     {
-        DirectedGraph<String, DefaultEdge> g =
+        DirectedMutableGraph<String, DefaultEdge> g =
             new DefaultDirectedGraph<String, DefaultEdge>(
                 DefaultEdge.class);
         createGraph(g);
@@ -167,7 +167,7 @@ public class CycleDetectorTest
     }
 
     private void runTest(
-        DirectedGraph<String, DefaultEdge> g,
+        DirectedMutableGraph<String, DefaultEdge> g,
         Set<String> cyclicSet,
         Set<String> acyclicSet)
     {

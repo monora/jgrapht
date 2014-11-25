@@ -69,7 +69,7 @@ public interface GraphGenerator<V, E, T>
      * from String roles to graph elements (or collections of graph elements)
      */
     public void generateGraph(
-        Graph<V, E> target,
+        MutableGraph<V, E> target,
         VertexFactory<V> vertexFactory,
         Map<String, T> resultMap);
 }

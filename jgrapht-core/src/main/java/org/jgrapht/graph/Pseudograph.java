@@ -49,7 +49,7 @@ import org.jgrapht.*;
  */
 public class Pseudograph<V, E>
     extends AbstractBaseGraph<V, E>
-    implements UndirectedGraph<V, E>
+    implements UndirectedMutableGraph<V, E>
 {
     
 

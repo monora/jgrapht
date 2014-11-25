@@ -67,7 +67,7 @@ public class EqualsAndHashCodeTest
      */
     public void testDefaultDirectedGraph()
     {
-        DirectedGraph<String, DefaultEdge> g1 =
+        DirectedMutableGraph<String, DefaultEdge> g1 =
             new DefaultDirectedGraph<String, DefaultEdge>(
                 DefaultEdge.class);
         g1.addVertex(v1);
@@ -78,7 +78,7 @@ public class EqualsAndHashCodeTest
         DefaultEdge e23 = g1.addEdge(v2, v3);
         DefaultEdge e31 = g1.addEdge(v3, v1);
 
-        DirectedGraph<String, DefaultEdge> g2 = 
+        DirectedMutableGraph<String, DefaultEdge> g2 = 
              new DefaultDirectedGraph<String, DefaultEdge>(
                  DefaultEdge.class);
         g2.addVertex(v4);
@@ -89,7 +89,7 @@ public class EqualsAndHashCodeTest
         g2.addEdge(v2, v3, e23);
         g2.addEdge(v1, v2, e12);
 
-        DirectedGraph<String, DefaultEdge> g3 = 
+        DirectedMutableGraph<String, DefaultEdge> g3 = 
             new DefaultDirectedGraph<String, DefaultEdge>(
                 DefaultEdge.class);
         g3.addVertex(v4);
@@ -110,7 +110,7 @@ public class EqualsAndHashCodeTest
      */
     public void testSimpleGraph()
     {
-        UndirectedGraph<String, DefaultEdge> g1 =
+        UndirectedMutableGraph<String, DefaultEdge> g1 =
             new SimpleGraph<String, DefaultEdge>(
                 DefaultEdge.class);
         g1.addVertex(v1);
@@ -121,7 +121,7 @@ public class EqualsAndHashCodeTest
         DefaultEdge e23 = g1.addEdge(v2, v3);
         DefaultEdge e31 = g1.addEdge(v3, v1);
 
-        UndirectedGraph<String, DefaultEdge> g2 = 
+        UndirectedMutableGraph<String, DefaultEdge> g2 = 
              new SimpleGraph<String, DefaultEdge>(
                  DefaultEdge.class);
         g2.addVertex(v4);
@@ -132,7 +132,7 @@ public class EqualsAndHashCodeTest
         g2.addEdge(v2, v3, e23);
         g2.addEdge(v1, v2, e12);
 
-        UndirectedGraph<String, DefaultEdge> g3 = 
+        UndirectedMutableGraph<String, DefaultEdge> g3 = 
             new SimpleGraph<String, DefaultEdge>(
                 DefaultEdge.class);
         g3.addVertex(v4);
@@ -153,7 +153,7 @@ public class EqualsAndHashCodeTest
      */
     public void testGraphsWithNonIntrusiveEdge()
     {
-        DirectedGraph<String, String> g1 =
+        DirectedMutableGraph<String, String> g1 =
             new DefaultDirectedGraph<String, String>(
                 String.class);
         g1.addVertex(v1);
@@ -162,7 +162,7 @@ public class EqualsAndHashCodeTest
         g1.addEdge(v1, v2, v1 + v2);
         g1.addEdge(v3, v1, v3 + v1);
 
-        DirectedGraph<String, String> g2 = 
+        DirectedMutableGraph<String, String> g2 = 
              new DefaultDirectedGraph<String, String>(
                  String.class);
         g2.addVertex(v3);
@@ -171,7 +171,7 @@ public class EqualsAndHashCodeTest
         g2.addEdge(v3, v1, v3 + v1);
         g2.addEdge(v1, v2, v1 + v2);
 
-        DirectedGraph<String, String> g3 = 
+        DirectedMutableGraph<String, String> g3 = 
             new DefaultDirectedGraph<String, String>(
                 String.class);
         g3.addVertex(v3);
@@ -192,7 +192,7 @@ public class EqualsAndHashCodeTest
      */
     public void testPseudograph()
     {
-        UndirectedGraph<String, DefaultEdge> g1 =
+        UndirectedMutableGraph<String, DefaultEdge> g1 =
             new Pseudograph<String, DefaultEdge>(DefaultEdge.class);
         g1.addVertex(v1);
         g1.addVertex(v2);
@@ -203,7 +203,7 @@ public class EqualsAndHashCodeTest
         DefaultEdge e122 = g1.addEdge(v1, v2);
         DefaultEdge e11 = g1.addEdge(v1, v1);
 
-        UndirectedGraph<String, DefaultEdge> g2 =
+        UndirectedMutableGraph<String, DefaultEdge> g2 =
             new Pseudograph<String, DefaultEdge>(DefaultEdge.class);
         g2.addVertex(v3);
         g2.addVertex(v2);
@@ -214,7 +214,7 @@ public class EqualsAndHashCodeTest
         g2.addEdge(v2, v3, e23);
         g2.addEdge(v1, v2, e122);
 
-        UndirectedGraph<String, DefaultEdge> g3 =
+        UndirectedMutableGraph<String, DefaultEdge> g3 =
             new Pseudograph<String, DefaultEdge>(DefaultEdge.class);
         g3.addVertex(v3);
         g3.addVertex(v2);
@@ -235,7 +235,7 @@ public class EqualsAndHashCodeTest
      */
     public void testGrapshWithCustomEdges()
     {
-        UndirectedGraph<String, CustomEdge> g1 =
+        UndirectedMutableGraph<String, CustomEdge> g1 =
             new SimpleGraph<String, CustomEdge>(
                 CustomEdge.class);
         g1.addVertex(v1);
@@ -244,7 +244,7 @@ public class EqualsAndHashCodeTest
         g1.addEdge(v1, v2, new CustomEdge("v1-v2"));
         g1.addEdge(v3, v1, new CustomEdge("v3-v1"));
 
-        UndirectedGraph<String, CustomEdge> g2 =
+        UndirectedMutableGraph<String, CustomEdge> g2 =
             new SimpleGraph<String, CustomEdge>(
                 CustomEdge.class);
         g2.addVertex(v1);
@@ -253,7 +253,7 @@ public class EqualsAndHashCodeTest
         g2.addEdge(v1, v2, new CustomEdge("v1-v2"));
         g2.addEdge(v3, v1, new CustomEdge("v3-v1"));
 
-        UndirectedGraph<String, CustomEdge> g3 =
+        UndirectedMutableGraph<String, CustomEdge> g3 =
             new SimpleGraph<String, CustomEdge>(
                 CustomEdge.class);
         g3.addVertex(v1);
@@ -272,7 +272,7 @@ public class EqualsAndHashCodeTest
      * Tests equals/hashCode for graphs transformed to weighted.
      */
     public void testAsWeightedGraphs() {
-        UndirectedGraph<String, DefaultEdge> g1 = 
+        UndirectedMutableGraph<String, DefaultEdge> g1 = 
             new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
         g1.addVertex(v1);
         g1.addVertex(v2);
@@ -281,7 +281,7 @@ public class EqualsAndHashCodeTest
         DefaultEdge e23 = g1.addEdge(v2, v3);
         DefaultEdge e31 = g1.addEdge(v3, v1);
 
-        UndirectedGraph<String, DefaultEdge> g2 = 
+        UndirectedMutableGraph<String, DefaultEdge> g2 = 
             new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
         g2.addVertex(v1);
         g2.addVertex(v2);

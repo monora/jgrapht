@@ -61,7 +61,7 @@ public class ParanoidGraph<V, E>
 
     
 
-    public ParanoidGraph(Graph<V, E> g)
+    public ParanoidGraph(MutableGraph<V, E> g)
     {
         super(g);
     }
@@ -69,7 +69,7 @@ public class ParanoidGraph<V, E>
     
 
     /**
-     * @see Graph#addEdge(Object, Object, Object)
+     * @see MutableGraph#addEdge(Object, Object, Object)
      */
     public boolean addEdge(V sourceVertex, V targetVertex, E e)
     {
@@ -78,7 +78,7 @@ public class ParanoidGraph<V, E>
     }
 
     /**
-     * @see Graph#addVertex(Object)
+     * @see MutableGraph#addVertex(Object)
      */
     public boolean addVertex(V v)
     {

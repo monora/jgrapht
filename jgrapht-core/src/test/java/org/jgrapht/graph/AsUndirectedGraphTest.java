@@ -51,13 +51,13 @@ public class AsUndirectedGraphTest
 {
     //~ Instance fields --------------------------------------------------------
 
-    private DirectedGraph<String, DefaultEdge> directed;
+    private DirectedMutableGraph<String, DefaultEdge> directed;
     private DefaultEdge loop;
     private String v1 = "v1";
     private String v2 = "v2";
     private String v3 = "v3";
     private String v4 = "v4";
-    private UndirectedGraph<String, DefaultEdge> undirected;
+    private UndirectedMutableGraph<String, DefaultEdge> undirected;
 
     //~ Constructors -----------------------------------------------------------
 

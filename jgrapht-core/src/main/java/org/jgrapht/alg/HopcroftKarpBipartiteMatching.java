@@ -60,7 +60,7 @@ public class HopcroftKarpBipartiteMatching<V, E>
 {
     
 
-    private final UndirectedGraph<V, E> graph;
+    private final UndirectedMutableGraph<V, E> graph;
     private final Set<V> partition1; //Partitions of bipartite graph
     private final Set<V> partition2;
     private Set<E> matching; //Set containing the matchings
@@ -72,7 +72,7 @@ public class HopcroftKarpBipartiteMatching<V, E>
     
 
     public HopcroftKarpBipartiteMatching(
-        UndirectedGraph<V, E> graph,
+        UndirectedMutableGraph<V, E> graph,
         Set<V> partition1,
         Set<V> partition2)
     {

@@ -66,13 +66,13 @@ abstract class AbstractExhaustiveIsomorphismInspector<V, E>
 
     
 
-    protected EquivalenceComparator<? super E, ? super Graph<V, ? super E>>
+    protected EquivalenceComparator<? super E, ? super MutableGraph<V, ? super E>>
         edgeComparator;
-    protected EquivalenceComparator<? super V, ? super Graph<? super V, E>>
+    protected EquivalenceComparator<? super V, ? super MutableGraph<? super V, E>>
         vertexComparator;
 
-    protected Graph<V, E> graph1;
-    protected Graph<V, E> graph2;
+    protected MutableGraph<V, E> graph1;
+    protected MutableGraph<V, E> graph2;
 
     private PrefetchIterator<IsomorphismRelation> nextSupplier;
 
@@ -96,13 +96,13 @@ abstract class AbstractExhaustiveIsomorphismInspector<V, E>
      * UniformEquivalenceComparator will be used as default (always return true)
      */
     public AbstractExhaustiveIsomorphismInspector(
-        Graph<V, E> graph1,
-        Graph<V, E> graph2,
+        MutableGraph<V, E> graph1,
+        MutableGraph<V, E> graph2,
 
         // XXX hb 060128: FOllowing parameter may need Graph<? super V,? super
         // E>
-        EquivalenceComparator<? super V, ? super Graph<? super V, ? super E>> vertexChecker,
-        EquivalenceComparator<? super E, ? super Graph<? super V, ? super E>> edgeChecker)
+        EquivalenceComparator<? super V, ? super MutableGraph<? super V, ? super E>> vertexChecker,
+        EquivalenceComparator<? super E, ? super MutableGraph<? super V, ? super E>> edgeChecker)
     {
         this.graph1 = graph1;
         this.graph2 = graph2;
@@ -130,11 +130,11 @@ abstract class AbstractExhaustiveIsomorphismInspector<V, E>
      * @param graph1
      * @param graph2
      *
-     * @see #AbstractExhaustiveIsomorphismInspector(Graph,Graph,EquivalenceComparator,EquivalenceComparator)
+     * @see #AbstractExhaustiveIsomorphismInspector(MutableGraph,MutableGraph,EquivalenceComparator,EquivalenceComparator)
      */
     public AbstractExhaustiveIsomorphismInspector(
-        Graph<V, E> graph1,
-        Graph<V, E> graph2)
+        MutableGraph<V, E> graph1,
+        MutableGraph<V, E> graph2)
     {
         this(
             graph1,
@@ -316,7 +316,7 @@ abstract class AbstractExhaustiveIsomorphismInspector<V, E>
      */
     protected boolean areAllEdgesEquivalent(
         IsomorphismRelation<V, E> resultRelation,
-        EquivalenceComparator<? super E, ? super Graph<V, E>> edgeComparator)
+        EquivalenceComparator<? super E, ? super MutableGraph<V, E>> edgeComparator)
     {
         boolean checkResult = true;
 

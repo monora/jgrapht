@@ -48,7 +48,7 @@ import org.jgrapht.*;
  */
 public class ListenableDirectedGraph<V, E>
     extends DefaultListenableGraph<V, E>
-    implements DirectedGraph<V, E>
+    implements DirectedMutableGraph<V, E>
 {
     
 
@@ -71,7 +71,7 @@ public class ListenableDirectedGraph<V, E>
      *
      * @param base the backing graph.
      */
-    public ListenableDirectedGraph(DirectedGraph<V, E> base)
+    public ListenableDirectedGraph(DirectedMutableGraph<V, E> base)
     {
         super(base);
     }

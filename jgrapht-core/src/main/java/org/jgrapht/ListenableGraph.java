@@ -50,7 +50,7 @@ import org.jgrapht.event.*;
  * @since Jul 20, 2003
  */
 public interface ListenableGraph<V, E>
-    extends Graph<V, E>
+    extends MutableGraph<V, E>
 {
     
 

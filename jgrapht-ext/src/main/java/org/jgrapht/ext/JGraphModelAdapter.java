@@ -182,7 +182,7 @@ public class JGraphModelAdapter<V, E>
      * @param jGraphTGraph the JGraphT graph for which JGraph model adapter to
      * be created. <code>null</code> is NOT permitted.
      */
-    public JGraphModelAdapter(Graph<V, E> jGraphTGraph)
+    public JGraphModelAdapter(MutableGraph<V, E> jGraphTGraph)
     {
         this(
             jGraphTGraph,
@@ -201,7 +201,7 @@ public class JGraphModelAdapter<V, E>
      * edges. <code>null</code> is NOT permitted.
      */
     public JGraphModelAdapter(
-        Graph<V, E> jGraphTGraph,
+        MutableGraph<V, E> jGraphTGraph,
         AttributeMap defaultVertexAttributes,
         AttributeMap defaultEdgeAttributes)
     {
@@ -227,7 +227,7 @@ public class JGraphModelAdapter<V, E>
      * @throws IllegalArgumentException
      */
     public JGraphModelAdapter(
-        Graph<V, E> jGraphTGraph,
+        MutableGraph<V, E> jGraphTGraph,
         AttributeMap defaultVertexAttributes,
         AttributeMap defaultEdgeAttributes,
         CellFactory<V, E> cellFactory)
@@ -278,11 +278,11 @@ public class JGraphModelAdapter<V, E>
      * @return a map of attributes to be used as default for edge attributes.
      */
     public static <V, E> AttributeMap createDefaultEdgeAttributes(
-        Graph<V, E> jGraphTGraph)
+        MutableGraph<V, E> jGraphTGraph)
     {
         AttributeMap map = new AttributeMap();
 
-        if (jGraphTGraph instanceof DirectedGraph<?, ?>) {
+        if (jGraphTGraph instanceof DirectedMutableGraph<?, ?>) {
             GraphConstants.setLineEnd(map, GraphConstants.ARROW_TECHNICAL);
             GraphConstants.setEndFill(map, true);
             GraphConstants.setEndSize(map, 10);
@@ -1076,9 +1076,9 @@ public class JGraphModelAdapter<V, E>
      */
     private class ShieldedGraph
     {
-        private final Graph<V, E> graph;
+        private final MutableGraph<V, E> graph;
 
-        ShieldedGraph(Graph<V, E> graph)
+        ShieldedGraph(MutableGraph<V, E> graph)
         {
             this.graph = graph;
         }

@@ -101,7 +101,7 @@ public class GmlExporterTest
 
     public void testUndirected()
     {
-        UndirectedGraph<String, DefaultEdge> g =
+        UndirectedMutableGraph<String, DefaultEdge> g =
             new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
         g.addVertex(V1);
         g.addVertex(V2);

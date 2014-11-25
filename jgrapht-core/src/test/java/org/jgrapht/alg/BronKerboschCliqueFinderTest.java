@@ -70,7 +70,7 @@ public class BronKerboschCliqueFinderTest
      *
      * @param g
      */
-    public void createGraph(Graph<String, DefaultEdge> g)
+    public void createGraph(MutableGraph<String, DefaultEdge> g)
     {
         g.addVertex(V1);
         g.addVertex(V2);

@@ -27,19 +27,19 @@ public final class GraphTests<V, E>
 
     
 
-    public static <V, E> boolean isEmpty(Graph<V, E> g)
+    public static <V, E> boolean isEmpty(MutableGraph<V, E> g)
     {
         return g.edgeSet().isEmpty();
     }
 
-    public static <V, E> boolean isComplete(Graph<V, E> g)
+    public static <V, E> boolean isComplete(MutableGraph<V, E> g)
     {
         int n = g.vertexSet().size();
         return g.edgeSet().size()
             == (n * (n - 1) / 2);
     }
 
-    public static <V, E> boolean isConnected(Graph<V, E> g)
+    public static <V, E> boolean isConnected(MutableGraph<V, E> g)
     {
         int numVertices = g.vertexSet().size();
         int numEdges = g.edgeSet().size();
@@ -76,13 +76,13 @@ public final class GraphTests<V, E>
         return known.size() == numVertices;
     }
 
-    public static <V, E> boolean isTree(Graph<V, E> g)
+    public static <V, E> boolean isTree(MutableGraph<V, E> g)
     {
         return isConnected(g)
             && (g.edgeSet().size() == (g.vertexSet().size() - 1));
     }
 
-    public static <V, E> boolean isBipartite(Graph<V, E> g)
+    public static <V, E> boolean isBipartite(MutableGraph<V, E> g)
     {
         if ((4 * g.edgeSet().size())
             > (g.vertexSet().size() * g.vertexSet().size()))

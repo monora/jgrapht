@@ -54,8 +54,8 @@ import org.jgrapht.util.*;
  * GraphUnion</tt> uses <tt>WeightCombiner</tt> to choose policy for calculating
  * edge weight.</p>
  */
-public class GraphUnion<V, E, G extends Graph<V, E>>
-    extends AbstractGraph<V, E>
+public class GraphUnion<V, E, G extends MutableGraph<V, E>>
+    extends AbstractMutableGraph<V, E>
     implements Serializable
 {
     

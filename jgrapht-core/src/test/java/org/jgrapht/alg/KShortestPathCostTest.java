@@ -186,7 +186,7 @@ public class KShortestPathCostTest
         verifyShortestPathsWeightsWithMaxSizeIncreases(picture1Graph);
     }
 
-    private void verifyShortestPathsInIncreasingOrderOfWeight(Graph graph)
+    private void verifyShortestPathsInIncreasingOrderOfWeight(MutableGraph graph)
     {
         int maxSize = 20;
 
@@ -227,7 +227,7 @@ public class KShortestPathCostTest
         }
     }
 
-    private void verifyShortestPathsWeightsWithMaxSizeIncreases(Graph graph)
+    private void verifyShortestPathsWeightsWithMaxSizeIncreases(MutableGraph graph)
     {
         int maxSizeLimit = 10;
 

@@ -112,7 +112,7 @@ public class AsUnweightedGraphTest
 
     private void checkView(
         WeightedGraph<String, DefaultWeightedEdge> weighted,
-        Graph<String, DefaultWeightedEdge> unweighted)
+        MutableGraph<String, DefaultWeightedEdge> unweighted)
     {
         assertEquals(
             WeightedGraph.DEFAULT_EDGE_WEIGHT,

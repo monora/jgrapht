@@ -28,7 +28,7 @@ public class TarjanLowestCommonAncestor<V, E>
 {
     
 
-    private Graph<V, E> g;
+    private MutableGraph<V, E> g;
 
     
 
@@ -36,7 +36,7 @@ public class TarjanLowestCommonAncestor<V, E>
      * Create an instance with a reference to the graph that we will find LCAs
      * for
      */
-    public TarjanLowestCommonAncestor(Graph<V, E> g)
+    public TarjanLowestCommonAncestor(MutableGraph<V, E> g)
     {
         this.g = g;
     }

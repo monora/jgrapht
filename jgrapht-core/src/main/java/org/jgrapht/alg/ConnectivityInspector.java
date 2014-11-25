@@ -77,7 +77,7 @@ public class ConnectivityInspector<V, E>
 
     List<Set<V>> connectedSets;
     Map<V, Set<V>> vertexToConnectedSet;
-    private Graph<V, E> graph;
+    private MutableGraph<V, E> graph;
 
     
 
@@ -86,7 +86,7 @@ public class ConnectivityInspector<V, E>
      *
      * @param g the graph for which a connectivity inspector to be created.
      */
-    public ConnectivityInspector(UndirectedGraph<V, E> g)
+    public ConnectivityInspector(UndirectedMutableGraph<V, E> g)
     {
         init();
         this.graph = g;
@@ -97,7 +97,7 @@ public class ConnectivityInspector<V, E>
      *
      * @param g the graph for which a connectivity inspector to be created.
      */
-    public ConnectivityInspector(DirectedGraph<V, E> g)
+    public ConnectivityInspector(DirectedMutableGraph<V, E> g)
     {
         init();
         this.graph = new AsUndirectedGraph<V, E>(g);

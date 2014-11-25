@@ -66,7 +66,7 @@ public abstract class ChromaticNumber
      * @return integer the approximate chromatic number from the greedy
      * algorithm
      */
-    public static <V, E> int findGreedyChromaticNumber(UndirectedGraph<V, E> g)
+    public static <V, E> int findGreedyChromaticNumber(UndirectedMutableGraph<V, E> g)
     {
         Map<Integer, Set<V>> coloredGroups = findGreedyColoredGroups(g);
         return coloredGroups.keySet().size();
@@ -78,11 +78,11 @@ public abstract class ChromaticNumber
      * @param g an undirected graph for which to find the coloring
      */
     public static <V, E> Map<Integer, Set<V>> findGreedyColoredGroups(
-        UndirectedGraph<V, E> g)
+        UndirectedMutableGraph<V, E> g)
     {
         // A copy of the graph is made, so that elements of the graph may be
         // removed to carry out the algorithm
-        UndirectedGraph<V, E> sg = new UndirectedSubgraph<V, E>(g, null, null);
+        UndirectedMutableGraph<V, E> sg = new UndirectedSubgraph<V, E>(g, null, null);
 
         // The Vertices will be sorted in decreasing order by degree, so that
         // higher degree vertices have priority to be colored first

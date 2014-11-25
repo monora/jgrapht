@@ -59,7 +59,7 @@ public class DijkstraShortestPathTest
     public void testConstructor()
     {
         DijkstraShortestPath<String, DefaultWeightedEdge> path;
-        Graph<String, DefaultWeightedEdge> g = create();
+        MutableGraph<String, DefaultWeightedEdge> g = create();
 
         path =
             new DijkstraShortestPath<String, DefaultWeightedEdge>(
@@ -88,7 +88,7 @@ public class DijkstraShortestPathTest
     }
 
     protected List findPathBetween(
-        Graph<String, DefaultWeightedEdge> g,
+        MutableGraph<String, DefaultWeightedEdge> g,
         String src,
         String dest)
     {

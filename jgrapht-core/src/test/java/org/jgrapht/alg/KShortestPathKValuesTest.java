@@ -120,7 +120,7 @@ public class KShortestPathKValuesTest
         return nbPaths;
     }
 
-    private void verifyNbPathsForAllPairsOfVertices(Graph graph)
+    private void verifyNbPathsForAllPairsOfVertices(MutableGraph graph)
     {
         long nbPaths =
             calculateNbElementaryPathsForCompleteGraph(

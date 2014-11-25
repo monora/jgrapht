@@ -115,10 +115,10 @@ public class RandomGraphGenerator<V, E>
      * org.jgrapht.generate.RandomGraphGenerator.DefaultEdgeTopologyFactory#isNumberOfEdgesValid(org.jgrapht.Graph,
      * int)
      *
-     * @see GraphGenerator#generateGraph(Graph, VertexFactory, Map)
+     * @see GraphGenerator#generateGraph(MutableGraph, VertexFactory, Map)
      */
     public void generateGraph(
-        Graph<V, E> target,
+        MutableGraph<V, E> target,
         VertexFactory<V> vertexFactory,
         Map<String, V> resultMap)
     {
@@ -171,7 +171,7 @@ public class RandomGraphGenerator<V, E>
      * @return
      */
     private EdgeTopologyFactory<V, E> edgeTopologyFactoryChooser(
-        Graph<V, E> target,
+        MutableGraph<V, E> target,
         int numOfEdges)
     {
         return new DefaultEdgeTopologyFactory<V, E>();
@@ -199,7 +199,7 @@ public class RandomGraphGenerator<V, E>
          * @param randomizer
          */
         public void createEdges(
-            Graph<VV, EE> targetGraph,
+            MutableGraph<VV, EE> targetGraph,
             Map<Integer, VV> orderToVertexMap,
             int numberOfEdges,
             Random randomizer);
@@ -214,7 +214,7 @@ public class RandomGraphGenerator<V, E>
          * @param numberOfEdges
          */
         public boolean isNumberOfEdgesValid(
-            Graph<VV, EE> targetGraph,
+            MutableGraph<VV, EE> targetGraph,
             int numberOfEdges);
     }
 
@@ -241,7 +241,7 @@ public class RandomGraphGenerator<V, E>
         implements EdgeTopologyFactory<VV, EE>
     {
         public void createEdges(
-            Graph<VV, EE> targetGraph,
+            MutableGraph<VV, EE> targetGraph,
             Map<Integer, VV> orderToVertexMap,
             int numberOfEdges,
             Random randomizer)
@@ -327,11 +327,11 @@ public class RandomGraphGenerator<V, E>
          * </tr>
          * </table>
          *
-         * @see RandomGraphGenerator.EdgeTopologyFactory#isNumberOfEdgesValid(Graph,
+         * @see RandomGraphGenerator.EdgeTopologyFactory#isNumberOfEdgesValid(MutableGraph,
          * int)
          */
         public boolean isNumberOfEdgesValid(
-            Graph<VV, EE> targetGraph,
+            MutableGraph<VV, EE> targetGraph,
             int numberOfEdges)
         {
             boolean result;
@@ -355,7 +355,7 @@ public class RandomGraphGenerator<V, E>
         /**
          * Return max edges for that graph. If it is infinite return -1 instead.
          */
-        public int getMaxEdgesForVertexNum(Graph<VV, EE> targetGraph)
+        public int getMaxEdgesForVertexNum(MutableGraph<VV, EE> targetGraph)
         {
             int maxAllowedEdges = 0;
             if (targetGraph instanceof SimpleGraph<?, ?>) {

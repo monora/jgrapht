@@ -62,8 +62,8 @@ import org.jgrapht.*;
  * @since Jul 20, 2003
  */
 public class GraphDelegator<V, E>
-    extends AbstractGraph<V, E>
-    implements Graph<V, E>,
+    extends AbstractMutableGraph<V, E>
+    implements MutableGraph<V, E>,
         Serializable
 {
     
@@ -75,7 +75,7 @@ public class GraphDelegator<V, E>
     /**
      * The graph to which operations are delegated.
      */
-    private Graph<V, E> delegate;
+    private MutableGraph<V, E> delegate;
 
     
 
@@ -86,7 +86,7 @@ public class GraphDelegator<V, E>
      *
      * @throws IllegalArgumentException iff <code>g==null</code>
      */
-    public GraphDelegator(Graph<V, E> g)
+    public GraphDelegator(MutableGraph<V, E> g)
     {
         super();
 
@@ -100,7 +100,7 @@ public class GraphDelegator<V, E>
     
 
     /**
-     * @see Graph#getAllEdges(Object, Object)
+     * @see MutableGraph#getAllEdges(Object, Object)
      */
     public Set<E> getAllEdges(V sourceVertex, V targetVertex)
     {
@@ -108,7 +108,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#getEdge(Object, Object)
+     * @see MutableGraph#getEdge(Object, Object)
      */
     public E getEdge(V sourceVertex, V targetVertex)
     {
@@ -116,7 +116,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#getEdgeFactory()
+     * @see MutableGraph#getEdgeFactory()
      */
     public EdgeFactory<V, E> getEdgeFactory()
     {
@@ -124,7 +124,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object)
+     * @see MutableGraph#addEdge(Object, Object)
      */
     public E addEdge(V sourceVertex, V targetVertex)
     {
@@ -132,7 +132,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object, Object)
+     * @see MutableGraph#addEdge(Object, Object, Object)
      */
     public boolean addEdge(V sourceVertex, V targetVertex, E e)
     {
@@ -140,7 +140,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#addVertex(Object)
+     * @see MutableGraph#addVertex(Object)
      */
     public boolean addVertex(V v)
     {
@@ -148,7 +148,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#containsEdge(Object)
+     * @see MutableGraph#containsEdge(Object)
      */
     public boolean containsEdge(E e)
     {
@@ -156,7 +156,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#containsVertex(Object)
+     * @see MutableGraph#containsVertex(Object)
      */
     public boolean containsVertex(V v)
     {
@@ -164,15 +164,15 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see UndirectedGraph#degreeOf(Object)
+     * @see UndirectedMutableGraph#degreeOf(Object)
      */
     public int degreeOf(V vertex)
     {
-        return ((UndirectedGraph<V, E>) delegate).degreeOf(vertex);
+        return ((UndirectedMutableGraph<V, E>) delegate).degreeOf(vertex);
     }
 
     /**
-     * @see Graph#edgeSet()
+     * @see MutableGraph#edgeSet()
      */
     public Set<E> edgeSet()
     {
@@ -180,7 +180,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#edgesOf(Object)
+     * @see MutableGraph#edgesOf(Object)
      */
     public Set<E> edgesOf(V vertex)
     {
@@ -188,39 +188,39 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see DirectedGraph#inDegreeOf(Object)
+     * @see DirectedMutableGraph#inDegreeOf(Object)
      */
     public int inDegreeOf(V vertex)
     {
-        return ((DirectedGraph<V, ? extends E>) delegate).inDegreeOf(vertex);
+        return ((DirectedMutableGraph<V, ? extends E>) delegate).inDegreeOf(vertex);
     }
 
     /**
-     * @see DirectedGraph#incomingEdgesOf(Object)
+     * @see DirectedMutableGraph#incomingEdgesOf(Object)
      */
     public Set<E> incomingEdgesOf(V vertex)
     {
-        return ((DirectedGraph<V, E>) delegate).incomingEdgesOf(vertex);
+        return ((DirectedMutableGraph<V, E>) delegate).incomingEdgesOf(vertex);
     }
 
     /**
-     * @see DirectedGraph#outDegreeOf(Object)
+     * @see DirectedMutableGraph#outDegreeOf(Object)
      */
     public int outDegreeOf(V vertex)
     {
-        return ((DirectedGraph<V, ? extends E>) delegate).outDegreeOf(vertex);
+        return ((DirectedMutableGraph<V, ? extends E>) delegate).outDegreeOf(vertex);
     }
 
     /**
-     * @see DirectedGraph#outgoingEdgesOf(Object)
+     * @see DirectedMutableGraph#outgoingEdgesOf(Object)
      */
     public Set<E> outgoingEdgesOf(V vertex)
     {
-        return ((DirectedGraph<V, E>) delegate).outgoingEdgesOf(vertex);
+        return ((DirectedMutableGraph<V, E>) delegate).outgoingEdgesOf(vertex);
     }
 
     /**
-     * @see Graph#removeEdge(Object)
+     * @see MutableGraph#removeEdge(Object)
      */
     public boolean removeEdge(E e)
     {
@@ -228,7 +228,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#removeEdge(Object, Object)
+     * @see MutableGraph#removeEdge(Object, Object)
      */
     public E removeEdge(V sourceVertex, V targetVertex)
     {
@@ -236,7 +236,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#removeVertex(Object)
+     * @see MutableGraph#removeVertex(Object)
      */
     public boolean removeVertex(V v)
     {
@@ -252,7 +252,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#vertexSet()
+     * @see MutableGraph#vertexSet()
      */
     public Set<V> vertexSet()
     {
@@ -260,7 +260,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#getEdgeSource(Object)
+     * @see MutableGraph#getEdgeSource(Object)
      */
     public V getEdgeSource(E e)
     {
@@ -268,7 +268,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#getEdgeTarget(Object)
+     * @see MutableGraph#getEdgeTarget(Object)
      */
     public V getEdgeTarget(E e)
     {
@@ -276,7 +276,7 @@ public class GraphDelegator<V, E>
     }
 
     /**
-     * @see Graph#getEdgeWeight(Object)
+     * @see MutableGraph#getEdgeWeight(Object)
      */
     public double getEdgeWeight(E e)
     {

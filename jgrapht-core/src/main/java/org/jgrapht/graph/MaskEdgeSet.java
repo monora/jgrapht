@@ -55,7 +55,7 @@ class MaskEdgeSet<V, E>
 
     private Set<E> edgeSet;
 
-    private Graph<V, E> graph;
+    private MutableGraph<V, E> graph;
 
     private MaskFunctor<V, E> mask;
 
@@ -66,7 +66,7 @@ class MaskEdgeSet<V, E>
     
 
     public MaskEdgeSet(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         Set<E> edgeSet,
         MaskFunctor<V, E> mask)
     {

@@ -56,7 +56,7 @@ public class FloydWarshallShortestPaths<V, E>
 {
     
 
-    private Graph<V, E> graph;
+    private MutableGraph<V, E> graph;
     private List<V> vertices;
     private int nShortestPaths = 0;
     private double diameter = Double.NaN;
@@ -66,7 +66,7 @@ public class FloydWarshallShortestPaths<V, E>
 
     
 
-    public FloydWarshallShortestPaths(Graph<V, E> graph)
+    public FloydWarshallShortestPaths(MutableGraph<V, E> graph)
     {
         this.graph = graph;
         this.vertices = new ArrayList<V>(graph.vertexSet());
@@ -77,7 +77,7 @@ public class FloydWarshallShortestPaths<V, E>
     /**
      * @return the graph on which this algorithm operates
      */
-    public Graph<V, E> getGraph()
+    public MutableGraph<V, E> getGraph()
     {
         return graph;
     }
@@ -131,7 +131,7 @@ public class FloydWarshallShortestPaths<V, E>
             int v_2 = vertices.indexOf(v2);
 
             d[v_1][v_2] = graph.getEdgeWeight(edge);
-            if (!(graph instanceof DirectedGraph<?, ?>)) {
+            if (!(graph instanceof DirectedMutableGraph<?, ?>)) {
                 d[v_2][v_1] = graph.getEdgeWeight(edge);
             }
         }

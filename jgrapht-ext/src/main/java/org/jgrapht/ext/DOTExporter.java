@@ -128,13 +128,13 @@ public class DOTExporter<V, E>
      * @param writer the writer to which the graph to be exported
      * @param g the graph to be exported
      */
-    public void export(Writer writer, Graph<V, E> g)
+    public void export(Writer writer, MutableGraph<V, E> g)
     {
         PrintWriter out = new PrintWriter(writer);
         String indent = "  ";
         String connector;
 
-        if (g instanceof DirectedGraph<?, ?>) {
+        if (g instanceof DirectedMutableGraph<?, ?>) {
             out.println("digraph G {");
             connector = " -> ";
         } else {

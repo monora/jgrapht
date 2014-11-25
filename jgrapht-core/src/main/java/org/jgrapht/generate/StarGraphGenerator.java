@@ -78,7 +78,7 @@ public class StarGraphGenerator<V, E>
      * Generates a star graph with the designated order from the constructor
      */
     public void generateGraph(
-        Graph<V, E> target,
+        MutableGraph<V, E> target,
         final VertexFactory<V> vertexFactory,
         Map<String, V> resultMap)
     {

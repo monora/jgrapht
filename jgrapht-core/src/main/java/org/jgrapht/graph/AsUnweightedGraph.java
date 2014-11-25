@@ -79,7 +79,7 @@ public class AsUnweightedGraph<V, E>
      * @param g the backing graph over which an unweighted view is to be
      * created.
      */
-    public AsUnweightedGraph(Graph<V, E> g)
+    public AsUnweightedGraph(MutableGraph<V, E> g)
     {
         super(g);
     }
@@ -87,7 +87,7 @@ public class AsUnweightedGraph<V, E>
     
 
     /**
-     * @see Graph#getEdgeWeight
+     * @see MutableGraph#getEdgeWeight
      */
     public double getEdgeWeight(E e)
     {

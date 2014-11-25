@@ -50,8 +50,8 @@ import org.jgrapht.util.*;
  * @see Subgraph
  */
 public class DirectedSubgraph<V, E>
-    extends Subgraph<V, E, DirectedGraph<V, E>>
-    implements DirectedGraph<V, E>
+    extends Subgraph<V, E, DirectedMutableGraph<V, E>>
+    implements DirectedMutableGraph<V, E>
 {
     
 
@@ -70,7 +70,7 @@ public class DirectedSubgraph<V, E>
      * are included.
      */
     public DirectedSubgraph(
-        DirectedGraph<V, E> base,
+        DirectedMutableGraph<V, E> base,
         Set<V> vertexSubset,
         Set<E> edgeSubset)
     {
@@ -80,7 +80,7 @@ public class DirectedSubgraph<V, E>
     
 
     /**
-     * @see DirectedGraph#inDegreeOf(Object)
+     * @see DirectedMutableGraph#inDegreeOf(Object)
      */
     public int inDegreeOf(V vertex)
     {
@@ -98,7 +98,7 @@ public class DirectedSubgraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#incomingEdgesOf(Object)
+     * @see DirectedMutableGraph#incomingEdgesOf(Object)
      */
     public Set<E> incomingEdgesOf(V vertex)
     {
@@ -116,7 +116,7 @@ public class DirectedSubgraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#outDegreeOf(Object)
+     * @see DirectedMutableGraph#outDegreeOf(Object)
      */
     public int outDegreeOf(V vertex)
     {
@@ -134,7 +134,7 @@ public class DirectedSubgraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#outgoingEdgesOf(Object)
+     * @see DirectedMutableGraph#outgoingEdgesOf(Object)
      */
     public Set<E> outgoingEdgesOf(V vertex)
     {

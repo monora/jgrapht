@@ -19,43 +19,38 @@
  * (b) the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation.
  */
-/* -------------------------
- * UndirectedMaskSubgraph.java
- * -------------------------
- * (C) Copyright 2007-2008, by France Telecom
+/* --------------------
+ * UndirectedGraph.java
+ * --------------------
+ * (C) Copyright 2003-2008, by Barak Naveh and Contributors.
  *
- * Original Author:  Guillaume Boulmier and Contributors.
+ * Original Author:  Barak Naveh
+ * Contributor(s):   Christian Hammer
  *
  * $Id$
  *
  * Changes
  * -------
- * 05-Jun-2007 : Initial revision (GB);
+ * 24-Jul-2003 : Initial revision (BN);
+ * 11-Mar-2004 : Made generic (CH);
  *
  */
-package org.jgrapht.graph;
-
-import org.jgrapht.*;
-
+package org.jgrapht;
 
 /**
- * An undirected graph that is a {@link MaskSubgraph} on another graph.
+ * A graph whose all edges are undirected. This is the root interface of all
+ * undirected graphs.
  *
- * @author Guillaume Boulmier
- * @since July 5, 2007
+ * <p>See <a href="http://mathworld.wolfram.com/Graph.html">
+ * http://mathworld.wolfram.com/Graph.html</a> for more on undirected and on
+ * directed graphs.</p>
+ *
+ * @author Barak Naveh
+ * @since Jul 14, 2003
  */
-public class UndirectedMaskSubgraph<V, E>
-    extends MaskSubgraph<V, E>
-    implements UndirectedMutableGraph<V, E>
+public interface UndirectedMutableGraph<V, E>
+    extends MutableGraph<V, E>, UndirectedGraph<V,E>
 {
-    
-
-    public UndirectedMaskSubgraph(
-        UndirectedMutableGraph<V, E> base,
-        MaskFunctor<V, E> mask)
-    {
-        super(base, mask);
-    }
 }
 
-// End UndirectedMaskSubgraph.java
+// End UndirectedMutableGraph.java

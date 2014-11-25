@@ -59,7 +59,7 @@ public class ClosestFirstIteratorTest
     {
         result = new StringBuffer();
 
-        DirectedGraph<String, DefaultEdge> graph = createDirectedGraph();
+        DirectedMutableGraph<String, DefaultEdge> graph = createDirectedGraph();
 
         // NOTE:  pick 301 as the radius because it discriminates
         // the boundary case edge between v7 and v9
@@ -84,7 +84,7 @@ public class ClosestFirstIteratorTest
     {
         result = new StringBuffer();
 
-        DirectedGraph<String, DefaultEdge> graph = createDirectedGraph();
+        DirectedMutableGraph<String, DefaultEdge> graph = createDirectedGraph();
 
         AbstractGraphIterator<String, ?> iterator =
             new ClosestFirstIterator<String, DefaultEdge>(graph);
@@ -112,7 +112,7 @@ public class ClosestFirstIteratorTest
     }
 
     AbstractGraphIterator<String, DefaultEdge> createIterator(
-        DirectedGraph<String, DefaultEdge> g,
+        DirectedMutableGraph<String, DefaultEdge> g,
         String vertex)
     {
         AbstractGraphIterator<String, DefaultEdge> i =

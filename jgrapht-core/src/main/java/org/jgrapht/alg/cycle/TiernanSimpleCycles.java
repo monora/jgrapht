@@ -57,7 +57,7 @@ public class TiernanSimpleCycles<V, E>
 {
     
 
-    private DirectedGraph<V, E> graph;
+    private DirectedMutableGraph<V, E> graph;
 
     
 
@@ -76,7 +76,7 @@ public class TiernanSimpleCycles<V, E>
      * @throws IllegalArgumentException if the graph argument is <code>
      * null</code>.
      */
-    public TiernanSimpleCycles(DirectedGraph<V, E> graph)
+    public TiernanSimpleCycles(DirectedMutableGraph<V, E> graph)
     {
         if (graph == null) {
             throw new IllegalArgumentException("Null graph argument.");
@@ -89,7 +89,7 @@ public class TiernanSimpleCycles<V, E>
     /**
      * {@inheritDoc}
      */
-    @Override public DirectedGraph<V, E> getGraph()
+    @Override public DirectedMutableGraph<V, E> getGraph()
     {
         return graph;
     }
@@ -97,7 +97,7 @@ public class TiernanSimpleCycles<V, E>
     /**
      * {@inheritDoc}
      */
-    @Override public void setGraph(DirectedGraph<V, E> graph)
+    @Override public void setGraph(DirectedMutableGraph<V, E> graph)
     {
         if (graph == null) {
             throw new IllegalArgumentException("Null graph argument.");

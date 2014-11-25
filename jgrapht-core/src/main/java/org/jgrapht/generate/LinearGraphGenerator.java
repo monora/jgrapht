@@ -91,7 +91,7 @@ public class LinearGraphGenerator<V, E>
      * {@inheritDoc}
      */
     public void generateGraph(
-        Graph<V, E> target,
+        MutableGraph<V, E> target,
         VertexFactory<V> vertexFactory,
         Map<String, V> resultMap)
     {

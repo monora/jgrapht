@@ -71,7 +71,7 @@ public class BiconnectivityInspectorTest
 
     public void testLinearGraph(int nbVertices)
     {
-        UndirectedGraph graph = new SimpleGraph(DefaultEdge.class);
+        UndirectedMutableGraph graph = new SimpleGraph(DefaultEdge.class);
 
         LinearGraphGenerator generator = new LinearGraphGenerator(nbVertices);
         generator.generateGraph(

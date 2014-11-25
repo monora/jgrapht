@@ -71,7 +71,7 @@ final class RankingPathElementList<V, E>
      * @param maxSize max number of paths the list is able to store.
      */
     RankingPathElementList(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         int maxSize,
         RankingPathElement<V, E> pathElement)
     {
@@ -88,7 +88,7 @@ final class RankingPathElementList<V, E>
      * @param maxSize maximum number of paths the list is able to store.
      */
     RankingPathElementList(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         int maxSize,
         RankingPathElementList<V, E> elementList,
         E edge)
@@ -108,7 +108,7 @@ final class RankingPathElementList<V, E>
      * @param maxSize maximum number of paths the list is able to store.
      */
     RankingPathElementList(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         int maxSize,
         RankingPathElementList<V, E> elementList,
         E edge,
@@ -144,7 +144,7 @@ final class RankingPathElementList<V, E>
      *
      * @param maxSize max number of paths the list is able to store.
      */
-    RankingPathElementList(Graph<V, E> graph, int maxSize, V vertex)
+    RankingPathElementList(MutableGraph<V, E> graph, int maxSize, V vertex)
     {
         super(graph, maxSize, vertex);
     }
@@ -278,7 +278,7 @@ final class RankingPathElementList<V, E>
      *
      * @return the cost obtained by concatenation.
      *
-     * @see Graph#getEdgeWeight(E)
+     * @see MutableGraph#getEdgeWeight(E)
      */
     private double calculatePathWeight(
         RankingPathElement<V, E> pathElement,
@@ -314,11 +314,11 @@ final class RankingPathElementList<V, E>
         ConnectivityInspector<V, E> connectivityInspector;
         MaskFunctor<V, E> connectivityMask;
 
-        if (this.graph instanceof DirectedGraph<?, ?>) {
+        if (this.graph instanceof DirectedMutableGraph<?, ?>) {
             connectivityMask = new PathMask<V, E>(prevPathElement);
             DirectedMaskSubgraph<V, E> connectivityGraph =
                 new DirectedMaskSubgraph<V, E>(
-                    (DirectedGraph<V, E>) this.graph,
+                    (DirectedMutableGraph<V, E>) this.graph,
                     connectivityMask);
             connectivityInspector =
                 new ConnectivityInspector<V, E>(
@@ -327,7 +327,7 @@ final class RankingPathElementList<V, E>
             connectivityMask = new PathMask<V, E>(prevPathElement);
             UndirectedMaskSubgraph<V, E> connectivityGraph =
                 new UndirectedMaskSubgraph<V, E>(
-                    (UndirectedGraph<V, E>) this.graph,
+                    (UndirectedMutableGraph<V, E>) this.graph,
                     connectivityMask);
             connectivityInspector =
                 new ConnectivityInspector<V, E>(

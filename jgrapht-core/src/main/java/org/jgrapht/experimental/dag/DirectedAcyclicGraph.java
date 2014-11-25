@@ -219,7 +219,7 @@ public class DirectedAcyclicGraph<V, E>
      * a member of the graph
      * @throws CycleFoundException if the edge would induce a cycle in the graph
      *
-     * @see Graph#addEdge(Object, Object, Object)
+     * @see MutableGraph#addEdge(Object, Object, Object)
      */
     public E addDagEdge(V fromVertex, V toVertex)
         throws CycleFoundException
@@ -261,7 +261,7 @@ public class DirectedAcyclicGraph<V, E>
      * @throws CycleFoundException if adding an edge (fromVertex, toVertex) to
      * the graph would induce a cycle.
      *
-     * @see Graph#addEdge(Object, Object, Object)
+     * @see MutableGraph#addEdge(Object, Object, Object)
      */
     public boolean addDagEdge(V fromVertex, V toVertex, E e)
         throws CycleFoundException

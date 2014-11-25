@@ -62,7 +62,7 @@ class KShortestPathsIterator<V, E>
     /**
      * Graph on which shortest paths are searched.
      */
-    private Graph<V, E> graph;
+    private MutableGraph<V, E> graph;
 
     /**
      * Number of paths stored at each end vertex.
@@ -108,7 +108,7 @@ class KShortestPathsIterator<V, E>
      * @param maxSize number of paths stored at end vertex of the graph.
      */
     public KShortestPathsIterator(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         V startVertex,
         V endVertex,
         int maxSize)
@@ -207,7 +207,7 @@ class KShortestPathsIterator<V, E>
         return this.seenDataContainer.get(endVertex);
     }
 
-    private void assertKShortestPathsIterator(Graph<V, E> graph, V startVertex)
+    private void assertKShortestPathsIterator(MutableGraph<V, E> graph, V startVertex)
     {
         if (graph == null) {
             throw new NullPointerException("graph is null");
@@ -255,8 +255,8 @@ class KShortestPathsIterator<V, E>
      */
     private Iterator<E> edgesOfIterator(V vertex)
     {
-        if (this.graph instanceof DirectedGraph<?, ?>) {
-            return ((DirectedGraph<V, E>) this.graph).outgoingEdgesOf(vertex)
+        if (this.graph instanceof DirectedMutableGraph<?, ?>) {
+            return ((DirectedMutableGraph<V, E>) this.graph).outgoingEdgesOf(vertex)
                 .iterator();
         } else {
             return this.graph.edgesOf(vertex).iterator();

@@ -79,10 +79,10 @@ public class AdaptiveIsomorphismInspectorFactory
      * @param edgeChecker may be null
      */
     public static <V, E> GraphIsomorphismInspector createIsomorphismInspector(
-        Graph<V, E> graph1,
-        Graph<V, E> graph2,
-        EquivalenceComparator<V, Graph<V, E>> vertexChecker,
-        EquivalenceComparator<E, Graph<V, E>> edgeChecker)
+        MutableGraph<V, E> graph1,
+        MutableGraph<V, E> graph2,
+        EquivalenceComparator<V, MutableGraph<V, E>> vertexChecker,
+        EquivalenceComparator<E, MutableGraph<V, E>> edgeChecker)
     {
         int graphType = checkGraphsType(graph1, graph2);
         return createAppropriateConcreteInspector(
@@ -103,8 +103,8 @@ public class AdaptiveIsomorphismInspectorFactory
      * @param graph2
      */
     public static <V, E> GraphIsomorphismInspector createIsomorphismInspector(
-        Graph<V, E> graph1,
-        Graph<V, E> graph2)
+        MutableGraph<V, E> graph1,
+        MutableGraph<V, E> graph2)
     {
         return createIsomorphismInspector(graph1, graph2, null, null);
     }
@@ -122,10 +122,10 @@ public class AdaptiveIsomorphismInspectorFactory
     public static <V, E> GraphIsomorphismInspector
     createIsomorphismInspectorByType(
         int type,
-        Graph<V, E> graph1,
-        Graph<V, E> graph2,
-        EquivalenceComparator<V, Graph<V, E>> vertexChecker,
-        EquivalenceComparator<E, Graph<V, E>> edgeChecker)
+        MutableGraph<V, E> graph1,
+        MutableGraph<V, E> graph2,
+        EquivalenceComparator<V, MutableGraph<V, E>> vertexChecker,
+        EquivalenceComparator<E, MutableGraph<V, E>> edgeChecker)
     {
         return createAppropriateConcreteInspector(
             type,
@@ -149,8 +149,8 @@ public class AdaptiveIsomorphismInspectorFactory
     public static <V, E> GraphIsomorphismInspector
     createIsomorphismInspectorByType(
         int type,
-        Graph<V, E> graph1,
-        Graph<V, E> graph2)
+        MutableGraph<V, E> graph1,
+        MutableGraph<V, E> graph2)
     {
         return createAppropriateConcreteInspector(
             type,
@@ -174,10 +174,10 @@ public class AdaptiveIsomorphismInspectorFactory
     protected static <V, E> GraphIsomorphismInspector
     createAppropriateConcreteInspector(
         int graphType,
-        Graph<V, E> graph1,
-        Graph<V, E> graph2,
-        EquivalenceComparator<V, Graph<V, E>> vertexChecker,
-        EquivalenceComparator<E, Graph<V, E>> edgeChecker)
+        MutableGraph<V, E> graph1,
+        MutableGraph<V, E> graph2,
+        EquivalenceComparator<V, MutableGraph<V, E>> vertexChecker,
+        EquivalenceComparator<E, MutableGraph<V, E>> edgeChecker)
     {
         assertUnsupportedGraphTypes(graph1);
         assertUnsupportedGraphTypes(graph2);
@@ -212,7 +212,7 @@ public class AdaptiveIsomorphismInspectorFactory
      *
      * @throws IllegalArgumentException
      */
-    protected static void assertUnsupportedGraphTypes(Graph g)
+    protected static void assertUnsupportedGraphTypes(MutableGraph g)
         throws IllegalArgumentException
     {
         if ((g instanceof Multigraph<?, ?>)
@@ -224,7 +224,7 @@ public class AdaptiveIsomorphismInspectorFactory
         }
     }
 
-    protected static int checkGraphsType(Graph graph1, Graph graph2)
+    protected static int checkGraphsType(MutableGraph graph1, MutableGraph graph2)
     {
         return GRAPH_TYPE_ARBITRARY;
     }
@@ -237,15 +237,15 @@ public class AdaptiveIsomorphismInspectorFactory
     @SuppressWarnings("unchecked")
     protected static <V, E> GraphIsomorphismInspector
     createTopologicalExhaustiveInspector(
-        Graph<V, E> graph1,
-        Graph<V, E> graph2,
-        EquivalenceComparator<V, Graph<V, E>> vertexChecker,
-        EquivalenceComparator<E, Graph<V, E>> edgeChecker)
+        MutableGraph<V, E> graph1,
+        MutableGraph<V, E> graph2,
+        EquivalenceComparator<V, MutableGraph<V, E>> vertexChecker,
+        EquivalenceComparator<E, MutableGraph<V, E>> edgeChecker)
     {
         VertexDegreeEquivalenceComparator<V, E> degreeComparator =
             new VertexDegreeEquivalenceComparator<V, E>();
-        EquivalenceComparatorChain<V, Graph<V, E>> vertexChainedChecker =
-            new EquivalenceComparatorChainBase<V, Graph<V, E>>(
+        EquivalenceComparatorChain<V, MutableGraph<V, E>> vertexChainedChecker =
+            new EquivalenceComparatorChainBase<V, MutableGraph<V, E>>(
                 degreeComparator);
         vertexChainedChecker.appendComparator(vertexChecker);
 

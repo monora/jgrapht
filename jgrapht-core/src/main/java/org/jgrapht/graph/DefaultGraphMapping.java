@@ -56,8 +56,8 @@ public class DefaultGraphMapping<V, E>
     private Map<V, V> graphMappingForward;
     private Map<V, V> graphMappingReverse;
 
-    private Graph<V, E> graph1;
-    private Graph<V, E> graph2;
+    private MutableGraph<V, E> graph1;
+    private MutableGraph<V, E> graph2;
 
     
 
@@ -74,8 +74,8 @@ public class DefaultGraphMapping<V, E>
     public DefaultGraphMapping(
         Map<V, V> g1ToG2,
         Map<V, V> g2ToG1,
-        Graph<V, E> g1,
-        Graph<V, E> g2)
+        MutableGraph<V, E> g1,
+        MutableGraph<V, E> g2)
     {
         this.graph1 = g1;
         this.graph2 = g2;
@@ -87,7 +87,7 @@ public class DefaultGraphMapping<V, E>
 
     public E getEdgeCorrespondence(E currEdge, boolean forward)
     {
-        Graph<V, E> sourceGraph, targetGraph;
+        MutableGraph<V, E> sourceGraph, targetGraph;
 
         if (forward) {
             sourceGraph = this.graph1;

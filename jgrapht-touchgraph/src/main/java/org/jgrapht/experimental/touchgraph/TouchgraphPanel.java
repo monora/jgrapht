@@ -71,7 +71,7 @@ public class TouchgraphPanel<V, E>
     /**
      * the JGraphT graph we are displaying
      */
-    Graph<V, E> graph;
+    MutableGraph<V, E> graph;
 
     /**
      * are self-references allowed? They will not show up in TouchGraph unless
@@ -84,7 +84,7 @@ public class TouchgraphPanel<V, E>
     //~ Constructors -----------------------------------------------------------
 
     /**constructor*/
-    public TouchgraphPanel(Graph<V, E> graph, boolean selfReferencesAllowed)
+    public TouchgraphPanel(MutableGraph<V, E> graph, boolean selfReferencesAllowed)
     {
         this.graph = graph;
         this.selfReferencesAllowed = selfReferencesAllowed;

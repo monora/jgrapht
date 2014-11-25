@@ -18,7 +18,7 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
-import org.jgrapht.DirectedGraph;
+import org.jgrapht.DirectedMutableGraph;
 import org.jgrapht.alg.TarjanLowestCommonAncestor.LcaRequestResponse;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
@@ -29,7 +29,7 @@ public class TarjanLowestCommonAncestorTest  extends TestCase{
 
     @Test
     public void testBinaryTree() {
-	DirectedGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
+	DirectedMutableGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 
 	g.addVertex("a");
 	g.addVertex("b");
@@ -49,7 +49,7 @@ public class TarjanLowestCommonAncestorTest  extends TestCase{
 
     @Test
     public void testNonBinaryTree() {
-	DirectedGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
+	DirectedMutableGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 
 	g.addVertex("a");
 	g.addVertex("b");
@@ -99,7 +99,7 @@ public class TarjanLowestCommonAncestorTest  extends TestCase{
     
     @Test
     public void testOneNode() {
-	DirectedGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
+	DirectedMutableGraph<String, DefaultEdge> g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 
 	g.addVertex("a");
 

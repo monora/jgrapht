@@ -81,7 +81,7 @@ public class CompleteBipartiteGraphGenerator<V, E>
      * Construct a complete bipartite graph
      */
     public void generateGraph(
-        Graph<V, E> target,
+        MutableGraph<V, E> target,
         final VertexFactory<V> vertexFactory,
         Map<String, V> resultMap)
     {

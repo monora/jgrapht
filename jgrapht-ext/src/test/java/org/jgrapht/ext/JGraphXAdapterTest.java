@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.jgrapht.Graph;
+import org.jgrapht.MutableGraph;
 import org.jgrapht.ListenableGraph;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
@@ -229,7 +229,7 @@ public class JGraphXAdapterTest
     @Test
     public void notListenableTest() 
     {
-        Graph<String, String> jGraphT 
+        MutableGraph<String, String> jGraphT 
             = new DefaultDirectedGraph<String, String>(String.class);
         // fill graph with data
         String v1 = "Vertex 1";

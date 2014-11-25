@@ -58,7 +58,7 @@ public class BellmanFordShortestPathTest
     public void testConstructor()
     {
         BellmanFordShortestPath<String, DefaultWeightedEdge> path;
-        Graph<String, DefaultWeightedEdge> g = create();
+        MutableGraph<String, DefaultWeightedEdge> g = create();
 
         path = new BellmanFordShortestPath<String, DefaultWeightedEdge>(g, V3);
 
@@ -100,7 +100,7 @@ public class BellmanFordShortestPathTest
     }
 
     protected List findPathBetween(
-        Graph<String, DefaultWeightedEdge> g,
+        MutableGraph<String, DefaultWeightedEdge> g,
         String src,
         String dest)
     {
@@ -109,7 +109,7 @@ public class BellmanFordShortestPathTest
 
     public void testWithNegativeEdges()
     {
-        Graph<String, DefaultWeightedEdge> g = createWithBias(true);
+        MutableGraph<String, DefaultWeightedEdge> g = createWithBias(true);
 
         List path;
 

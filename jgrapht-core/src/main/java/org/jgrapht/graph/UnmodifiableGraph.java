@@ -78,7 +78,7 @@ public class UnmodifiableGraph<V, E>
      * @param g the backing graph on which an unmodifiable graph is to be
      * created.
      */
-    public UnmodifiableGraph(Graph<V, E> g)
+    public UnmodifiableGraph(MutableGraph<V, E> g)
     {
         super(g);
     }
@@ -86,7 +86,7 @@ public class UnmodifiableGraph<V, E>
     
 
     /**
-     * @see Graph#addEdge(Object, Object)
+     * @see MutableGraph#addEdge(Object, Object)
      */
     public E addEdge(V sourceVertex, V targetVertex)
     {
@@ -94,7 +94,7 @@ public class UnmodifiableGraph<V, E>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object, Object)
+     * @see MutableGraph#addEdge(Object, Object, Object)
      */
     public boolean addEdge(V sourceVertex, V targetVertex, E e)
     {
@@ -102,7 +102,7 @@ public class UnmodifiableGraph<V, E>
     }
 
     /**
-     * @see Graph#addVertex(Object)
+     * @see MutableGraph#addVertex(Object)
      */
     public boolean addVertex(V v)
     {
@@ -110,7 +110,7 @@ public class UnmodifiableGraph<V, E>
     }
 
     /**
-     * @see Graph#removeAllEdges(Collection)
+     * @see MutableGraph#removeAllEdges(Collection)
      */
     public boolean removeAllEdges(Collection<? extends E> edges)
     {
@@ -118,7 +118,7 @@ public class UnmodifiableGraph<V, E>
     }
 
     /**
-     * @see Graph#removeAllEdges(Object, Object)
+     * @see MutableGraph#removeAllEdges(Object, Object)
      */
     public Set<E> removeAllEdges(V sourceVertex, V targetVertex)
     {
@@ -126,7 +126,7 @@ public class UnmodifiableGraph<V, E>
     }
 
     /**
-     * @see Graph#removeAllVertices(Collection)
+     * @see MutableGraph#removeAllVertices(Collection)
      */
     public boolean removeAllVertices(Collection<? extends V> vertices)
     {
@@ -134,7 +134,7 @@ public class UnmodifiableGraph<V, E>
     }
 
     /**
-     * @see Graph#removeEdge(Object)
+     * @see MutableGraph#removeEdge(Object)
      */
     public boolean removeEdge(E e)
     {
@@ -142,7 +142,7 @@ public class UnmodifiableGraph<V, E>
     }
 
     /**
-     * @see Graph#removeEdge(Object, Object)
+     * @see MutableGraph#removeEdge(Object, Object)
      */
     public E removeEdge(V sourceVertex, V targetVertex)
     {
@@ -150,7 +150,7 @@ public class UnmodifiableGraph<V, E>
     }
 
     /**
-     * @see Graph#removeVertex(Object)
+     * @see MutableGraph#removeVertex(Object)
      */
     public boolean removeVertex(V v)
     {

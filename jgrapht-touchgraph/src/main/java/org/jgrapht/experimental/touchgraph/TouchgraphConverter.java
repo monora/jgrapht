@@ -79,7 +79,7 @@ public class TouchgraphConverter<V, E>
      * @throws TGException
      */
     public Node convertToTouchGraph(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         TGPanel tgPanel,
         boolean selfReferencesAllowed)
         throws TGException

@@ -46,12 +46,12 @@ import org.jgrapht.*;
  */
 public class DirectedMaskSubgraph<V, E>
     extends MaskSubgraph<V, E>
-    implements DirectedGraph<V, E>
+    implements DirectedMutableGraph<V, E>
 {
     
 
     public DirectedMaskSubgraph(
-        DirectedGraph<V, E> base,
+        DirectedMutableGraph<V, E> base,
         MaskFunctor<V, E> mask)
     {
         super(base, mask);

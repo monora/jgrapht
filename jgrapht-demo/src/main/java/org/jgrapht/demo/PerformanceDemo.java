@@ -76,7 +76,7 @@ public final class PerformanceDemo
 
         reportPerformanceFor("starting at", time);
 
-        Graph<Object, DefaultEdge> g =
+        MutableGraph<Object, DefaultEdge> g =
             new Pseudograph<Object, DefaultEdge>(DefaultEdge.class);
         Object prev;
         Object curr;

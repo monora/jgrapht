@@ -73,7 +73,7 @@ public final class RandomGraphHelper
      */
     @SuppressWarnings("unchecked")
     public static void addEdges(
-        Graph target,
+        MutableGraph target,
         List sourceVertices,
         List destVertices,
         int numEdges)
@@ -105,7 +105,7 @@ public final class RandomGraphHelper
      */
     @SuppressWarnings("unchecked")
     public static Object [] addVertices(
-        Graph target,
+        MutableGraph target,
         VertexFactory vertexFactory,
         int numVertices)
     {

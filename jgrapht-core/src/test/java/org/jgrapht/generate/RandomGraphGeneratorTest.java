@@ -54,8 +54,8 @@ public class RandomGraphGeneratorTest
 
     public void testGenerateDirectedGraph()
     {
-        List<Graph<Integer, DefaultEdge>> graphArray =
-            new ArrayList<Graph<Integer, DefaultEdge>>();
+        List<MutableGraph<Integer, DefaultEdge>> graphArray =
+            new ArrayList<MutableGraph<Integer, DefaultEdge>>();
         for (int i = 0; i < 3; ++i) {
             graphArray.add(
                 new SimpleDirectedGraph<Integer, DefaultEdge>(
@@ -73,8 +73,8 @@ public class RandomGraphGeneratorTest
 
     public void testGenerateListenableUndirectedGraph()
     {
-        List<Graph<Integer, DefaultEdge>> graphArray =
-            new ArrayList<Graph<Integer, DefaultEdge>>();
+        List<MutableGraph<Integer, DefaultEdge>> graphArray =
+            new ArrayList<MutableGraph<Integer, DefaultEdge>>();
         for (int i = 0; i < 3; ++i) {
             graphArray.add(
                 new ListenableUndirectedGraph<Integer, DefaultEdge>(
@@ -93,7 +93,7 @@ public class RandomGraphGeneratorTest
             new RandomGraphGenerator<String, DefaultEdge>(
                 10,
                 3);
-        Graph<String, DefaultEdge> graph =
+        MutableGraph<String, DefaultEdge> graph =
             new SimpleDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
         try {
             randomGen.generateGraph(
@@ -116,7 +116,7 @@ public class RandomGraphGeneratorTest
      * @param numOfEdges number of edges to generate per graph
      */
     private static void generateGraphs(
-        List<Graph<Integer, DefaultEdge>> graphs,
+        List<MutableGraph<Integer, DefaultEdge>> graphs,
         int numOfVertex,
         int numOfEdges)
     {

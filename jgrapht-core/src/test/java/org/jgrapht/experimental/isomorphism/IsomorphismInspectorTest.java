@@ -81,7 +81,7 @@ public class IsomorphismInspectorTest
      * edgeChecker = null
      */
     private void assertIsomorphic(
-        Graph<Integer, DefaultEdge> [] graphs,
+        MutableGraph<Integer, DefaultEdge> [] graphs,
         boolean shouldTheyBeIsomorphic)
     {
         assertIsomorphic(graphs, shouldTheyBeIsomorphic, null, null);
@@ -89,14 +89,14 @@ public class IsomorphismInspectorTest
 
     @SuppressWarnings("unchecked")
     private void assertIsomorphic(
-        Graph<Integer, DefaultEdge> [] graphs,
+        MutableGraph<Integer, DefaultEdge> [] graphs,
         boolean shouldTheyBeIsomorphic,
         EquivalenceComparator vertexChecker,
         EquivalenceComparator edgeChecker)
     {
         // System.out.println("\nassertIsomorphic:"+shouldTheyBeIsomorphic);
-        Graph<Integer, DefaultEdge> g1 = graphs[0];
-        Graph<Integer, DefaultEdge> g2 = graphs[1];
+        MutableGraph<Integer, DefaultEdge> g1 = graphs[0];
+        MutableGraph<Integer, DefaultEdge> g2 = graphs[1];
 
         // System.out.println("g1:"+g1);
         // System.out.println("g2:"+g2);
@@ -140,12 +140,12 @@ public class IsomorphismInspectorTest
 
     @SuppressWarnings("unchecked")
     private void checkRelation(
-        Graph<Integer, DefaultEdge> [] graphs,
+        MutableGraph<Integer, DefaultEdge> [] graphs,
         EquivalenceComparator vertexChecker,
         EquivalenceComparator edgeChecker)
     {
-        Graph<Integer, DefaultEdge> g1 = graphs[0];
-        Graph<Integer, DefaultEdge> g2 = graphs[1];
+        MutableGraph<Integer, DefaultEdge> g1 = graphs[0];
+        MutableGraph<Integer, DefaultEdge> g2 = graphs[1];
 
         GraphIsomorphismInspector iso =
             AdaptiveIsomorphismInspectorFactory.createIsomorphismInspector(
@@ -196,10 +196,10 @@ public class IsomorphismInspectorTest
         final int NUM_OF_VERTEXES_IN_WHEEL = 6;
         final int FIRST_INTEGER_FOR_G2 = 13;
 
-        Graph<Integer, DefaultEdge> g1 =
+        MutableGraph<Integer, DefaultEdge> g1 =
             new DefaultDirectedGraph<Integer, DefaultEdge>(
                 DefaultEdge.class);
-        Graph<Integer, DefaultEdge> g2 =
+        MutableGraph<Integer, DefaultEdge> g2 =
             new DefaultDirectedGraph<Integer, DefaultEdge>(
                 DefaultEdge.class);
         WheelGraphGenerator<Integer, DefaultEdge> gen1 =
@@ -213,7 +213,7 @@ public class IsomorphismInspectorTest
             new IntegerVertexFactory(FIRST_INTEGER_FOR_G2),
             null);
         assertIsomorphic(
-            new Graph[] {
+            new MutableGraph[] {
                 g1,
                 g2
             },
@@ -222,7 +222,7 @@ public class IsomorphismInspectorTest
         // In a wheel , the last vertex is the wheel center!
         g1.removeVertex(new Integer(NUM_OF_VERTEXES_IN_WHEEL)); // delete one vertex from g1
         assertIsomorphic(
-            new Graph[] {
+            new MutableGraph[] {
                 g1,
                 g2
             },
@@ -233,7 +233,7 @@ public class IsomorphismInspectorTest
             new Integer(FIRST_INTEGER_FOR_G2
                 + NUM_OF_VERTEXES_IN_WHEEL));
         assertIsomorphic(
-            new Graph[] {
+            new MutableGraph[] {
                 g1,
                 g2
             },
@@ -241,7 +241,7 @@ public class IsomorphismInspectorTest
 
         g1.removeEdge(new Integer(1), new Integer(2));
         assertIsomorphic(
-            new Graph[] {
+            new MutableGraph[] {
                 g1,
                 g2
             },
@@ -251,26 +251,26 @@ public class IsomorphismInspectorTest
     @SuppressWarnings("unchecked")
     public void testLinear4vertexIsomorphicGraph()
     {
-        Graph<Integer, DefaultEdge> g1 =
+        MutableGraph<Integer, DefaultEdge> g1 =
             new DefaultDirectedGraph<Integer, DefaultEdge>(
                 DefaultEdge.class);
         LinearGraphGenerator gen1 = new LinearGraphGenerator(4);
         gen1.generateGraph(g1, new IntegerVertexFactory(), null);
 
-        Graph<Integer, DefaultEdge> g2 =
+        MutableGraph<Integer, DefaultEdge> g2 =
             new DefaultDirectedGraph<Integer, DefaultEdge>(
                 DefaultEdge.class);
         LinearGraphGenerator gen2 = new LinearGraphGenerator(4);
         gen2.generateGraph(g2, new IntegerVertexFactory(5), null); // start vertex from number 6
         assertIsomorphic(
-            new Graph[] {
+            new MutableGraph[] {
                 g1,
                 g2
             },
             true);
 
         checkRelation(
-            new Graph[] {
+            new MutableGraph[] {
                 g1,
                 g2
             },
@@ -291,36 +291,36 @@ public class IsomorphismInspectorTest
         LinearGraphGenerator<Integer, DefaultEdge> gen4 =
             new LinearGraphGenerator<Integer, DefaultEdge>(4);
 
-        Graph<Integer, DefaultEdge> g1 =
+        MutableGraph<Integer, DefaultEdge> g1 =
             new DefaultDirectedGraph<Integer, DefaultEdge>(
                 DefaultEdge.class);
         gen4.generateGraph(g1, new IntegerVertexFactory(), null);
 
-        Graph<Integer, DefaultEdge> g2 =
+        MutableGraph<Integer, DefaultEdge> g2 =
             new DefaultDirectedGraph<Integer, DefaultEdge>(
                 DefaultEdge.class);
         gen4.generateGraph(g2, new IntegerVertexFactory(1), null); // start vertex from number 2
 
-        Graph<Integer, DefaultEdge> g3 =
+        MutableGraph<Integer, DefaultEdge> g3 =
             new DefaultDirectedGraph<Integer, DefaultEdge>(
                 DefaultEdge.class);
         gen4.generateGraph(g3, new IntegerVertexFactory(2), null); // start vertex from number 3
 
         // first assert all are isomorphic (if vertexChecker is not used)
         assertIsomorphic(
-            new Graph[] {
+            new MutableGraph[] {
                 g1,
                 g2
             },
             true);
         assertIsomorphic(
-            new Graph[] {
+            new MutableGraph[] {
                 g2,
                 g3
             },
             true);
         assertIsomorphic(
-            new Graph[] {
+            new MutableGraph[] {
                 g1,
                 g3
             },
@@ -329,7 +329,7 @@ public class IsomorphismInspectorTest
         // create a functor according to odd even
         EquivalenceComparator vertexEqChecker = new OddEvenGroupComparator();
         assertIsomorphic(
-            new Graph[] {
+            new MutableGraph[] {
                 g1,
                 g2
             },
@@ -337,7 +337,7 @@ public class IsomorphismInspectorTest
             vertexEqChecker,
             null);
         assertIsomorphic(
-            new Graph[] {
+            new MutableGraph[] {
                 g2,
                 g3
             },
@@ -345,7 +345,7 @@ public class IsomorphismInspectorTest
             vertexEqChecker,
             null);
         assertIsomorphic(
-            new Graph[] {
+            new MutableGraph[] {
                 g1,
                 g3
             },
@@ -366,7 +366,7 @@ public class IsomorphismInspectorTest
     public void testEdgeComparator()
     {
         int LINEAR_GRAPH_VERTEX_NUM = 4;
-        Graph [] graphsArray = new DirectedGraph[3];
+        MutableGraph [] graphsArray = new DirectedMutableGraph[3];
         Character [] charArray =
             new Character[] {
                 new Character('A'),
@@ -394,7 +394,7 @@ public class IsomorphismInspectorTest
             };
 
         for (int i = 0; i < graphsArray.length; i++) {
-            Graph<Character, DefaultEdge> currGraph =
+            MutableGraph<Character, DefaultEdge> currGraph =
                 graphsArray[i] =
                     new DefaultDirectedWeightedGraph<Character,
                         DefaultWeightedEdge>(
@@ -414,28 +414,28 @@ public class IsomorphismInspectorTest
         }
 
         // first assert all are isomorphic (if vertexChecker is not used)
-        assertIsomorphic(new Graph[] { graphsArray[0], graphsArray[1] },
+        assertIsomorphic(new MutableGraph[] { graphsArray[0], graphsArray[1] },
             true);
-        assertIsomorphic(new Graph[] { graphsArray[0], graphsArray[2] },
+        assertIsomorphic(new MutableGraph[] { graphsArray[0], graphsArray[2] },
             true);
-        assertIsomorphic(new Graph[] { graphsArray[1], graphsArray[2] },
+        assertIsomorphic(new MutableGraph[] { graphsArray[1], graphsArray[2] },
             true);
 
         // create a functor according to odd even
         EquivalenceComparator edgeEqChecker =
             new DirectedEdgeWeightOddEvenComparator(graphsArray[0]);
         assertIsomorphic(
-            new Graph[] { graphsArray[0], graphsArray[1] },
+            new MutableGraph[] { graphsArray[0], graphsArray[1] },
             true,
             null,
             edgeEqChecker);
         assertIsomorphic(
-            new Graph[] { graphsArray[0], graphsArray[2] },
+            new MutableGraph[] { graphsArray[0], graphsArray[2] },
             false,
             null,
             edgeEqChecker);
         assertIsomorphic(
-            new Graph[] { graphsArray[1], graphsArray[2] },
+            new MutableGraph[] { graphsArray[1], graphsArray[2] },
             false,
             null,
             edgeEqChecker);
@@ -443,7 +443,7 @@ public class IsomorphismInspectorTest
 
     @SuppressWarnings("unchecked")
     private void assertIsomorphicStopAfterFirstMatch(
-        Graph [] graphs,
+        MutableGraph [] graphs,
         boolean assertActive,
         boolean shouldTheyBeIsomorphic,
         EquivalenceComparator vertexChecker,
@@ -453,8 +453,8 @@ public class IsomorphismInspectorTest
             System.out.println("\nassertIsomorphic:"
                 + shouldTheyBeIsomorphic);
         }
-        Graph g1 = graphs[0];
-        Graph g2 = graphs[1];
+        MutableGraph g1 = graphs[0];
+        MutableGraph g2 = graphs[1];
         System.out.println("g1:" + g1);
         System.out.println("g2:" + g2);
         long beforeTime = System.currentTimeMillis();
@@ -552,17 +552,17 @@ public class IsomorphismInspectorTest
 
         // graphsArray rows are different graph types. Columns are few
         // instances of that type
-        Graph [][] graphsArray =
-            new Graph[graphConctereClassesFullName.length][SIZE_OF_GENERATED_GRAPH_ARRAY];
+        MutableGraph [][] graphsArray =
+            new MutableGraph[graphConctereClassesFullName.length][SIZE_OF_GENERATED_GRAPH_ARRAY];
 
-        Graph [] currIsoTestArray = new Graph[2];
+        MutableGraph [] currIsoTestArray = new MutableGraph[2];
         for (int testNum = 0; testNum < numOfVertexesArray.length; testNum++) {
             // recreate the graphs (empty)
             try {
                 for (int i = 0; i < graphConctereClassesFullName.length; i++) {
                     for (int j = 0; j < SIZE_OF_GENERATED_GRAPH_ARRAY; j++) {
                         graphsArray[i][j] =
-                            (Graph) Class.forName(
+                            (MutableGraph) Class.forName(
                                 graphConctereClassesFullName[i]).newInstance();
                     }
                 }

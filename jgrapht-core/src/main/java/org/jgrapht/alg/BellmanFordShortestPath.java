@@ -58,7 +58,7 @@ public class BellmanFordShortestPath<V, E>
     /**
      * Graph on which shortest paths are searched.
      */
-    protected Graph<V, E> graph;
+    protected MutableGraph<V, E> graph;
 
     /**
      * Start vertex.
@@ -85,7 +85,7 @@ public class BellmanFordShortestPath<V, E>
      * @param graph
      * @param startVertex
      */
-    public BellmanFordShortestPath(Graph<V, E> graph, V startVertex)
+    public BellmanFordShortestPath(MutableGraph<V, E> graph, V startVertex)
     {
         this(graph, startVertex, graph.vertexSet().size() - 1);
     }
@@ -99,7 +99,7 @@ public class BellmanFordShortestPath<V, E>
      * @param nMaxHops maximum number of edges of the calculated paths.
      */
     public BellmanFordShortestPath(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         V startVertex,
         int nMaxHops)
     {
@@ -116,7 +116,7 @@ public class BellmanFordShortestPath<V, E>
      * @param epsilon tolerance factor.
      */
     public BellmanFordShortestPath(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         V startVertex,
         int nMaxHops,
         double epsilon)
@@ -220,7 +220,7 @@ public class BellmanFordShortestPath<V, E>
      * @return List of Edges, or null if no path exists
      */
     public static <V, E> List<E> findPathBetween(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         V startVertex,
         V endVertex)
     {

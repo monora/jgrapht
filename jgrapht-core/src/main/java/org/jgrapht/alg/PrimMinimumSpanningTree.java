@@ -62,7 +62,7 @@ public class PrimMinimumSpanningTree<V, E>
 
     
 
-    public PrimMinimumSpanningTree(final Graph<V, E> g)
+    public PrimMinimumSpanningTree(final MutableGraph<V, E> g)
     {
         this.minimumSpanningTreeEdgeSet = new HashSet<E>(g.vertexSet().size());
 

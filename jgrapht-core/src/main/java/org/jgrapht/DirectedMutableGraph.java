@@ -19,9 +19,9 @@
  * (b) the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation.
  */
-/* ------------------------------
- * UnmodifiableDirectedGraph.java
- * ------------------------------
+/* ------------------
+ * DirectedGraph.java
+ * ------------------
  * (C) Copyright 2003-2008, by Barak Naveh and Contributors.
  *
  * Original Author:  Barak Naveh
@@ -31,41 +31,29 @@
  *
  * Changes
  * -------
- * 05-Aug-2003 : Initial revision (BN);
+ * 24-Jul-2003 : Initial revision (BN);
  * 11-Mar-2004 : Made generic (CH);
+ * 07-May-2006 : Changed from List<Edge> to Set<Edge> (JVS);
  *
  */
-package org.jgrapht.graph;
-
-import org.jgrapht.*;
+package org.jgrapht;
 
 
 /**
- * A directed graph that cannot be modified.
+ * A graph whose all edges are directed. This is the root interface of all
+ * directed graphs.
  *
- * @see UnmodifiableGraph
+ * <p>
+ * See <a href="http://mathworld.wolfram.com/DirectedGraph.html">
+ * http://mathworld.wolfram.com/DirectedGraph.html</a> for more on directed
+ * graphs.
+ * </p>
+ *
+ * @author Barak Naveh
+ * @since Jul 14, 2003
  */
-public class UnmodifiableDirectedGraph<V, E>
-    extends UnmodifiableGraph<V, E>
-    implements DirectedMutableGraph<V, E>
-{
-    
-
-    private static final long serialVersionUID = 3978701783725913906L;
-
-    
-
-    /**
-     * Creates a new unmodifiable directed graph based on the specified backing
-     * graph.
-     *
-     * @param g the backing graph on which an unmodifiable graph is to be
-     * created.
-     */
-    public UnmodifiableDirectedGraph(DirectedMutableGraph<V, E> g)
-    {
-        super(g);
-    }
+public interface DirectedMutableGraph<V, E> extends DirectedGraph<V, E>,
+		MutableGraph<V, E> {
 }
 
-// End UnmodifiableDirectedGraph.java
+// End DirectedGraph.java

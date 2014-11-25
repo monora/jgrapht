@@ -89,7 +89,7 @@ public class TopologicalOrderIterator<V, E>
      *
      * @param dg the directed graph to be iterated.
      */
-    public TopologicalOrderIterator(DirectedGraph<V, E> dg)
+    public TopologicalOrderIterator(DirectedMutableGraph<V, E> dg)
     {
         this(dg, new LinkedListQueue<V>());
     }
@@ -107,7 +107,7 @@ public class TopologicalOrderIterator<V, E>
      * PriorityQueue can be used to break ties according to vertex priority);
      * must be initially empty
      */
-    public TopologicalOrderIterator(DirectedGraph<V, E> dg, Queue<V> queue)
+    public TopologicalOrderIterator(DirectedMutableGraph<V, E> dg, Queue<V> queue)
     {
         this(dg, queue, new HashMap<V, ModifiableInteger>());
     }
@@ -115,7 +115,7 @@ public class TopologicalOrderIterator<V, E>
     // NOTE: This is a hack to deal with the fact that CrossComponentIterator
     // needs to know the start vertex in its constructor
     private TopologicalOrderIterator(
-        DirectedGraph<V, E> dg,
+        DirectedMutableGraph<V, E> dg,
         Queue<V> queue,
         Map<V, ModifiableInteger> inDegreeMap)
     {
@@ -130,7 +130,7 @@ public class TopologicalOrderIterator<V, E>
 
     // NOTE: This is intentionally private, because starting the sort "in the
     // middle" doesn't make sense.
-    private TopologicalOrderIterator(DirectedGraph<V, E> dg, V start)
+    private TopologicalOrderIterator(DirectedMutableGraph<V, E> dg, V start)
     {
         super(dg, start);
     }
@@ -204,7 +204,7 @@ public class TopologicalOrderIterator<V, E>
      * @return start vertex
      */
     private static <V, E> V initialize(
-        DirectedGraph<V, E> dg,
+        DirectedMutableGraph<V, E> dg,
         Queue<V> queue,
         Map<V, ModifiableInteger> inDegreeMap)
     {

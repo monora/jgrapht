@@ -55,7 +55,7 @@ public class MinSourceSinkCut<V, E>
 
     EdmondsKarpMaximumFlow<V, E> ekMaxFlow;
     Set<V> minCut = null;
-    DirectedGraph<V, E> graph;
+    DirectedMutableGraph<V, E> graph;
     double cutWeight;
     V source = null;
     V sink = null;
@@ -63,13 +63,13 @@ public class MinSourceSinkCut<V, E>
 
     
 
-    public MinSourceSinkCut(DirectedGraph<V, E> graph)
+    public MinSourceSinkCut(DirectedMutableGraph<V, E> graph)
     {
         this.ekMaxFlow = new EdmondsKarpMaximumFlow<V, E>(graph);
         this.graph = graph;
     }
 
-    public MinSourceSinkCut(DirectedGraph<V, E> graph, double epsilon)
+    public MinSourceSinkCut(DirectedMutableGraph<V, E> graph, double epsilon)
     {
         this.ekMaxFlow = new EdmondsKarpMaximumFlow<V, E>(graph);
         this.graph = graph;

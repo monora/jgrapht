@@ -61,7 +61,7 @@ public class BiconnectivityInspector<V, E>
     /**
      * Running time = O(m) where m is the number of edges.
      */
-    public BiconnectivityInspector(UndirectedGraph<V, E> graph)
+    public BiconnectivityInspector(UndirectedMutableGraph<V, E> graph)
     {
         super();
         this.blockCutpointGraph = new BlockCutpointGraph<V, E>(graph);
@@ -76,11 +76,11 @@ public class BiconnectivityInspector<V, E>
     {
         Set<Set<V>> biconnectedVertexComponents = new HashSet<Set<V>>();
         for (
-            Iterator<UndirectedGraph<V, E>> iter =
+            Iterator<UndirectedMutableGraph<V, E>> iter =
                 this.blockCutpointGraph.vertexSet().iterator();
             iter.hasNext();)
         {
-            UndirectedGraph<V, E> subgraph = iter.next();
+            UndirectedMutableGraph<V, E> subgraph = iter.next();
             if (!subgraph.edgeSet().isEmpty()) {
                 biconnectedVertexComponents.add(subgraph.vertexSet());
             }

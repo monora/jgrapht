@@ -52,7 +52,7 @@ import org.jgrapht.*;
  * @since July 5, 2007
  */
 public class MaskSubgraph<V, E>
-    extends AbstractGraph<V, E>
+    extends AbstractMutableGraph<V, E>
 {
     
 
@@ -60,7 +60,7 @@ public class MaskSubgraph<V, E>
 
     
 
-    private Graph<V, E> base;
+    private MutableGraph<V, E> base;
 
     private Set<E> edges;
 
@@ -77,7 +77,7 @@ public class MaskSubgraph<V, E>
      * @param mask vertices and edges to exclude in the subgraph. If a
      * vertex/edge is masked, it is as if it is not in the subgraph.
      */
-    public MaskSubgraph(Graph<V, E> base, MaskFunctor<V, E> mask)
+    public MaskSubgraph(MutableGraph<V, E> base, MaskFunctor<V, E> mask)
     {
         super();
         this.base = base;
@@ -90,7 +90,7 @@ public class MaskSubgraph<V, E>
     
 
     /**
-     * @see Graph#addEdge(Object, Object)
+     * @see MutableGraph#addEdge(Object, Object)
      */
     public E addEdge(V sourceVertex, V targetVertex)
     {
@@ -103,7 +103,7 @@ public class MaskSubgraph<V, E>
     }
 
     /**
-     * @see Graph#addVertex(Object)
+     * @see MutableGraph#addVertex(Object)
      */
     public boolean addVertex(V v)
     {
@@ -121,7 +121,7 @@ public class MaskSubgraph<V, E>
     }
 
     /**
-     * @see UndirectedGraph#degreeOf(Object)
+     * @see UndirectedMutableGraph#degreeOf(Object)
      */
     public int degreeOf(V vertex)
     {
@@ -197,7 +197,7 @@ public class MaskSubgraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#incomingEdgesOf(Object)
+     * @see DirectedMutableGraph#incomingEdgesOf(Object)
      */
     public Set<E> incomingEdgesOf(V vertex)
     {
@@ -205,12 +205,12 @@ public class MaskSubgraph<V, E>
 
         return new MaskEdgeSet<V, E>(
             this.base,
-            ((DirectedGraph<V, E>) this.base).incomingEdgesOf(vertex),
+            ((DirectedMutableGraph<V, E>) this.base).incomingEdgesOf(vertex),
             this.mask);
     }
 
     /**
-     * @see DirectedGraph#inDegreeOf(Object)
+     * @see DirectedMutableGraph#inDegreeOf(Object)
      */
     public int inDegreeOf(V vertex)
     {
@@ -218,7 +218,7 @@ public class MaskSubgraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#outDegreeOf(Object)
+     * @see DirectedMutableGraph#outDegreeOf(Object)
      */
     public int outDegreeOf(V vertex)
     {
@@ -226,7 +226,7 @@ public class MaskSubgraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#outgoingEdgesOf(Object)
+     * @see DirectedMutableGraph#outgoingEdgesOf(Object)
      */
     public Set<E> outgoingEdgesOf(V vertex)
     {
@@ -234,12 +234,12 @@ public class MaskSubgraph<V, E>
 
         return new MaskEdgeSet<V, E>(
             this.base,
-            ((DirectedGraph<V, E>) this.base).outgoingEdgesOf(vertex),
+            ((DirectedMutableGraph<V, E>) this.base).outgoingEdgesOf(vertex),
             this.mask);
     }
 
     /**
-     * @see Graph#removeAllEdges(Collection)
+     * @see MutableGraph#removeAllEdges(Collection)
      */
     public boolean removeAllEdges(Collection<? extends E> edges)
     {
@@ -247,7 +247,7 @@ public class MaskSubgraph<V, E>
     }
 
     /**
-     * @see Graph#removeAllEdges(Object, Object)
+     * @see MutableGraph#removeAllEdges(Object, Object)
      */
     public Set<E> removeAllEdges(V sourceVertex, V targetVertex)
     {
@@ -255,7 +255,7 @@ public class MaskSubgraph<V, E>
     }
 
     /**
-     * @see Graph#removeAllVertices(Collection)
+     * @see MutableGraph#removeAllVertices(Collection)
      */
     public boolean removeAllVertices(Collection<? extends V> vertices)
     {
@@ -263,7 +263,7 @@ public class MaskSubgraph<V, E>
     }
 
     /**
-     * @see Graph#removeEdge(Object)
+     * @see MutableGraph#removeEdge(Object)
      */
     public boolean removeEdge(E e)
     {
@@ -271,7 +271,7 @@ public class MaskSubgraph<V, E>
     }
 
     /**
-     * @see Graph#removeEdge(Object, Object)
+     * @see MutableGraph#removeEdge(Object, Object)
      */
     public E removeEdge(V sourceVertex, V targetVertex)
     {
@@ -279,7 +279,7 @@ public class MaskSubgraph<V, E>
     }
 
     /**
-     * @see Graph#removeVertex(Object)
+     * @see MutableGraph#removeVertex(Object)
      */
     public boolean removeVertex(V v)
     {

@@ -99,7 +99,7 @@ public class GridGraphGenerator<V, E>
      * {@inheritDoc}
      */
     @Override public void generateGraph(
-        Graph<V, E> target,
+        MutableGraph<V, E> target,
         VertexFactory<V> vertexFactory,
         Map<String, V> resultMap)
     {

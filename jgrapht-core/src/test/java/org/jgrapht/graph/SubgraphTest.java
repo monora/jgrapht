@@ -76,7 +76,7 @@ public class SubgraphTest
      */
     public void testInducedSubgraphListener()
     {
-        UndirectedGraph<String, DefaultEdge> g = init(true);
+        UndirectedMutableGraph<String, DefaultEdge> g = init(true);
         UndirectedSubgraph<String, DefaultEdge> sub =
             new UndirectedSubgraph<String, DefaultEdge>(g, null, null);
 
@@ -94,7 +94,7 @@ public class SubgraphTest
      */
     public void testSubgraph()
     {
-        UndirectedGraph<String, DefaultEdge> g = init(false);
+        UndirectedMutableGraph<String, DefaultEdge> g = init(false);
         UndirectedSubgraph<String, DefaultEdge> sub =
             new UndirectedSubgraph<String, DefaultEdge>(g, null, null);
 
@@ -129,7 +129,7 @@ public class SubgraphTest
      */
     public void testSubgraphListener()
     {
-        UndirectedGraph<String, DefaultEdge> g = init(true);
+        UndirectedMutableGraph<String, DefaultEdge> g = init(true);
         UndirectedSubgraph<String, DefaultEdge> sub =
             new UndirectedSubgraph<String, DefaultEdge>(g, null, null);
 
@@ -143,9 +143,9 @@ public class SubgraphTest
         assertEquals(g.edgeSet(), sub.edgeSet());
     }
 
-    private UndirectedGraph<String, DefaultEdge> init(boolean listenable)
+    private UndirectedMutableGraph<String, DefaultEdge> init(boolean listenable)
     {
-        UndirectedGraph<String, DefaultEdge> g;
+        UndirectedMutableGraph<String, DefaultEdge> g;
 
         if (listenable) {
             g = new ListenableUndirectedGraph<String, DefaultEdge>(

@@ -74,7 +74,7 @@ public class ListenableDirectedWeightedGraph<V, E>
      */
     public ListenableDirectedWeightedGraph(WeightedGraph<V, E> base)
     {
-        super((DirectedGraph<V, E>) base);
+        super((DirectedMutableGraph<V, E>) base);
     }
 }
 

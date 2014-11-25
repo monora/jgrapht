@@ -92,7 +92,7 @@ public class UniformRandomGraphGenerator
      * @see GraphGenerator#generateGraph
      */
     public void generateGraph(
-        Graph target,
+        MutableGraph target,
         VertexFactory vertexFactory,
         Map resultMap)
     {

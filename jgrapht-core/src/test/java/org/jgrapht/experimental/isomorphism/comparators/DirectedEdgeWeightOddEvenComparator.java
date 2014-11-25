@@ -51,11 +51,11 @@ public class DirectedEdgeWeightOddEvenComparator
 {
     //~ Instance fields --------------------------------------------------------
 
-    private final Graph graph;
+    private final MutableGraph graph;
 
     //~ Constructors -----------------------------------------------------------
 
-    public DirectedEdgeWeightOddEvenComparator(Graph graph)
+    public DirectedEdgeWeightOddEvenComparator(MutableGraph graph)
     {
         this.graph = graph;
     }

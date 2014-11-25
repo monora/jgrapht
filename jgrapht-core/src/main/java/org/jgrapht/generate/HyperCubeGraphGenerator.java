@@ -76,7 +76,7 @@ public class HyperCubeGraphGenerator<V, E>
      * This will generate the hypercube graph
      */
     public void generateGraph(
-        Graph<V, E> target,
+        MutableGraph<V, E> target,
         final VertexFactory<V> vertexFactory,
         Map<String, V> resultMap)
     {

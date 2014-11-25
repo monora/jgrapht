@@ -47,7 +47,7 @@ import org.jgrapht.*;
  */
 public class UnmodifiableUndirectedGraph<V, E>
     extends UnmodifiableGraph<V, E>
-    implements UndirectedGraph<V, E>
+    implements UndirectedMutableGraph<V, E>
 {
     
 
@@ -62,7 +62,7 @@ public class UnmodifiableUndirectedGraph<V, E>
      * @param g the backing graph on which an unmodifiable graph is to be
      * created.
      */
-    public UnmodifiableUndirectedGraph(UndirectedGraph<V, E> g)
+    public UnmodifiableUndirectedGraph(UndirectedMutableGraph<V, E> g)
     {
         super(g);
     }

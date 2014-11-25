@@ -59,7 +59,7 @@ public class JohnsonSimpleCycles<V, E>
     
 
     // The graph.
-    private DirectedGraph<V, E> graph;
+    private DirectedMutableGraph<V, E> graph;
 
     // The main state of the algorithm.
     private List<List<V>> cycles = null;
@@ -94,7 +94,7 @@ public class JohnsonSimpleCycles<V, E>
      * @throws IllegalArgumentException if the graph argument is <code>
      * null</code>.
      */
-    public JohnsonSimpleCycles(DirectedGraph<V, E> graph)
+    public JohnsonSimpleCycles(DirectedMutableGraph<V, E> graph)
     {
         if (graph == null) {
             throw new IllegalArgumentException("Null graph argument.");
@@ -107,7 +107,7 @@ public class JohnsonSimpleCycles<V, E>
     /**
      * {@inheritDoc}
      */
-    @Override public DirectedGraph<V, E> getGraph()
+    @Override public DirectedMutableGraph<V, E> getGraph()
     {
         return graph;
     }
@@ -115,7 +115,7 @@ public class JohnsonSimpleCycles<V, E>
     /**
      * {@inheritDoc}
      */
-    @Override public void setGraph(DirectedGraph<V, E> graph)
+    @Override public void setGraph(DirectedMutableGraph<V, E> graph)
     {
         if (graph == null) {
             throw new IllegalArgumentException("Null graph argument.");
@@ -140,8 +140,8 @@ public class JohnsonSimpleCycles<V, E>
             if (minSCCGResult[0] != null) {
                 startIndex = (Integer) minSCCGResult[1];
                 @SuppressWarnings("unchecked")
-                DirectedGraph<V, E> scg =
-                    (DirectedGraph<V, E>) minSCCGResult[0];
+                DirectedMutableGraph<V, E> scg =
+                    (DirectedMutableGraph<V, E>) minSCCGResult[0];
                 V startV = toV(startIndex);
                 for (E e : scg.outgoingEdgesOf(startV)) {
                     V v = graph.getEdgeTarget(e);
@@ -193,7 +193,7 @@ public class JohnsonSimpleCycles<V, E>
 
         // build a graph for the SCC found
         @SuppressWarnings("unchecked")
-        DirectedGraph<V, E> resultGraph =
+        DirectedMutableGraph<V, E> resultGraph =
             new DefaultDirectedGraph<V, E>(
                 new ClassBasedEdgeFactory<V, E>(
                     (Class<? extends E>) DefaultEdge.class));
@@ -295,7 +295,7 @@ public class JohnsonSimpleCycles<V, E>
     private boolean findCyclesInSCG(
         int startIndex,
         int vertexIndex,
-        DirectedGraph<V, E> scg)
+        DirectedMutableGraph<V, E> scg)
     {
         // Find cycles in a strongly connected graph
         // per Johnson.

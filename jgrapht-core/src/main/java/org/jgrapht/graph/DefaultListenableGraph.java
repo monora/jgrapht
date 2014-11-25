@@ -91,7 +91,7 @@ public class DefaultListenableGraph<V, E>
      *
      * @param g the backing graph.
      */
-    public DefaultListenableGraph(Graph<V, E> g)
+    public DefaultListenableGraph(MutableGraph<V, E> g)
     {
         this(g, false);
     }
@@ -110,7 +110,7 @@ public class DefaultListenableGraph<V, E>
      * @throws IllegalArgumentException if the backing graph is already a
      * listenable graph.
      */
-    public DefaultListenableGraph(Graph<V, E> g, boolean reuseEvents)
+    public DefaultListenableGraph(MutableGraph<V, E> g, boolean reuseEvents)
     {
         super(g);
         this.reuseEvents = reuseEvents;
@@ -155,7 +155,7 @@ public class DefaultListenableGraph<V, E>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object)
+     * @see MutableGraph#addEdge(Object, Object)
      */
     public E addEdge(V sourceVertex, V targetVertex)
     {
@@ -169,7 +169,7 @@ public class DefaultListenableGraph<V, E>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object, Object)
+     * @see MutableGraph#addEdge(Object, Object, Object)
      */
     public boolean addEdge(V sourceVertex, V targetVertex, E e)
     {
@@ -191,7 +191,7 @@ public class DefaultListenableGraph<V, E>
     }
 
     /**
-     * @see Graph#addVertex(Object)
+     * @see MutableGraph#addVertex(Object)
      */
     public boolean addVertex(V v)
     {
@@ -234,7 +234,7 @@ public class DefaultListenableGraph<V, E>
     }
 
     /**
-     * @see Graph#removeEdge(Object, Object)
+     * @see MutableGraph#removeEdge(Object, Object)
      */
     public E removeEdge(V sourceVertex, V targetVertex)
     {
@@ -248,7 +248,7 @@ public class DefaultListenableGraph<V, E>
     }
 
     /**
-     * @see Graph#removeEdge(Object)
+     * @see MutableGraph#removeEdge(Object)
      */
     public boolean removeEdge(E e)
     {
@@ -273,7 +273,7 @@ public class DefaultListenableGraph<V, E>
     }
 
     /**
-     * @see Graph#removeVertex(Object)
+     * @see MutableGraph#removeVertex(Object)
      */
     public boolean removeVertex(V v)
     {

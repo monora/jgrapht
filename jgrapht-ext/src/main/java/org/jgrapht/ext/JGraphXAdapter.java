@@ -49,7 +49,7 @@ public class JGraphXAdapter<V, E>
     /**
      * The graph to be drawn. Has vertices "V" and edges "E".
      */
-    private Graph<V, E> graphT;
+    private MutableGraph<V, E> graphT;
 
     /**
      * Maps the JGraphT-Vertices onto JGraphX-mxICells. {@link #cellToVertexMap}
@@ -88,7 +88,7 @@ public class JGraphXAdapter<V, E>
     public JGraphXAdapter(ListenableGraph<V, E> graph)
     {
         // call normal constructor with graph class
-        this((Graph<V, E>) graph);
+        this((MutableGraph<V, E>) graph);
 
         graph.addGraphListener(this);
     }
@@ -101,7 +101,7 @@ public class JGraphXAdapter<V, E>
      *
      * @param graph is a graph
      */
-    public JGraphXAdapter(Graph<V, E> graph)
+    public JGraphXAdapter(MutableGraph<V, E> graph)
     {
         super();
 
@@ -299,7 +299,7 @@ public class JGraphXAdapter<V, E>
      *
      * @param graph the graph to be added to the existing graph.
      */
-    private void insertJGraphT(Graph<V, E> graph)
+    private void insertJGraphT(MutableGraph<V, E> graph)
     {
         for (V vertex : graph.vertexSet()) {
             addJGraphTVertex(vertex);

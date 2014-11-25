@@ -49,7 +49,7 @@ public abstract class WeightedGraphGeneratorAdapter<V, E, T>
     }
 
     @Override public void generateGraph(
-        Graph<V, E> target,
+        MutableGraph<V, E> target,
         VertexFactory<V> vertexFactory,
         Map<String, T> resultMap)
     {

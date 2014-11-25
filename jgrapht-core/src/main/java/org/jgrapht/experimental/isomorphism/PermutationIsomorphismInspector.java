@@ -66,13 +66,13 @@ class PermutationIsomorphismInspector<V, E>
      * UniformEquivalenceComparator will be used as default (always return true)
      */
     public PermutationIsomorphismInspector(
-        Graph<V, E> graph1,
-        Graph<V, E> graph2,
+        MutableGraph<V, E> graph1,
+        MutableGraph<V, E> graph2,
 
         // XXX hb 060128: FOllowing parameter may need Graph<? super V,? super
         // E>
-        EquivalenceComparator<? super V, ? super Graph<? super V, ? super E>> vertexChecker,
-        EquivalenceComparator<? super E, ? super Graph<? super V, ? super E>> edgeChecker)
+        EquivalenceComparator<? super V, ? super MutableGraph<? super V, ? super E>> vertexChecker,
+        EquivalenceComparator<? super E, ? super MutableGraph<? super V, ? super E>> edgeChecker)
     {
         super(graph1, graph2, vertexChecker, edgeChecker);
     }
@@ -80,12 +80,12 @@ class PermutationIsomorphismInspector<V, E>
     /**
      * Constructor which uses the default comparators.
      *
-     * @see AbstractExhaustiveIsomorphismInspector#AbstractExhaustiveIsomorphismInspector(Graph,
-     * Graph)
+     * @see AbstractExhaustiveIsomorphismInspector#AbstractExhaustiveIsomorphismInspector(MutableGraph,
+     * MutableGraph)
      */
     public PermutationIsomorphismInspector(
-        Graph<V, E> graph1,
-        Graph<V, E> graph2)
+        MutableGraph<V, E> graph1,
+        MutableGraph<V, E> graph2)
     {
         super(graph1, graph2);
     }

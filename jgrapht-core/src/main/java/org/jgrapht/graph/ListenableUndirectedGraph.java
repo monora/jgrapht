@@ -48,7 +48,7 @@ import org.jgrapht.*;
  */
 public class ListenableUndirectedGraph<V, E>
     extends DefaultListenableGraph<V, E>
-    implements UndirectedGraph<V, E>
+    implements UndirectedMutableGraph<V, E>
 {
     
 
@@ -71,7 +71,7 @@ public class ListenableUndirectedGraph<V, E>
      *
      * @param base the backing graph.
      */
-    public ListenableUndirectedGraph(UndirectedGraph<V, E> base)
+    public ListenableUndirectedGraph(UndirectedMutableGraph<V, E> base)
     {
         super(base);
     }

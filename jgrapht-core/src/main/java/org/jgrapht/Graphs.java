@@ -58,7 +58,7 @@ public abstract class Graphs
 
     /**
      * Creates a new edge and adds it to the specified graph similarly to the
-     * {@link Graph#addEdge(Object, Object)} method.
+     * {@link MutableGraph#addEdge(Object, Object)} method.
      *
      * @param g the graph for which the edge to be added.
      * @param sourceVertex source vertex of the edge.
@@ -68,10 +68,10 @@ public abstract class Graphs
      * @return The newly created edge if added to the graph, otherwise <code>
      * null</code>.
      *
-     * @see Graph#addEdge(Object, Object)
+     * @see MutableGraph#addEdge(Object, Object)
      */
     public static <V, E> E addEdge(
-        Graph<V, E> g,
+        MutableGraph<V, E> g,
         V sourceVertex,
         V targetVertex,
         double weight)
@@ -91,7 +91,7 @@ public abstract class Graphs
     /**
      * Adds the specified source and target vertices to the graph, if not
      * already included, and creates a new edge and adds it to the specified
-     * graph similarly to the {@link Graph#addEdge(Object, Object)} method.
+     * graph similarly to the {@link MutableGraph#addEdge(Object, Object)} method.
      *
      * @param g the graph for which the specified edge to be added.
      * @param sourceVertex source vertex of the edge.
@@ -101,7 +101,7 @@ public abstract class Graphs
      * null</code>.
      */
     public static <V, E> E addEdgeWithVertices(
-        Graph<V, E> g,
+        MutableGraph<V, E> g,
         V sourceVertex,
         V targetVertex)
     {
@@ -124,8 +124,8 @@ public abstract class Graphs
      * specified edge.
      */
     public static <V, E> boolean addEdgeWithVertices(
-        Graph<V, E> targetGraph,
-        Graph<V, E> sourceGraph,
+        MutableGraph<V, E> targetGraph,
+        MutableGraph<V, E> sourceGraph,
         E edge)
     {
         V sourceVertex = sourceGraph.getEdgeSource(edge);
@@ -140,7 +140,7 @@ public abstract class Graphs
     /**
      * Adds the specified source and target vertices to the graph, if not
      * already included, and creates a new weighted edge and adds it to the
-     * specified graph similarly to the {@link Graph#addEdge(Object, Object)}
+     * specified graph similarly to the {@link MutableGraph#addEdge(Object, Object)}
      * method.
      *
      * @param g the graph for which the specified edge to be added.
@@ -152,7 +152,7 @@ public abstract class Graphs
      * null</code>.
      */
     public static <V, E> E addEdgeWithVertices(
-        Graph<V, E> g,
+        MutableGraph<V, E> g,
         V sourceVertex,
         V targetVertex,
         double weight)
@@ -181,8 +181,8 @@ public abstract class Graphs
      * changed as a result of this operation.
      */
     public static <V, E> boolean addGraph(
-        Graph<? super V, ? super E> destination,
-        Graph<V, E> source)
+        MutableGraph<? super V, ? super E> destination,
+        MutableGraph<V, E> source)
     {
         boolean modified = addAllVertices(destination, source.vertexSet());
         modified |= addAllEdges(destination, source, source.edgeSet());
@@ -205,8 +205,8 @@ public abstract class Graphs
      * @see EdgeReversedGraph
      */
     public static <V, E> void addGraphReversed(
-        DirectedGraph<? super V, ? super E> destination,
-        DirectedGraph<V, E> source)
+        DirectedMutableGraph<? super V, ? super E> destination,
+        DirectedMutableGraph<V, E> source)
     {
         addAllVertices(destination, source.vertexSet());
 
@@ -231,8 +231,8 @@ public abstract class Graphs
      * @return <tt>true</tt> if this graph changed as a result of the call
      */
     public static <V, E> boolean addAllEdges(
-        Graph<? super V, ? super E> destination,
-        Graph<V, E> source,
+        MutableGraph<? super V, ? super E> destination,
+        MutableGraph<V, E> source,
         Collection<? extends E> edges)
     {
         boolean modified = false;
@@ -252,7 +252,7 @@ public abstract class Graphs
      * Adds all of the specified vertices to the destination graph. The behavior
      * of this operation is undefined if the specified vertex collection is
      * modified while the operation is in progress. This method will invoke the
-     * {@link Graph#addVertex(Object)} method.
+     * {@link MutableGraph#addVertex(Object)} method.
      *
      * @param destination the graph to which edges are to be added
      * @param vertices the vertices to be added to the graph.
@@ -263,10 +263,10 @@ public abstract class Graphs
      * more null vertices, or if the specified vertex collection is <tt>
      * null</tt>.
      *
-     * @see Graph#addVertex(Object)
+     * @see MutableGraph#addVertex(Object)
      */
     public static <V, E> boolean addAllVertices(
-        Graph<? super V, ? super E> destination,
+        MutableGraph<? super V, ? super E> destination,
         Collection<? extends V> vertices)
     {
         boolean modified = false;
@@ -289,7 +289,7 @@ public abstract class Graphs
      * @return a list of the vertices that are the neighbors of the specified
      * vertex.
      */
-    public static <V, E> List<V> neighborListOf(Graph<V, E> g,
+    public static <V, E> List<V> neighborListOf(MutableGraph<V, E> g,
         V vertex)
     {
         List<V> neighbors = new ArrayList<V>();
@@ -313,7 +313,7 @@ public abstract class Graphs
      * specified vertex.
      */
     public static <V, E> List<V> predecessorListOf(
-        DirectedGraph<V, E> g,
+        DirectedMutableGraph<V, E> g,
         V vertex)
     {
         List<V> predecessors = new ArrayList<V>();
@@ -338,7 +338,7 @@ public abstract class Graphs
      * specified vertex.
      */
     public static <V, E> List<V> successorListOf(
-        DirectedGraph<V, E> g,
+        DirectedMutableGraph<V, E> g,
         V vertex)
     {
         List<V> successors = new ArrayList<V>();
@@ -366,12 +366,12 @@ public abstract class Graphs
      *
      * @see AsUndirectedGraph
      */
-    public static <V, E> UndirectedGraph<V, E> undirectedGraph(Graph<V, E> g)
+    public static <V, E> UndirectedMutableGraph<V, E> undirectedGraph(MutableGraph<V, E> g)
     {
-        if (g instanceof DirectedGraph<?, ?>) {
-            return new AsUndirectedGraph<V, E>((DirectedGraph<V, E>) g);
-        } else if (g instanceof UndirectedGraph<?, ?>) {
-            return (UndirectedGraph<V, E>) g;
+        if (g instanceof DirectedMutableGraph<?, ?>) {
+            return new AsUndirectedGraph<V, E>((DirectedMutableGraph<V, E>) g);
+        } else if (g instanceof UndirectedMutableGraph<?, ?>) {
+            return (UndirectedMutableGraph<V, E>) g;
         } else {
             throw new IllegalArgumentException(
                 "Graph must be either DirectedGraph or UndirectedGraph");
@@ -387,7 +387,7 @@ public abstract class Graphs
      *
      * @return true iff e is incident on v
      */
-    public static <V, E> boolean testIncidence(Graph<V, E> g, E e, V v)
+    public static <V, E> boolean testIncidence(MutableGraph<V, E> g, E e, V v)
     {
         return (g.getEdgeSource(e).equals(v))
             || (g.getEdgeTarget(e).equals(v));
@@ -402,7 +402,7 @@ public abstract class Graphs
      *
      * @return vertex opposite to v across e
      */
-    public static <V, E> V getOppositeVertex(Graph<V, E> g, E e, V v)
+    public static <V, E> V getOppositeVertex(MutableGraph<V, E> g, E e, V v)
     {
         V source = g.getEdgeSource(e);
         V target = g.getEdgeTarget(e);
@@ -424,7 +424,7 @@ public abstract class Graphs
      */
     public static <V, E> List<V> getPathVertexList(GraphPath<V, E> path)
     {
-        Graph<V, E> g = path.getGraph();
+        MutableGraph<V, E> g = path.getGraph();
         List<V> list = new ArrayList<V>();
         V v = path.getStartVertex();
         list.add(v);

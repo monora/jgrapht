@@ -66,9 +66,9 @@ public class SimpleTouchgraphApplet
      * create a graph: code taken from non-visible
      * org._3pq.jgrapht.demo.createStringGraph()
      */
-    public static Graph<String, DefaultEdge> createSamplegraph()
+    public static MutableGraph<String, DefaultEdge> createSamplegraph()
     {
-        UndirectedGraph<String, DefaultEdge> g =
+        UndirectedMutableGraph<String, DefaultEdge> g =
             new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
 
         String v1 = "v1";
@@ -96,7 +96,7 @@ public class SimpleTouchgraphApplet
      */
     public void init()
     {
-        Graph<String, DefaultEdge> g = createSamplegraph();
+        MutableGraph<String, DefaultEdge> g = createSamplegraph();
         boolean selfReferencesAllowed = false;
 
         setLayout(new BorderLayout());
@@ -108,7 +108,7 @@ public class SimpleTouchgraphApplet
 
     public static void main(String [] args)
     {
-        Graph<String, DefaultEdge> g = createSamplegraph();
+        MutableGraph<String, DefaultEdge> g = createSamplegraph();
         boolean selfReferencesAllowed = false;
 
         JFrame frame = new JFrame();

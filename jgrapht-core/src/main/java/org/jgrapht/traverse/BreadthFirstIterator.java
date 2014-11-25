@@ -69,7 +69,7 @@ public class BreadthFirstIterator<V, E>
      *
      * @param g the graph to be iterated.
      */
-    public BreadthFirstIterator(Graph<V, E> g)
+    public BreadthFirstIterator(MutableGraph<V, E> g)
     {
         this(g, null);
     }
@@ -84,7 +84,7 @@ public class BreadthFirstIterator<V, E>
      * @param g the graph to be iterated.
      * @param startVertex the vertex iteration to be started.
      */
-    public BreadthFirstIterator(Graph<V, E> g, V startVertex)
+    public BreadthFirstIterator(MutableGraph<V, E> g, V startVertex)
     {
         super(g, startVertex);
     }

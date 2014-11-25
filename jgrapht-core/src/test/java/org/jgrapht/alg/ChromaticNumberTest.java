@@ -60,7 +60,7 @@ public class ChromaticNumberTest
      */
     public void testChromaticNumber()
     {
-        UndirectedGraph<Object, DefaultEdge> completeGraph =
+        UndirectedMutableGraph<Object, DefaultEdge> completeGraph =
             new SimpleGraph<Object, DefaultEdge>(
                 DefaultEdge.class);
         CompleteGraphGenerator<Object, DefaultEdge> completeGenerator =
@@ -81,7 +81,7 @@ public class ChromaticNumberTest
             7,
             coloring.keySet().size());
 
-        UndirectedGraph<Object, DefaultEdge> linearGraph =
+        UndirectedMutableGraph<Object, DefaultEdge> linearGraph =
             new SimpleGraph<Object, DefaultEdge>(
                 DefaultEdge.class);
         LinearGraphGenerator<Object, DefaultEdge> linearGenerator =

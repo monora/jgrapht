@@ -106,7 +106,7 @@ public class GraphMLExporter<V, E>
      * @param writer the writer to which the graph to be exported
      * @param g the graph to be exported
      */
-    public void export(Writer writer, Graph<V, E> g)
+    public void export(Writer writer, MutableGraph<V, E> g)
         throws SAXException, TransformerConfigurationException
     {
         // Prepare an XML file to receive the GraphML data
@@ -170,7 +170,7 @@ public class GraphMLExporter<V, E>
             "",
             "edgedefault",
             "CDATA",
-            (g instanceof DirectedGraph<?, ?>) ? "directed" : "undirected");
+            (g instanceof DirectedMutableGraph<?, ?>) ? "directed" : "undirected");
         handler.startElement("", "", "graph", attr);
 
         // Add all the vertices as <node> elements...

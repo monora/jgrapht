@@ -66,7 +66,7 @@ public class NeighborIndex<V, E>
     
 
     Map<V, Neighbors<V, E>> neighborMap = new HashMap<V, Neighbors<V, E>>();
-    private Graph<V, E> graph;
+    private MutableGraph<V, E> graph;
 
     
 
@@ -75,7 +75,7 @@ public class NeighborIndex<V, E>
      *
      * @param g the graph for which a neighbor index is to be created.
      */
-    public NeighborIndex(Graph<V, E> g)
+    public NeighborIndex(MutableGraph<V, E> g)
     {
         // no need to distinguish directedgraphs as we don't do traversals
         graph = g;

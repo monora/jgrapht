@@ -59,7 +59,7 @@ public class ColoringTest
      */
     public void testGreedyColoring()
     {
-        Graph<Object, DefaultEdge> completeGraph =
+        MutableGraph<Object, DefaultEdge> completeGraph =
             new SimpleGraph<Object, DefaultEdge>(
                 DefaultEdge.class);
         CompleteGraphGenerator<Object, DefaultEdge> completeGraphGenerator =
@@ -79,7 +79,7 @@ public class ColoringTest
      */
     public void testBacktrackColoring()
     {
-        Graph<Object, DefaultEdge> completeGraph =
+        MutableGraph<Object, DefaultEdge> completeGraph =
             new SimpleGraph<Object, DefaultEdge>(
                 DefaultEdge.class);
         CompleteGraphGenerator<Object, DefaultEdge> completeGraphGenerator =

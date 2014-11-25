@@ -90,7 +90,7 @@ public class MatrixExporter<V, E>
      * @param output the writer to which the graph to be exported.
      * @param g the graph to be exported.
      */
-    public void exportAdjacencyMatrix(Writer output, UndirectedGraph<V, E> g)
+    public void exportAdjacencyMatrix(Writer output, UndirectedMutableGraph<V, E> g)
     {
         PrintWriter out = new PrintWriter(output);
 
@@ -120,7 +120,7 @@ public class MatrixExporter<V, E>
      * @param output the writer to which the graph to be exported.
      * @param g the graph to be exported.
      */
-    public void exportAdjacencyMatrix(Writer output, DirectedGraph<V, E> g)
+    public void exportAdjacencyMatrix(Writer output, DirectedMutableGraph<V, E> g)
     {
         PrintWriter out = new PrintWriter(output);
 
@@ -183,7 +183,7 @@ public class MatrixExporter<V, E>
      * @param output the writer to which the graph is to be exported.
      * @param g the graph to be exported.
      */
-    public void exportLaplacianMatrix(Writer output, UndirectedGraph<V, E> g)
+    public void exportLaplacianMatrix(Writer output, UndirectedMutableGraph<V, E> g)
     {
         PrintWriter out = new PrintWriter(output);
 
@@ -226,7 +226,7 @@ public class MatrixExporter<V, E>
      */
     public void exportNormalizedLaplacianMatrix(
         Writer output,
-        UndirectedGraph<V, E> g)
+        UndirectedMutableGraph<V, E> g)
     {
         PrintWriter out = new PrintWriter(output);
 

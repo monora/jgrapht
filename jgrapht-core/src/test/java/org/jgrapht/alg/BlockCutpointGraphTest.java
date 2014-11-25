@@ -74,7 +74,7 @@ public class BlockCutpointGraphTest
             Iterator iter = blockCutpointGraph.vertexSet().iterator();
             iter.hasNext();)
         {
-            UndirectedGraph component = (UndirectedGraph) iter.next();
+            UndirectedMutableGraph component = (UndirectedMutableGraph) iter.next();
             if (!component.edgeSet().isEmpty()) {
                 for (
                     Iterator iterator = component.vertexSet().iterator();
@@ -103,7 +103,7 @@ public class BlockCutpointGraphTest
 
     public void testLinearGraph(int nbVertices)
     {
-        UndirectedGraph graph = new SimpleGraph(DefaultEdge.class);
+        UndirectedMutableGraph graph = new SimpleGraph(DefaultEdge.class);
 
         LinearGraphGenerator generator = new LinearGraphGenerator(nbVertices);
         generator.generateGraph(
@@ -124,7 +124,7 @@ public class BlockCutpointGraphTest
 
     public void testNotBiconnected()
     {
-        UndirectedGraph graph = new NotBiconnectedGraph();
+        UndirectedMutableGraph graph = new NotBiconnectedGraph();
 
         BlockCutpointGraph blockCutpointGraph = new BlockCutpointGraph(graph);
         testGetBlock(blockCutpointGraph);

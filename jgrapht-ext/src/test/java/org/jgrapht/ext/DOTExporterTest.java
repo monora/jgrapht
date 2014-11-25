@@ -70,7 +70,7 @@ public class DOTExporterTest
 
     public void testUndirected()
     {
-        UndirectedGraph<String, DefaultEdge> g =
+        UndirectedMutableGraph<String, DefaultEdge> g =
             new SimpleGraph<String, DefaultEdge>(DefaultEdge.class);
         g.addVertex(V1);
         g.addVertex(V2);
@@ -125,7 +125,7 @@ public class DOTExporterTest
                 "abc_78",
                 "\"--34asdf\"");
         for (String vertex : validVertices) {
-            Graph<String, DefaultEdge> graph =
+            MutableGraph<String, DefaultEdge> graph =
                 new DefaultDirectedGraph<String, DefaultEdge>(
                     DefaultEdge.class);
             graph.addVertex(vertex);
@@ -136,7 +136,7 @@ public class DOTExporterTest
         List<String> invalidVertices =
             Arrays.asList("2test", "--4", "foo-bar", "", "t:32");
         for (String vertex : invalidVertices) {
-            Graph<String, DefaultEdge> graph =
+            MutableGraph<String, DefaultEdge> graph =
                 new DefaultDirectedGraph<String, DefaultEdge>(
                     DefaultEdge.class);
             graph.addVertex(vertex);

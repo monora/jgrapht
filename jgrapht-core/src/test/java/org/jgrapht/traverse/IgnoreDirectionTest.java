@@ -71,12 +71,12 @@ public class IgnoreDirectionTest
     }
 
     AbstractGraphIterator<String, DefaultEdge> createIterator(
-        DirectedGraph<String, DefaultEdge> g,
+        DirectedMutableGraph<String, DefaultEdge> g,
         String vertex)
     {
         // ignore the passed in vertex and always start from v4, since that's
         // the only vertex without out-edges
-        UndirectedGraph<String, DefaultEdge> undirectedView =
+        UndirectedMutableGraph<String, DefaultEdge> undirectedView =
             new AsUndirectedGraph<String, DefaultEdge>(g);
         AbstractGraphIterator<String, DefaultEdge> i =
             new DepthFirstIterator<String, DefaultEdge>(undirectedView, "4");

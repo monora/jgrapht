@@ -75,7 +75,7 @@ public class GraphOrdering<V, E>
      *
      * @param regularGraph
      */
-    public GraphOrdering(Graph<V, E> regularGraph)
+    public GraphOrdering(MutableGraph<V, E> regularGraph)
     {
         this(regularGraph, regularGraph.vertexSet(), regularGraph.edgeSet());
     }
@@ -90,7 +90,7 @@ public class GraphOrdering<V, E>
      * @param edgeSet
      */
     public GraphOrdering(
-        Graph<V, E> regularGraph,
+        MutableGraph<V, E> regularGraph,
         Set<V> vertexSet,
         Set<E> edgeSet)
     {
@@ -99,7 +99,7 @@ public class GraphOrdering<V, E>
 
     
 
-    private void init(Graph<V, E> g, Set<V> vertexSet, Set<E> edgeSet)
+    private void init(MutableGraph<V, E> g, Set<V> vertexSet, Set<E> edgeSet)
     {
         // create a map between vertex value to its order(1st,2nd,etc)
         // "CAT"=1 "DOG"=2 "RHINO"=3
@@ -129,7 +129,7 @@ public class GraphOrdering<V, E>
             LabelsEdge lablesEdge = new LabelsEdge(sourceLabel, targetLabel);
             this.labelsEdgesSet.add(lablesEdge);
 
-            if (g instanceof UndirectedGraph<?, ?>) {
+            if (g instanceof UndirectedMutableGraph<?, ?>) {
                 LabelsEdge oppositeEdge =
                     new LabelsEdge(targetLabel, sourceLabel);
                 this.labelsEdgesSet.add(oppositeEdge);

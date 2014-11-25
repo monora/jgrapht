@@ -42,8 +42,8 @@ import org.jgrapht.util.*;
 
 
 public class DirectedGraphUnion<V, E>
-    extends GraphUnion<V, E, DirectedGraph<V, E>>
-    implements DirectedGraph<V, E>
+    extends GraphUnion<V, E, DirectedMutableGraph<V, E>>
+    implements DirectedMutableGraph<V, E>
 {
     
 
@@ -52,14 +52,14 @@ public class DirectedGraphUnion<V, E>
     
 
     public DirectedGraphUnion(
-        DirectedGraph<V, E> g1,
-        DirectedGraph<V, E> g2,
+        DirectedMutableGraph<V, E> g1,
+        DirectedMutableGraph<V, E> g2,
         WeightCombiner operator)
     {
         super(g1, g2, operator);
     }
 
-    public DirectedGraphUnion(DirectedGraph<V, E> g1, DirectedGraph<V, E> g2)
+    public DirectedGraphUnion(DirectedMutableGraph<V, E> g1, DirectedMutableGraph<V, E> g2)
     {
         super(g1, g2);
     }

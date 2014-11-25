@@ -51,7 +51,7 @@ public class GraphPathImpl<V, E>
 {
     
 
-    private Graph<V, E> graph;
+    private MutableGraph<V, E> graph;
 
     private List<E> edgeList;
 
@@ -64,7 +64,7 @@ public class GraphPathImpl<V, E>
     
 
     public GraphPathImpl(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         V startVertex,
         V endVertex,
         List<E> edgeList,
@@ -80,7 +80,7 @@ public class GraphPathImpl<V, E>
     
 
     // implement GraphPath
-    public Graph<V, E> getGraph()
+    public MutableGraph<V, E> getGraph()
     {
         return graph;
     }

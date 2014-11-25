@@ -70,7 +70,7 @@ public final class DijkstraShortestPath<V, E>
      * @param startVertex the vertex at which the path should start
      * @param endVertex the vertex at which the path should end
      */
-    public DijkstraShortestPath(Graph<V, E> graph,
+    public DijkstraShortestPath(MutableGraph<V, E> graph,
         V startVertex,
         V endVertex)
     {
@@ -89,7 +89,7 @@ public final class DijkstraShortestPath<V, E>
      * Double.POSITIVE_INFINITY for unbounded search
      */
     public DijkstraShortestPath(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         V startVertex,
         V endVertex,
         double radius)
@@ -166,7 +166,7 @@ public final class DijkstraShortestPath<V, E>
      * @return List of Edges, or null if no path exists
      */
     public static <V, E> List<E> findPathBetween(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         V startVertex,
         V endVertex)
     {
@@ -180,7 +180,7 @@ public final class DijkstraShortestPath<V, E>
     }
 
     private void createEdgeList(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         ClosestFirstIterator<V, E> iter,
         V startVertex,
         V endVertex)

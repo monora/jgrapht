@@ -74,7 +74,7 @@ public class DepthFirstIteratorTest
     }
 
     AbstractGraphIterator<String, DefaultEdge> createIterator(
-        DirectedGraph<String, DefaultEdge> g,
+        DirectedMutableGraph<String, DefaultEdge> g,
         String vertex)
     {
         AbstractGraphIterator<String, DefaultEdge> i =
@@ -90,7 +90,7 @@ public class DepthFirstIteratorTest
      */
     public void testBug1169182()
     {
-        DirectedGraph<String, DefaultEdge> dg =
+        DirectedMutableGraph<String, DefaultEdge> dg =
             new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 
         String a = "A";

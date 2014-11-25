@@ -54,7 +54,7 @@ public class BronKerboschCliqueFinder<V, E>
 {
     
 
-    private final Graph<V, E> graph;
+    private final MutableGraph<V, E> graph;
 
     private Collection<Set<V>> cliques;
 
@@ -66,7 +66,7 @@ public class BronKerboschCliqueFinder<V, E>
      * @param graph the graph in which cliques are to be found; graph must be
      * simple
      */
-    public BronKerboschCliqueFinder(Graph<V, E> graph)
+    public BronKerboschCliqueFinder(MutableGraph<V, E> graph)
     {
         this.graph = graph;
     }

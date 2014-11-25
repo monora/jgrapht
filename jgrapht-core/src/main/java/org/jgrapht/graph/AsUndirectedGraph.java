@@ -75,7 +75,7 @@ import org.jgrapht.util.*;
 public class AsUndirectedGraph<V, E>
     extends GraphDelegator<V, E>
     implements Serializable,
-        UndirectedGraph<V, E>
+        UndirectedMutableGraph<V, E>
 {
     
 
@@ -93,7 +93,7 @@ public class AsUndirectedGraph<V, E>
      * @param g the backing directed graph over which an undirected view is to
      * be created.
      */
-    public AsUndirectedGraph(DirectedGraph<V, E> g)
+    public AsUndirectedGraph(DirectedMutableGraph<V, E> g)
     {
         super(g);
     }
@@ -101,7 +101,7 @@ public class AsUndirectedGraph<V, E>
     
 
     /**
-     * @see Graph#getAllEdges(Object, Object)
+     * @see MutableGraph#getAllEdges(Object, Object)
      */
     public Set<E> getAllEdges(V sourceVertex, V targetVertex)
     {
@@ -123,7 +123,7 @@ public class AsUndirectedGraph<V, E>
     }
 
     /**
-     * @see Graph#getEdge(Object, Object)
+     * @see MutableGraph#getEdge(Object, Object)
      */
     public E getEdge(V sourceVertex, V targetVertex)
     {
@@ -138,7 +138,7 @@ public class AsUndirectedGraph<V, E>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object)
+     * @see MutableGraph#addEdge(Object, Object)
      */
     public E addEdge(V sourceVertex, V targetVertex)
     {
@@ -146,7 +146,7 @@ public class AsUndirectedGraph<V, E>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object, Object)
+     * @see MutableGraph#addEdge(Object, Object, Object)
      */
     public boolean addEdge(V sourceVertex, V targetVertex, E e)
     {
@@ -154,7 +154,7 @@ public class AsUndirectedGraph<V, E>
     }
 
     /**
-     * @see UndirectedGraph#degreeOf(Object)
+     * @see UndirectedMutableGraph#degreeOf(Object)
      */
     public int degreeOf(V vertex)
     {
@@ -163,7 +163,7 @@ public class AsUndirectedGraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#inDegreeOf(Object)
+     * @see DirectedMutableGraph#inDegreeOf(Object)
      */
     public int inDegreeOf(V vertex)
     {
@@ -171,7 +171,7 @@ public class AsUndirectedGraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#incomingEdgesOf(Object)
+     * @see DirectedMutableGraph#incomingEdgesOf(Object)
      */
     public Set<E> incomingEdgesOf(V vertex)
     {
@@ -179,7 +179,7 @@ public class AsUndirectedGraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#outDegreeOf(Object)
+     * @see DirectedMutableGraph#outDegreeOf(Object)
      */
     public int outDegreeOf(V vertex)
     {
@@ -187,7 +187,7 @@ public class AsUndirectedGraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#outgoingEdgesOf(Object)
+     * @see DirectedMutableGraph#outgoingEdgesOf(Object)
      */
     public Set<E> outgoingEdgesOf(V vertex)
     {

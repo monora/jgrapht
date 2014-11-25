@@ -171,7 +171,7 @@ public class ConnectivityInspectorTest
      */
     public void testStronglyConnected1()
     {
-        DirectedGraph<String, DefaultEdge> g =
+        DirectedMutableGraph<String, DefaultEdge> g =
             new DefaultDirectedGraph<String, DefaultEdge>(
                 DefaultEdge.class);
         g.addVertex(V1);
@@ -227,7 +227,7 @@ public class ConnectivityInspectorTest
      */
     public void testStronglyConnected2()
     {
-        DirectedGraph<String, DefaultEdge> g =
+        DirectedMutableGraph<String, DefaultEdge> g =
             new DefaultDirectedGraph<String, DefaultEdge>(
                 DefaultEdge.class);
         g.addVertex(V1);
@@ -284,7 +284,7 @@ public class ConnectivityInspectorTest
      */
     public void testStronglyConnected3()
     {
-        DirectedGraph<String, DefaultEdge> g =
+        DirectedMutableGraph<String, DefaultEdge> g =
             new DefaultDirectedGraph<String, DefaultEdge>(
                 DefaultEdge.class);
         g.addVertex(V1);

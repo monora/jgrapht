@@ -43,7 +43,7 @@ import org.jgrapht.*;
 
 
 /**
- * A default implementation for edges in a {@link Graph}.
+ * A default implementation for edges in a {@link MutableGraph}.
  *
  * @author Barak Naveh
  * @since Jul 14, 2003

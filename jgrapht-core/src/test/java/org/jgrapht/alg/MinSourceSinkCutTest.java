@@ -44,7 +44,7 @@ import java.util.Set;
 
 import junit.framework.TestCase;
 
-import org.jgrapht.DirectedGraph;
+import org.jgrapht.DirectedMutableGraph;
 import org.jgrapht.Graphs;
 import org.jgrapht.graph.DefaultDirectedWeightedGraph;
 import org.jgrapht.graph.DefaultWeightedEdge;
@@ -61,7 +61,7 @@ public class MinSourceSinkCutTest extends TestCase{
 	 * Constructs a small realistic graph and computes the min s-t cut
 	 */
 	public void testRealGraph() {
-		DirectedGraph<Integer, DefaultWeightedEdge> graph=new DefaultDirectedWeightedGraph <Integer, DefaultWeightedEdge>(DefaultWeightedEdge.class);
+		DirectedMutableGraph<Integer, DefaultWeightedEdge> graph=new DefaultDirectedWeightedGraph <Integer, DefaultWeightedEdge>(DefaultWeightedEdge.class);
 		Integer[] vertices={0,1,2,3,4,5,6};
 		for(Integer i: vertices)
 			graph.addVertex(i);
@@ -115,7 +115,7 @@ public class MinSourceSinkCutTest extends TestCase{
 	 * Test on a graph with fractional edge weights
 	 */
 	public void testRealGraph2() {
-		DirectedGraph<Integer, DefaultWeightedEdge> graph=new DefaultDirectedWeightedGraph <Integer, DefaultWeightedEdge>(DefaultWeightedEdge.class);
+		DirectedMutableGraph<Integer, DefaultWeightedEdge> graph=new DefaultDirectedWeightedGraph <Integer, DefaultWeightedEdge>(DefaultWeightedEdge.class);
 		Integer[] vertices={0,1,2,3,4,5,6};
 		for(Integer i: vertices)
 			graph.addVertex(i);
@@ -169,7 +169,7 @@ public class MinSourceSinkCutTest extends TestCase{
 	 * Computes the min s-t cut in a graph with 2 vertices and one directed edge between source and sink
 	 */
 	public void testGraphWithOneEdge(){
-		DirectedGraph<Integer, DefaultWeightedEdge> graph=new DefaultDirectedWeightedGraph <Integer, DefaultWeightedEdge>(DefaultWeightedEdge.class);
+		DirectedMutableGraph<Integer, DefaultWeightedEdge> graph=new DefaultDirectedWeightedGraph <Integer, DefaultWeightedEdge>(DefaultWeightedEdge.class);
 		Integer[] vertices={0,1};
 		for(Integer i: vertices)
 			graph.addVertex(i);
@@ -203,7 +203,7 @@ public class MinSourceSinkCutTest extends TestCase{
 	 * Computes the min s-t cut in a disconnected graph
 	 */
 	public void testDisconnectedGraph(){
-		DirectedGraph<Integer, DefaultWeightedEdge> graph=new DefaultDirectedWeightedGraph <Integer, DefaultWeightedEdge>(DefaultWeightedEdge.class);
+		DirectedMutableGraph<Integer, DefaultWeightedEdge> graph=new DefaultDirectedWeightedGraph <Integer, DefaultWeightedEdge>(DefaultWeightedEdge.class);
 		Integer[] vertices={0,1,2};
 		for(Integer i: vertices)
 			graph.addVertex(i);

@@ -111,7 +111,7 @@ public class ScaleFreeGraphGenerator<V, E>
      * @param resultMap unused parameter
      */
     public void generateGraph(
-        Graph<V, E> target,
+        MutableGraph<V, E> target,
         VertexFactory<V> vertexFactory,
         Map<String, V> resultMap)
     {

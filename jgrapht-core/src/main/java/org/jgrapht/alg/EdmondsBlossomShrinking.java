@@ -56,7 +56,7 @@ public class EdmondsBlossomShrinking<V, E>
     // ~ Instance fields
     // --------------------------------------------------------
 
-    private UndirectedGraph<V, E> graph;
+    private UndirectedMutableGraph<V, E> graph;
 
     private Set<E> matching;
 
@@ -76,7 +76,7 @@ public class EdmondsBlossomShrinking<V, E>
     {
     }
 
-    public EdmondsBlossomShrinking(final UndirectedGraph<V, E> G)
+    public EdmondsBlossomShrinking(final UndirectedMutableGraph<V, E> G)
     {
         this.graph = G;
     }
@@ -89,7 +89,7 @@ public class EdmondsBlossomShrinking<V, E>
     /**
      * See `getMatching` as preferred alternative to this one
      */
-    @Deprecated public Set<E> findMatch(final UndirectedGraph<V, E> g)
+    @Deprecated public Set<E> findMatch(final UndirectedMutableGraph<V, E> g)
     {
         return new EdmondsBlossomShrinking<V, E>(g).getMatching();
     }
@@ -212,7 +212,7 @@ public class EdmondsBlossomShrinking<V, E>
         }
     }
 
-    private V lca(UndirectedGraph<V, E> g, V a, V b)
+    private V lca(UndirectedMutableGraph<V, E> g, V a, V b)
     {
         Set<V> seen = new HashSet<V>();
         for (;;) {

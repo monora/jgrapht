@@ -37,7 +37,7 @@ package org.jgrapht.alg.cycle;
 
 import static org.junit.Assert.assertTrue;
 
-import org.jgrapht.DirectedGraph;
+import org.jgrapht.DirectedMutableGraph;
 import org.jgrapht.graph.ClassBasedEdgeFactory;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
@@ -72,7 +72,7 @@ public class DirectedSimpleCyclesTest
                                DirectedSimpleCycles<Integer, DefaultEdge>
                                finder)
     {
-        DirectedGraph<Integer, DefaultEdge> graph = new DefaultDirectedGraph<Integer, DefaultEdge>
+        DirectedMutableGraph<Integer, DefaultEdge> graph = new DefaultDirectedGraph<Integer, DefaultEdge>
             (
              new ClassBasedEdgeFactory<Integer, DefaultEdge>
              (

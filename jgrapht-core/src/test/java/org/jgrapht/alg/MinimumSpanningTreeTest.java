@@ -35,7 +35,7 @@
 package org.jgrapht.alg;
 
 import junit.framework.TestCase;
-import org.jgrapht.Graph;
+import org.jgrapht.MutableGraph;
 import org.jgrapht.Graphs;
 import org.jgrapht.alg.interfaces.MinimumSpanningTree;
 import org.jgrapht.graph.DefaultWeightedEdge;
@@ -134,9 +134,9 @@ public class MinimumSpanningTreeTest
 
     }
 
-    protected Graph<String, DefaultWeightedEdge> createSimpleDisconnectedWeightedGraph() {
+    protected MutableGraph<String, DefaultWeightedEdge> createSimpleDisconnectedWeightedGraph() {
 
-        Graph<String, DefaultWeightedEdge> g =
+        MutableGraph<String, DefaultWeightedEdge> g =
                 new SimpleWeightedGraph<String, DefaultWeightedEdge>(DefaultWeightedEdge.class);
 
         /**
@@ -170,9 +170,9 @@ public class MinimumSpanningTreeTest
         return g;
     }
 
-    protected Graph<String, DefaultWeightedEdge> createSimpleConnectedWeightedGraph() {
+    protected MutableGraph<String, DefaultWeightedEdge> createSimpleConnectedWeightedGraph() {
 
-        Graph<String, DefaultWeightedEdge> g =
+        MutableGraph<String, DefaultWeightedEdge> g =
             new SimpleWeightedGraph<String, DefaultWeightedEdge>(DefaultWeightedEdge.class);
 
         double bias = 1;

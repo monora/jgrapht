@@ -58,7 +58,7 @@ import org.jgrapht.*;
  */
 public class EdgeReversedGraph<V, E>
     extends GraphDelegator<V, E>
-    implements DirectedGraph<V, E>
+    implements DirectedMutableGraph<V, E>
 {
     
 
@@ -74,7 +74,7 @@ public class EdgeReversedGraph<V, E>
      * @param g the base (backing) graph on which the edge-reversed view will be
      * based.
      */
-    public EdgeReversedGraph(DirectedGraph<V, E> g)
+    public EdgeReversedGraph(DirectedMutableGraph<V, E> g)
     {
         super(g);
     }
@@ -82,7 +82,7 @@ public class EdgeReversedGraph<V, E>
     
 
     /**
-     * @see Graph#getEdge(Object, Object)
+     * @see MutableGraph#getEdge(Object, Object)
      */
     public E getEdge(V sourceVertex, V targetVertex)
     {
@@ -90,7 +90,7 @@ public class EdgeReversedGraph<V, E>
     }
 
     /**
-     * @see Graph#getAllEdges(Object, Object)
+     * @see MutableGraph#getAllEdges(Object, Object)
      */
     public Set<E> getAllEdges(V sourceVertex, V targetVertex)
     {
@@ -98,7 +98,7 @@ public class EdgeReversedGraph<V, E>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object)
+     * @see MutableGraph#addEdge(Object, Object)
      */
     public E addEdge(V sourceVertex, V targetVertex)
     {
@@ -106,7 +106,7 @@ public class EdgeReversedGraph<V, E>
     }
 
     /**
-     * @see Graph#addEdge(Object, Object, Object)
+     * @see MutableGraph#addEdge(Object, Object, Object)
      */
     public boolean addEdge(V sourceVertex, V targetVertex, E e)
     {
@@ -114,7 +114,7 @@ public class EdgeReversedGraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#inDegreeOf(Object)
+     * @see DirectedMutableGraph#inDegreeOf(Object)
      */
     public int inDegreeOf(V vertex)
     {
@@ -122,7 +122,7 @@ public class EdgeReversedGraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#outDegreeOf(Object)
+     * @see DirectedMutableGraph#outDegreeOf(Object)
      */
     public int outDegreeOf(V vertex)
     {
@@ -130,7 +130,7 @@ public class EdgeReversedGraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#incomingEdgesOf(Object)
+     * @see DirectedMutableGraph#incomingEdgesOf(Object)
      */
     public Set<E> incomingEdgesOf(V vertex)
     {
@@ -138,7 +138,7 @@ public class EdgeReversedGraph<V, E>
     }
 
     /**
-     * @see DirectedGraph#outgoingEdgesOf(Object)
+     * @see DirectedMutableGraph#outgoingEdgesOf(Object)
      */
     public Set<E> outgoingEdgesOf(V vertex)
     {
@@ -146,7 +146,7 @@ public class EdgeReversedGraph<V, E>
     }
 
     /**
-     * @see Graph#removeEdge(Object, Object)
+     * @see MutableGraph#removeEdge(Object, Object)
      */
     public E removeEdge(V sourceVertex, V targetVertex)
     {
@@ -154,7 +154,7 @@ public class EdgeReversedGraph<V, E>
     }
 
     /**
-     * @see Graph#getEdgeSource(Object)
+     * @see MutableGraph#getEdgeSource(Object)
      */
     public V getEdgeSource(E e)
     {
@@ -162,7 +162,7 @@ public class EdgeReversedGraph<V, E>
     }
 
     /**
-     * @see Graph#getEdgeTarget(Object)
+     * @see MutableGraph#getEdgeTarget(Object)
      */
     public V getEdgeTarget(E e)
     {

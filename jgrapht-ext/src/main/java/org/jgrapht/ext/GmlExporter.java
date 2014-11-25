@@ -150,7 +150,7 @@ public class GmlExporter<V, E>
 
     private void exportVertices(
         PrintWriter out,
-        Graph<V, E> g)
+        MutableGraph<V, E> g)
     {
         for (V from : g.vertexSet()) {
             out.println(tab1 + "node");
@@ -171,7 +171,7 @@ public class GmlExporter<V, E>
 
     private void exportEdges(
         PrintWriter out,
-        Graph<V, E> g)
+        MutableGraph<V, E> g)
     {
         for (E edge : g.edgeSet()) {
             out.println(tab1 + "edge");
@@ -194,7 +194,7 @@ public class GmlExporter<V, E>
         }
     }
 
-    private void export(Writer output, Graph<V, E> g, boolean directed)
+    private void export(Writer output, MutableGraph<V, E> g, boolean directed)
     {
         PrintWriter out = new PrintWriter(output);
 
@@ -224,7 +224,7 @@ public class GmlExporter<V, E>
      * @param output the writer to which the graph to be exported
      * @param g the undirected graph to be exported
      */
-    public void export(Writer output, UndirectedGraph<V, E> g)
+    public void export(Writer output, UndirectedMutableGraph<V, E> g)
     {
         export(output, g, false);
     }
@@ -235,7 +235,7 @@ public class GmlExporter<V, E>
      * @param output the writer to which the graph to be exported
      * @param g the directed graph to be exported
      */
-    public void export(Writer output, DirectedGraph<V, E> g)
+    public void export(Writer output, DirectedMutableGraph<V, E> g)
     {
         export(output, g, true);
     }

@@ -67,7 +67,7 @@ public class BreadthFirstIteratorTest
     }
 
     AbstractGraphIterator<String, DefaultEdge> createIterator(
-        DirectedGraph<String, DefaultEdge> g,
+        DirectedMutableGraph<String, DefaultEdge> g,
         String vertex)
     {
         AbstractGraphIterator<String, DefaultEdge> i =

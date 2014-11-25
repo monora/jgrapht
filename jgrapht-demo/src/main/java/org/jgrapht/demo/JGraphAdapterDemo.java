@@ -186,7 +186,7 @@ public class JGraphAdapterDemo
      */
     private static class ListenableDirectedMultigraph<V, E>
         extends DefaultListenableGraph<V, E>
-        implements DirectedGraph<V, E>
+        implements DirectedMutableGraph<V, E>
     {
         private static final long serialVersionUID = 1L;
 

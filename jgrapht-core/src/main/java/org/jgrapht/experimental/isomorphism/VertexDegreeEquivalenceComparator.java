@@ -53,7 +53,7 @@ import org.jgrapht.experimental.equivalence.*;
  * @since Jul 21, 2005
  */
 public class VertexDegreeEquivalenceComparator<V, E>
-    implements EquivalenceComparator<V, Graph<V, E>>
+    implements EquivalenceComparator<V, MutableGraph<V, E>>
 {
     
 
@@ -77,8 +77,8 @@ public class VertexDegreeEquivalenceComparator<V, E>
     public boolean equivalenceCompare(
         V vertex1,
         V vertex2,
-        Graph<V, E> context1,
-        Graph<V, E> context2)
+        MutableGraph<V, E> context1,
+        MutableGraph<V, E> context2)
     {
         // note that VertexDegreeComparator cannot be used. It supports only
         // directed graphs.
@@ -93,7 +93,7 @@ public class VertexDegreeEquivalenceComparator<V, E>
      *
      * @see EquivalenceComparator#equivalenceHashcode(Object, Object)
      */
-    public int equivalenceHashcode(V vertex, Graph<V, E> context)
+    public int equivalenceHashcode(V vertex, MutableGraph<V, E> context)
     {
         InOutDegrees inOut = getInOutDegrees(context, vertex);
 
@@ -113,19 +113,19 @@ public class VertexDegreeEquivalenceComparator<V, E>
      * @param aContextGraph
      * @param vertex
      */
-    protected InOutDegrees getInOutDegrees(Graph<V, E> aContextGraph,
+    protected InOutDegrees getInOutDegrees(MutableGraph<V, E> aContextGraph,
         V vertex)
     {
         int inVertexDegree = 0;
         int outVertexDegree = 0;
-        if (aContextGraph instanceof UndirectedGraph<?, ?>) {
-            UndirectedGraph<V, E> undirectedGraph =
-                (UndirectedGraph<V, E>) aContextGraph;
+        if (aContextGraph instanceof UndirectedMutableGraph<?, ?>) {
+            UndirectedMutableGraph<V, E> undirectedGraph =
+                (UndirectedMutableGraph<V, E>) aContextGraph;
             inVertexDegree = undirectedGraph.degreeOf(vertex);
             outVertexDegree = inVertexDegree; // it is UNdirected
-        } else if (aContextGraph instanceof DirectedGraph<?, ?>) {
-            DirectedGraph<V, E> directedGraph =
-                (DirectedGraph<V, E>) aContextGraph;
+        } else if (aContextGraph instanceof DirectedMutableGraph<?, ?>) {
+            DirectedMutableGraph<V, E> directedGraph =
+                (DirectedMutableGraph<V, E>) aContextGraph;
             inVertexDegree = directedGraph.inDegreeOf(vertex);
             outVertexDegree = directedGraph.outDegreeOf(vertex);
         } else {

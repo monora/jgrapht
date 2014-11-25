@@ -61,7 +61,7 @@ public class SzwarcfiterLauerSimpleCycles<V, E>
     
 
     // The graph.
-    private DirectedGraph<V, E> graph;
+    private DirectedMutableGraph<V, E> graph;
 
     // The state of the algorithm.
     private List<List<V>> cycles = null;
@@ -92,7 +92,7 @@ public class SzwarcfiterLauerSimpleCycles<V, E>
      * @throws IllegalArgumentException if the graph argument is <code>
      * null</code>.
      */
-    public SzwarcfiterLauerSimpleCycles(DirectedGraph<V, E> graph)
+    public SzwarcfiterLauerSimpleCycles(DirectedMutableGraph<V, E> graph)
     {
         if (graph == null) {
             throw new IllegalArgumentException("Null graph argument.");
@@ -105,7 +105,7 @@ public class SzwarcfiterLauerSimpleCycles<V, E>
     /**
      * {@inheritDoc}
      */
-    @Override public DirectedGraph<V, E> getGraph()
+    @Override public DirectedMutableGraph<V, E> getGraph()
     {
         return graph;
     }
@@ -113,7 +113,7 @@ public class SzwarcfiterLauerSimpleCycles<V, E>
     /**
      * {@inheritDoc}
      */
-    @Override public void setGraph(DirectedGraph<V, E> graph)
+    @Override public void setGraph(DirectedMutableGraph<V, E> graph)
     {
         if (graph == null) {
             throw new IllegalArgumentException("Null graph argument.");

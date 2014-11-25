@@ -45,7 +45,7 @@ package org.jgrapht;
  * @since Jul 23, 2003
  */
 public interface WeightedGraph<V, E>
-    extends Graph<V, E>
+    extends MutableGraph<V, E>
 {
     
 

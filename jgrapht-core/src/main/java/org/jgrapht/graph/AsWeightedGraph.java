@@ -96,7 +96,7 @@ public class AsWeightedGraph<V, E>
      * changes the map after construction, the changes will affect the
      * AsWeightedGraph instance as well.
      */
-    public AsWeightedGraph(Graph<V, E> g, Map<E, Double> weightMap)
+    public AsWeightedGraph(MutableGraph<V, E> g, Map<E, Double> weightMap)
     {
         super(g);
         assert (weightMap != null);
@@ -124,7 +124,7 @@ public class AsWeightedGraph<V, E>
     }
 
     /**
-     * @see Graph#getEdgeWeight
+     * @see MutableGraph#getEdgeWeight
      */
     public double getEdgeWeight(E e)
     {

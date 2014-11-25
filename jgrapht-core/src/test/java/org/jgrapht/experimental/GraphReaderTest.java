@@ -69,12 +69,12 @@ public class GraphReaderTest
             reader =
                 new GraphReader<Integer, DefaultEdge>(
                     new StringReader(_unweighted));
-            Graph<Integer, DefaultEdge> g =
+            MutableGraph<Integer, DefaultEdge> g =
                 new SimpleGraph<Integer, DefaultEdge>(
                     DefaultEdge.class);
             VertexFactory<Integer> vf = new IntVertexFactory();
             reader.generateGraph(g, vf, null);
-            Graph<Integer, DefaultEdge> g2 =
+            MutableGraph<Integer, DefaultEdge> g2 =
                 new SimpleGraph<Integer, DefaultEdge>(
                     DefaultEdge.class);
             g2.addVertex(0);
@@ -97,7 +97,7 @@ public class GraphReaderTest
                 new GraphReader<Integer, DefaultWeightedEdge>(
                     new StringReader(_weighted),
                     1);
-            Graph<Integer, DefaultWeightedEdge> g =
+            MutableGraph<Integer, DefaultWeightedEdge> g =
                 new SimpleWeightedGraph<Integer, DefaultWeightedEdge>(
                     DefaultWeightedEdge.class);
             VertexFactory<Integer> vf = new IntVertexFactory();

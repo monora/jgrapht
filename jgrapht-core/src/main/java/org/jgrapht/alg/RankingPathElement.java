@@ -66,7 +66,7 @@ final class RankingPathElement<V, E>
      * @param weight total cost of the created path element.
      */
     RankingPathElement(
-        Graph<V, E> graph,
+        MutableGraph<V, E> graph,
         RankingPathElement<V, E> pathElement,
         E edge,
         double weight)

@@ -50,7 +50,7 @@ import org.jgrapht.*;
  */
 public class SimpleGraph<V, E>
     extends AbstractBaseGraph<V, E>
-    implements UndirectedGraph<V, E>
+    implements UndirectedMutableGraph<V, E>
 {
     
 

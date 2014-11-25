@@ -36,7 +36,7 @@ package org.jgrapht.alg;
 
 import junit.framework.TestCase;
 import org.jgrapht.Graphs;
-import org.jgrapht.UndirectedGraph;
+import org.jgrapht.UndirectedMutableGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
 
@@ -53,7 +53,7 @@ public class HopcroftKarpBipartiteMatchingTest extends TestCase{
 	 * Random test graph 1
 	 */
 	public void testBipartiteMatching1(){
-		UndirectedGraph<Integer, DefaultEdge> graph = new SimpleGraph<Integer, DefaultEdge>(DefaultEdge.class);
+		UndirectedMutableGraph<Integer, DefaultEdge> graph = new SimpleGraph<Integer, DefaultEdge>(DefaultEdge.class);
 		List<Integer> partition1=Arrays.asList(new Integer[]{0,1,2,3});
 		List<Integer> partition2=Arrays.asList(new Integer[]{4,5,6,7});	
 		Graphs.addAllVertices(graph, partition1);
@@ -81,7 +81,7 @@ public class HopcroftKarpBipartiteMatchingTest extends TestCase{
 	 * Random test graph 2
 	 */
 	public void testBipartiteMatching2(){
-		UndirectedGraph<Integer, DefaultEdge> graph = new SimpleGraph<Integer, DefaultEdge>(DefaultEdge.class);
+		UndirectedMutableGraph<Integer, DefaultEdge> graph = new SimpleGraph<Integer, DefaultEdge>(DefaultEdge.class);
 		List<Integer> partition1=Arrays.asList(new Integer[]{0,1,2,3,4,5});
 		List<Integer> partition2=Arrays.asList(new Integer[]{6,7,8,9,10,11});		
 		Graphs.addAllVertices(graph, partition1);
@@ -110,7 +110,7 @@ public class HopcroftKarpBipartiteMatchingTest extends TestCase{
 	 * Find a maximum matching on a graph without edges
 	 */
 	public void testEmptyMatching(){
-		UndirectedGraph<Integer, DefaultEdge> graph = new SimpleGraph<Integer, DefaultEdge>(DefaultEdge.class);
+		UndirectedMutableGraph<Integer, DefaultEdge> graph = new SimpleGraph<Integer, DefaultEdge>(DefaultEdge.class);
 		List<Integer> partition1=Arrays.asList(new Integer[]{0});
 		List<Integer> partition2=Arrays.asList(new Integer[]{1});		
 		Graphs.addAllVertices(graph, partition1);

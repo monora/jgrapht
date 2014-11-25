@@ -63,7 +63,7 @@ public class StrongConnectivityInspector<V, E>
     
 
     // the graph to compute the strongly connected sets for
-    private final DirectedGraph<V, E> graph;
+    private final DirectedMutableGraph<V, E> graph;
 
     // stores the vertices, ordered by their finishing time in first dfs
     private LinkedList<VertexData<V>> orderedVertices;
@@ -86,7 +86,7 @@ public class StrongConnectivityInspector<V, E>
      *
      * @throws IllegalArgumentException
      */
-    public StrongConnectivityInspector(DirectedGraph<V, E> directedGraph)
+    public StrongConnectivityInspector(DirectedMutableGraph<V, E> directedGraph)
     {
         if (directedGraph == null) {
             throw new IllegalArgumentException("null not allowed for graph!");
@@ -106,7 +106,7 @@ public class StrongConnectivityInspector<V, E>
      *
      * @return the graph inspected by this StrongConnectivityInspector
      */
-    public DirectedGraph<V, E> getGraph()
+    public DirectedMutableGraph<V, E> getGraph()
     {
         return graph;
     }
@@ -148,7 +148,7 @@ public class StrongConnectivityInspector<V, E>
             }
 
             // 'create' inverse graph (i.e. every edge is reversed)
-            DirectedGraph<V, E> inverseGraph =
+            DirectedMutableGraph<V, E> inverseGraph =
                 new EdgeReversedGraph<V, E>(graph);
 
             // get ready for next dfs round
@@ -230,7 +230,7 @@ public class StrongConnectivityInspector<V, E>
      * round)
      */
     private void dfsVisit(
-        DirectedGraph<V, E> visitedGraph,
+        DirectedMutableGraph<V, E> visitedGraph,
         VertexData<V> vertexData,
         Set<V> vertices)
     {
