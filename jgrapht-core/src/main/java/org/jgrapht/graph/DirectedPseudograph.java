@@ -48,7 +48,7 @@ import org.jgrapht.*;
  * http://mathworld.wolfram.com/Pseudograph.html</a>.
  */
 public class DirectedPseudograph<V, E>
-    extends AbstractBaseGraph<V, E>
+    extends AbstractMutableBaseGraph<V, E>
     implements DirectedMutableGraph<V, E>
 {
     
@@ -58,7 +58,7 @@ public class DirectedPseudograph<V, E>
     
 
     /**
-     * @see AbstractBaseGraph
+     * @see AbstractMutableBaseGraph
      */
     public DirectedPseudograph(Class<? extends E> edgeClass)
     {
@@ -66,7 +66,7 @@ public class DirectedPseudograph<V, E>
     }
 
     /**
-     * @see AbstractBaseGraph
+     * @see AbstractMutableBaseGraph
      */
     public DirectedPseudograph(EdgeFactory<V, E> ef)
     {

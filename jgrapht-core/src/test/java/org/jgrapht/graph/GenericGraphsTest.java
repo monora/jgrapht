@@ -183,7 +183,7 @@ public class GenericGraphsTest
     }
 
     public static class EquivGraph
-        extends AbstractBaseGraph<EquivVertex, DefaultEdge>
+        extends AbstractMutableBaseGraph<EquivVertex, DefaultEdge>
         implements UndirectedMutableGraph<EquivVertex, DefaultEdge>
     {
         /**

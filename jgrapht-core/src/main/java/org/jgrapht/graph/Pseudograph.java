@@ -48,7 +48,7 @@ import org.jgrapht.*;
  * http://mathworld.wolfram.com/Pseudograph.html</a>.
  */
 public class Pseudograph<V, E>
-    extends AbstractBaseGraph<V, E>
+    extends AbstractMutableBaseGraph<V, E>
     implements UndirectedMutableGraph<V, E>
 {
     

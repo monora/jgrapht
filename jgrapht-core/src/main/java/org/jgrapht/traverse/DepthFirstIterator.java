@@ -89,7 +89,7 @@ public class DepthFirstIterator<V, E>
      *
      * @param g the graph to be iterated.
      */
-    public DepthFirstIterator(MutableGraph<V, E> g)
+    public DepthFirstIterator(Graph<V, E> g)
     {
         this(g, null);
     }
@@ -104,7 +104,7 @@ public class DepthFirstIterator<V, E>
      * @param g the graph to be iterated.
      * @param startVertex the vertex iteration to be started.
      */
-    public DepthFirstIterator(MutableGraph<V, E> g, V startVertex)
+    public DepthFirstIterator(Graph<V, E> g, V startVertex)
     {
         super(g, startVertex);
     }

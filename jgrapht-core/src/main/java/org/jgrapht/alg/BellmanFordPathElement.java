@@ -63,7 +63,7 @@ final class BellmanFordPathElement<V, E>
      * @param epsilon tolerance factor.
      */
     protected BellmanFordPathElement(
-        MutableGraph<V, E> graph,
+        Graph<V, E> graph,
         BellmanFordPathElement<V, E> pathElement,
         E edge,
         double cost,

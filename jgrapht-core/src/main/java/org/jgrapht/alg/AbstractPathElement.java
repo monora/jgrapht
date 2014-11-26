@@ -89,7 +89,7 @@ abstract class AbstractPathElement<V, E>
      * @param edge edge reaching the end vertex of the path element created.
      */
     protected AbstractPathElement(
-        MutableGraph<V, E> graph,
+        Graph<V, E> graph,
         AbstractPathElement<V, E> pathElement,
         E edge)
     {

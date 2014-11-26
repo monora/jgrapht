@@ -47,7 +47,7 @@ import org.jgrapht.*;
  * are.
  */
 public class DirectedMultigraph<V, E>
-    extends AbstractBaseGraph<V, E>
+    extends AbstractMutableBaseGraph<V, E>
     implements DirectedMutableGraph<V, E>
 {
     

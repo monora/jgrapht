@@ -195,7 +195,7 @@ public class AsUndirectedGraph<V, E>
     }
 
     /**
-     * @see AbstractBaseGraph#toString()
+     * @see AbstractMutableBaseGraph#toString()
      */
     public String toString()
     {

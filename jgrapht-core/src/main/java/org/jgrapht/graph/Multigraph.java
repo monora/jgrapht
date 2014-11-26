@@ -49,7 +49,7 @@ import org.jgrapht.*;
  * http://mathworld.wolfram.com/Multigraph.html</a>.
  */
 public class Multigraph<V, E>
-    extends AbstractBaseGraph<V, E>
+    extends AbstractMutableBaseGraph<V, E>
     implements UndirectedMutableGraph<V, E>
 {
     

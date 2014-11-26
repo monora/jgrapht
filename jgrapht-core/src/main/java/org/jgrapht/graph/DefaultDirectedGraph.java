@@ -50,7 +50,7 @@ import org.jgrapht.*;
  * interface.</p>
  */
 public class DefaultDirectedGraph<V, E>
-    extends AbstractBaseGraph<V, E>
+    extends AbstractMutableBaseGraph<V, E>
     implements DirectedMutableGraph<V, E>
 {
     

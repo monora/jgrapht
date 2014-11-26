@@ -204,7 +204,7 @@ public class TopologicalOrderIterator<V, E>
      * @return start vertex
      */
     private static <V, E> V initialize(
-        DirectedMutableGraph<V, E> dg,
+        DirectedGraph<V, E> dg,
         Queue<V> queue,
         Map<V, ModifiableInteger> inDegreeMap)
     {

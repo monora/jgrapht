@@ -55,7 +55,7 @@ public interface GraphIterator<V, E>
     
 
     /**
-     * Test whether this iterator is set to traverse the grpah across connected
+     * Test whether this iterator is set to traverse the graph across connected
      * components.
      *
      * @return <code>true</code> if traverses across connected components,

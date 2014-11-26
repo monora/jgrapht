@@ -46,7 +46,7 @@ import org.jgrapht.*;
  * neither multiple edges between any two vertices nor loops are permitted.
  */
 public class SimpleDirectedGraph<V, E>
-    extends AbstractBaseGraph<V, E>
+    extends AbstractMutableBaseGraph<V, E>
     implements DirectedMutableGraph<V, E>
 {
     

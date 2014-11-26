@@ -45,7 +45,6 @@
 package org.jgrapht.graph;
 
 import java.io.*;
-
 import java.util.*;
 
 import org.jgrapht.*;
@@ -64,7 +63,7 @@ import org.jgrapht.util.*;
  * @author Barak Naveh
  * @since Jul 24, 2003
  */
-public abstract class AbstractBaseGraph<V, E>
+public abstract class AbstractMutableBaseGraph<V, E>
     extends AbstractMutableGraph<V, E>
     implements MutableGraph<V, E>,
         Cloneable,
@@ -103,7 +102,7 @@ public abstract class AbstractBaseGraph<V, E>
      * @throws NullPointerException if the specified edge factory is <code>
      * null</code>.
      */
-    public AbstractBaseGraph(
+    public AbstractMutableBaseGraph(
         EdgeFactory<V, E> ef,
         boolean allowMultipleEdges,
         boolean allowLoops)
@@ -129,10 +128,16 @@ public abstract class AbstractBaseGraph<V, E>
      */
     public Set<E> getAllEdges(V sourceVertex, V targetVertex)
     {
-        return specifics.getAllEdges(sourceVertex, targetVertex);
+        return getSpecifics().getAllEdges(sourceVertex, targetVertex);
     }
 
-    /**
+    protected Specifics getSpecifics() {
+		return specifics;
+	}
+
+
+
+	/**
      * Returns <code>true</code> if and only if self-loops are allowed in this
      * graph. A self loop is an edge that its source and target vertices are the
      * same.
@@ -326,9 +331,9 @@ public abstract class AbstractBaseGraph<V, E>
     public Object clone()
     {
         try {
-            TypeUtil<AbstractBaseGraph<V, E>> typeDecl = null;
+            TypeUtil<AbstractMutableBaseGraph<V, E>> typeDecl = null;
 
-            AbstractBaseGraph<V, E> newGraph =
+            AbstractMutableBaseGraph<V, E> newGraph =
                 TypeUtil.uncheckedCast(super.clone(), typeDecl);
 
             newGraph.edgeMap = new LinkedHashMap<E, IntrusiveEdge>();
@@ -824,7 +829,7 @@ public abstract class AbstractBaseGraph<V, E>
         }
 
         /**
-         * @see AbstractBaseGraph#addEdgeToTouchingVertices(Edge)
+         * @see AbstractMutableBaseGraph#addEdgeToTouchingVertices(Edge)
          */
         public void addEdgeToTouchingVertices(E e)
         {
@@ -904,7 +909,7 @@ public abstract class AbstractBaseGraph<V, E>
         }
 
         /**
-         * @see AbstractBaseGraph#removeEdgeFromTouchingVertices(Edge)
+         * @see AbstractMutableBaseGraph#removeEdgeFromTouchingVertices(Edge)
          */
         public void removeEdgeFromTouchingVertices(E e)
         {
@@ -1111,7 +1116,7 @@ public abstract class AbstractBaseGraph<V, E>
         }
 
         /**
-         * @see AbstractBaseGraph#addEdgeToTouchingVertices(Edge)
+         * @see AbstractMutableBaseGraph#addEdgeToTouchingVertices(Edge)
          */
         public void addEdgeToTouchingVertices(E e)
         {
@@ -1190,7 +1195,7 @@ public abstract class AbstractBaseGraph<V, E>
         }
 
         /**
-         * @see AbstractBaseGraph#removeEdgeFromTouchingVertices(Edge)
+         * @see AbstractMutableBaseGraph#removeEdgeFromTouchingVertices(Edge)
          */
         public void removeEdgeFromTouchingVertices(E e)
         {

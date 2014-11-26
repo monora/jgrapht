@@ -118,7 +118,7 @@ public abstract class CrossComponentIterator<V, E, D>
     private V startVertex;
     private Specifics<V, E> specifics;
 
-    private final MutableGraph<V, E> graph;
+    private final Graph<V, E> graph;
 
     /**
      * The connected component state
@@ -138,7 +138,7 @@ public abstract class CrossComponentIterator<V, E, D>
      * @throws IllegalArgumentException if <code>g==null</code> or does not
      * contain <code>startVertex</code>
      */
-    public CrossComponentIterator(MutableGraph<V, E> g, V startVertex)
+    public CrossComponentIterator(Graph<V, E> g, V startVertex)
     {
         super();
 
@@ -174,7 +174,7 @@ public abstract class CrossComponentIterator<V, E, D>
     /**
      * @return the graph being traversed
      */
-    public MutableGraph<V, E> getGraph()
+    public Graph<V, E> getGraph()
     {
         return graph;
     }
@@ -346,10 +346,10 @@ public abstract class CrossComponentIterator<V, E, D>
      *
      * @return TODO Document me
      */
-    static <V, E> Specifics<V, E> createGraphSpecifics(MutableGraph<V, E> g)
+    static <V, E> Specifics<V, E> createGraphSpecifics(Graph<V, E> g)
     {
-        if (g instanceof DirectedMutableGraph<?, ?>) {
-            return new DirectedSpecifics<V, E>((DirectedMutableGraph<V, E>) g);
+        if (g instanceof DirectedGraph<?, ?>) {
+            return new DirectedSpecifics<V, E>((DirectedGraph<V, E>) g);
         } else {
             return new UndirectedSpecifics<V, E>(g);
         }
@@ -514,14 +514,14 @@ public abstract class CrossComponentIterator<V, E, D>
     private static class DirectedSpecifics<VV, EE>
         extends Specifics<VV, EE>
     {
-        private DirectedMutableGraph<VV, EE> graph;
+        private DirectedGraph<VV, EE> graph;
 
         /**
          * Creates a new DirectedSpecifics object.
          *
          * @param g the graph for which this specifics object to be created.
          */
-        public DirectedSpecifics(DirectedMutableGraph<VV, EE> g)
+        public DirectedSpecifics(DirectedGraph<VV, EE> g)
         {
             graph = g;
         }
@@ -542,14 +542,14 @@ public abstract class CrossComponentIterator<V, E, D>
     private static class UndirectedSpecifics<VV, EE>
         extends Specifics<VV, EE>
     {
-        private MutableGraph<VV, EE> graph;
+        private Graph<VV, EE> graph;
 
         /**
          * Creates a new UndirectedSpecifics object.
          *
          * @param g the graph for which this specifics object to be created.
          */
-        public UndirectedSpecifics(MutableGraph<VV, EE> g)
+        public UndirectedSpecifics(Graph<VV, EE> g)
         {
             graph = g;
         }

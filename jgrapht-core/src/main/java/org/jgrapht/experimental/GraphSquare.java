@@ -50,7 +50,7 @@ import org.jgrapht.graph.*;
  * @since Sep 14, 2004
  */
 public class GraphSquare<V, E>
-    extends AbstractBaseGraph<V, E>
+    extends AbstractMutableBaseGraph<V, E>
 {
     
 

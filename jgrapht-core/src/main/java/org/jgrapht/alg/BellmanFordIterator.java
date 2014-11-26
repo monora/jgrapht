@@ -49,7 +49,7 @@ import org.jgrapht.*;
 class BellmanFordIterator<V, E>
     implements Iterator<List<V>>
 {
-    
+
 
     /**
      * Error message.
@@ -58,12 +58,12 @@ class BellmanFordIterator<V, E>
         "Negative"
         + "edge-weights are not allowed in an unidrected graph!";
 
-    
+
 
     /**
      * Graph on which shortest paths are searched.
      */
-    protected MutableGraph<V, E> graph;
+    protected Graph<V, E> graph;
 
     /**
      * Start vertex.
@@ -88,7 +88,7 @@ class BellmanFordIterator<V, E>
 
     private double epsilon;
 
-    
+
 
     /**
      * @param graph
@@ -96,7 +96,7 @@ class BellmanFordIterator<V, E>
      * @param epsilon tolerance factor.
      */
     protected BellmanFordIterator(
-        MutableGraph<V, E> graph,
+        Graph<V, E> graph,
         V startVertex,
         double epsilon)
     {
@@ -107,7 +107,7 @@ class BellmanFordIterator<V, E>
         this.epsilon = epsilon;
     }
 
-    
+
 
     /**
      * Returns the path element of the shortest path with less than <code>
@@ -332,7 +332,7 @@ class BellmanFordIterator<V, E>
         return this.vertexData.put(vertex, data);
     }
 
-    private void assertBellmanFordIterator(MutableGraph<V, E> graph, V startVertex)
+    private void assertBellmanFordIterator(Graph<V, E> graph, V startVertex)
     {
         if (!(graph.containsVertex(startVertex))) {
             throw new IllegalArgumentException(

@@ -396,19 +396,19 @@ public abstract class Graphs
     /**
      * Gets the vertex opposite another vertex across an edge.
      *
-     * @param g graph containing e and v
-     * @param e edge in g
-     * @param v vertex in g
+     * @param graph graph containing e and v
+     * @param edge edge in g
+     * @param vertex vertex in g
      *
      * @return vertex opposite to v across e
      */
-    public static <V, E> V getOppositeVertex(MutableGraph<V, E> g, E e, V v)
+    public static <V, E> V getOppositeVertex(Graph<V, E> graph, E edge, V vertex)
     {
-        V source = g.getEdgeSource(e);
-        V target = g.getEdgeTarget(e);
-        if (v.equals(source)) {
+        V source = graph.getEdgeSource(edge);
+        V target = graph.getEdgeTarget(edge);
+        if (vertex.equals(source)) {
             return target;
-        } else if (v.equals(target)) {
+        } else if (vertex.equals(target)) {
             return source;
         } else {
             throw new IllegalArgumentException("no such vertex");

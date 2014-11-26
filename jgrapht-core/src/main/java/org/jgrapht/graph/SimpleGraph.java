@@ -49,7 +49,7 @@ import org.jgrapht.*;
  * http://mathworld.wolfram.com/SimpleGraph.html</a>.
  */
 public class SimpleGraph<V, E>
-    extends AbstractBaseGraph<V, E>
+    extends AbstractMutableBaseGraph<V, E>
     implements UndirectedMutableGraph<V, E>
 {
     
